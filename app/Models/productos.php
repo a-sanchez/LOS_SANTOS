@@ -39,7 +39,7 @@ class productos extends Model
             return null;
         }
         else{
-        $ruta = asset("storage/imagenes/productos/".$this->attributes["imagen"]);
+        $ruta = asset("/storage/imagenes/productos/".$this->attributes["imagen"]);
         return $ruta;
         }
     }

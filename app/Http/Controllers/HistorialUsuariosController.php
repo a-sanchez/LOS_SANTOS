@@ -18,7 +18,7 @@ class HistorialUsuariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $usuarios = User::all()->where("estatus","activo");
+    {   $usuarios = User::all()->where("estatus","activo")->where("tipo_usuario",2);
         return view("clientes.index_usuario",compact('usuarios'));
     }
 
@@ -81,7 +81,7 @@ class HistorialUsuariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $historial)
-    {
+    {   
          $usuarios = User::find($historial);
          $update=$usuarios->update($request->all());
          return $update;

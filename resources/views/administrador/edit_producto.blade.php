@@ -85,7 +85,7 @@
             <div class="row d-flex align-items-end">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <img  height="180px"src="{{$producto->imagen}}">
+                    <img  height="180px"src="{{$producto->imagen}}" class="img-fluid">
                 </div>
                 <div class="col-md-3" style="text-align: start;">
                     <a type="btn" class="btn btn-warning" onclick='borrarImagen({{$producto->id}})' >BORRAR</a>
