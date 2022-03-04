@@ -59,7 +59,7 @@
           </li>
           <li class="nav-item">
             @if(Auth::check())
-            <div class="dropdown mt-3">
+            <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;font-size:12px">
                 {{Auth::user()->name}}
                 <br>
