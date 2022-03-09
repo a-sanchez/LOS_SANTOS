@@ -48,47 +48,51 @@
         <h5><b>CLIENTE: </b>{{$name->cliente->name}}</h5>
     </div>
     <div class="col-md-12 mt-4"></div>
+    @if($usuario->isEmpty())
+        <h5>Este usuario no cuenta con ordenes registradas</h5>
+    @else
     <form>
-    <table class="table" id="ordenes_table" width="100%" style="text-align:center">
-        <thead>
-            <tr style="background-color:#d4aa4f;color:white">
-                <th>FOLIO</th>
-                <th>FECHA</th>
-                <th>PUNTOS</th>
-                <th>ESTATUS</th>
-                <th width="20%">VER</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($usuario as $user)
-            <tr>
-                <td scope="row">
-                    {{$user->folio}}
-                </td>
-                <td>
-                    {{$user->fecha_comprada}}
-                </td>
-                <td>
-                    {{number_format($total[0]->total,2)}}
-                </td>
-                <td>
-                    @if($user->estatus==1)
-                        PENDIENTE
-                    @else
-                    ENTREGADO
-                    @endif
-                </td>
-                <td>
-                    <a  style="color: black" onclick="busqueda('{{$user->id_usuario}}','{{$user->folio}}');"  class="btn"><i style="font-size:1.5rem" id="eye"  class="fas fa-eye"></i></a>
-                    {{-- <a  style="color: black" href="{{url("ordenes/{$user->id_usuario}/edit")}}"  class="btn"><i style="font-size:1.5rem" id="pen"  class="fas fa-pen"></i></a> --}}
-                    <a  style="color: black" href="#"  class="btn"><i style="font-size:1.5rem" id="check-circle"  class="fas fa-check-circle"></i></a>
-
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    </form>
+        <table class="table" id="ordenes_table" width="100%" style="text-align:center">
+            <thead>
+                <tr style="background-color:#d4aa4f;color:white">
+                    <th>FOLIO</th>
+                    <th>FECHA</th>
+                    <th>ESTATUS</th>
+                    <th width="20%">VER</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($usuario as $user)
+                <tr>
+                    <td scope="row">
+                        @if($user->folio=="" || $user->folio==NULL)
+                            EN PROCESO DE COMPRA
+                        @else
+                        {{str_pad($user->folio . "/" . date("Y"), 10, "0", STR_PAD_LEFT)}}
+                        @endif
+                    </td>
+                    <td>
+                        {{date('d-m-Y',strtotime($user->created_at))}}
+                    </td>
+                    <td>
+                        @if($user->estatus==1)
+                            PENDIENTE
+                        @else
+                        ENTREGADO
+                        @endif
+                    </td>
+                    <td>
+                        <a  style="color: black" onclick="busqueda('{{$user->id_usuario}}','{{$user->fecha}}');"  class="btn"><i style="font-size:1.5rem" id="eye"  class="fas fa-eye"></i></a>
+                        {{-- <a  style="color: black" href="{{url("ordenes/{$user->id_usuario}/edit")}}"  class="btn"><i style="font-size:1.5rem" id="pen"  class="fas fa-pen"></i></a> --}}
+    
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        </form>
+    @endif
+    
     <footer>
         <div class="col-md-12" style="text-align:center">
             <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 80px;">
@@ -99,20 +103,21 @@
 @push('scripts')
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset('lib/DataTables/Responsive-2.2.9/js/dataTables.responsive.js')}}"></script>
+    <script src="{{asset('lib/DataTableswe/Responsive-2.2.9/js/dataTables.responsive.js')}}"></script>
 
     <script>
         let table = $("#ordenes_table").DataTable({
             responsive:true
         });
 
-        async function busqueda(id,folio) {
+
+        async function busqueda(id,fecha) {
            event.preventDefault();
             let form = new FormData();
             form.append("id",id);
-            form.append("folio",folio);
-            let url = "{{url('ordenes/historial/usuario/{id}/folio/{folio}')}}".replace('{id}',id);
-            let url2 = url.replace('{folio}',folio);
+            form.append("fecha",fecha);
+            let url = "{{url('ordenes/historial/usuario/{id}/fecha/{fecha}')}}".replace('{id}',id);
+            let url2 = url.replace('{fecha}',fecha);
             let init = {
                 method:"GET"
             }

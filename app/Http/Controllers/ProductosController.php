@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\productos;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class ProductosController extends Controller
 {public function index()
@@ -34,8 +35,7 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        // dump($request->all());
-        // die;
+        
         $validate = $request->validate(
             [
                 "categoria"=>"string|required",
@@ -57,7 +57,8 @@ class ProductosController extends Controller
                  "descripcion_vuelos"=>"nullable|string",
                  "fecha_inicio"=>"nullable|date",
                  "fecha_final"=>"nullable|date",
-                 "genero_reloj"=>"nullable|string"
+                 "genero_reloj"=>"nullable|string",
+                 "inventario_back"=>"nullable"
 
             ]
         );
@@ -150,38 +151,40 @@ class ProductosController extends Controller
         $artes=productos::where('categoria','arte')
                             ->where('imagen','!=','NULL')
                             ->where('estatus','1')->get();
-        return view('productos.arte',compact('artes'));
+        $date = Carbon::now()->format('Y-m-d');
+        return view('productos.arte',compact('artes','date'));
     }
 
     public function relojes(){
         $relojes=productos::where('categoria','relojes')
                             ->where('imagen','!=','NULL')
                             ->where('estatus','1')->get();
-        
-        return view('productos.relojes',compact('relojes'));
+        $date = Carbon::now()->format('Y-m-d');
+        return view('productos.relojes',compact('relojes','date'));
     }
 
     public function ropas(){
         $ropas=productos::where('categoria','ropa')
                         ->where('imagen','!=','NULL')
                         ->where('estatus','1')->get();
-
-        return view('productos.ropa',compact('ropas'));
+        $date = Carbon::now()->format('Y-m-d');
+        return view('productos.ropa',compact('ropas','date'));
     }
 
     public function joyeria(){
         $joyas=productos::where('categoria','joyeria')
                         ->where('imagen','!=','NULL')
                         ->where('estatus','1')->get();
-
-        return view('productos.joyeria',compact('joyas'));
+        $date = Carbon::now()->format('Y-m-d');
+        return view('productos.joyeria',compact('joyas','date'));
     }
 
     public function vuelos(){
         $vuelos=productos::where('categoria','vuelos')
                 ->where('imagen','!=','NULL')
                 ->where('estatus','1')->get();
-        return view('productos.vuelos',compact('vuelos'));
+        $date = Carbon::now()->format('Y-m-d');
+        return view('productos.vuelos',compact('vuelos','date'));
     }
 
     public function datos(int $id){

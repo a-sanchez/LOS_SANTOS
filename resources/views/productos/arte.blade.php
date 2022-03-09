@@ -190,7 +190,9 @@
                 </label>
               </div>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-1">
+              <input type="hidden" name="precio" id="precio">
+            </div>
           </div>
           @if(Auth::check())
           <div class="row mb-3">
@@ -210,7 +212,7 @@
             </div>
           </div>
           @endif
-
+          <input type="hidden" id="fecha" name="fecha" value="{{$date}}">
         </div>
         <div class="modal-footer d-flex align-items-center ">
         </div>
@@ -229,7 +231,6 @@
         let req = await fetch(url);
         if (req.ok) {
         let data = await req.json();
-        // console.log(data);
         document.getElementById("inventario").value = parseFloat(data.inventario).toFixed(0);
         document.getElementById("id_producto").value = data.id;
         document.getElementById("titulo_modal").innerHTML = "Categoría de Comprador/ Arte/ " + parseFloat(data.precio).toFixed(2) + " Santos/ " + data.nombre
@@ -241,6 +242,7 @@
         document.getElementById("autor").innerHTML = "Autor: " + data.autor;
         document.getElementById("medidas").innerHTML = "Medidas: " + data.medidas;
         document.getElementById("material_arte").innerHTML="Material: " + data.material_arte;
+        document.getElementById("precio").value= data.precio;
 
         $("#myModal").toggle();
 
@@ -248,6 +250,7 @@
       }
 function closeModal() {
   $("#myModal").toggle();
+  document.getElementById('count_products2').reset();
 }
     var swiper = new Swiper('.swiper', {
       slidesPerView: 3,
@@ -260,11 +263,49 @@ function closeModal() {
         prevEl: '.swiper-button-prev',
       },
     });
+async function cambio_inventario() {
+  event.preventDefault();
+  let numero = parseInt(document.getElementById("cantidad_comprada").value);
+  let inventario = parseInt(document.getElementById("inventario").value);
+  let id = document.getElementById("id_producto").value;
+  if(numero <= inventario){
+    let resultado = (inventario-numero);
+    let form = new FormData();
+    let url="{{url('historial/{id}')}}".replace('{id}',id);
+    let init = {
+                method:"PUT",
+                headers: {
+                    'X-CSRF-Token': document.getElementsByName("_token")[0].value
+                    , "Content-Type": "application/json"
+                }
+                , body: JSON.stringify({'inventario':resultado})
+              }
+    let req= await fetch(url,init);
+    if(req.ok){
+      "actualizado";
+    }
+    else{
+        Swal.fire({
+               icon: 'error',
+               title: 'Error',
+               text: "Error al autorizar"
+             });
+    }
+    
+  }
+  else{
+        Swal.fire({
+               icon: 'error',
+               title: 'Error',
+               text: "No contamos con esa cantidad"
+             });
+    }
+}
 async function InsertProductArte(){
   event.preventDefault();
       let numero = parseInt(document.getElementById("cantidad_comprada").value);
       let inventario = parseInt(document.getElementById("inventario").value);
-      if(numero < inventario){
+      if(numero <= inventario){
         let form = new FormData(document.getElementById("count_products2"));
         let url="{{url('/carrito')}}";
         let init = {

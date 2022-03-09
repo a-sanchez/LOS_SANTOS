@@ -40,11 +40,23 @@
                             <div class="col-md-12">
                                 <a href="#" style="text-decoration: none;color: black;font-size: 30px;font-family: 'Avenir Next Condensed';"><i style="font-size:2rem;color:#b78b1e" id="shopping-cart"  class="fas fa-shopping-cart"></i> Carrito de Compra </a>
                             </div>
-                            <div class="row">
+                            <input type="hidden" id="fecha" name="fecha" value="{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}">
+                            @if(sizeof($ordenes)==0)
+                                 <h5 class="mt-5 mb-5" style="font-weight:bold">El carrito No cuenta con productos</h5>
+                            @else
+                            <form id="form_cantidades">
+                                <div class="row">
+                                @if($ordenes[0]->folio==null || $ordenes[0]->folio=="")
+                                <input type="hidden" value="1">
+                                @elseif(date('Y-m-d',strtotime($ordenes[0]->created_at)) == date('Y-m-d',strtotime($date)))
+                                <input type="hidden" value="{{$ordenes[0]->folio}}">
+                                @else
+                                <input type="hidden" value="{{$folio}}">
+                                @endif
                                 @foreach($ordenes as $orden)
                                     @if($orden->categoria=='arte')
-                                    <div class="col-md-6">
-                                        <div class="row mt-5">
+                                        <div class="col-md-6">
+                                            <div class="row mt-5">
                                                 <div class="col-md-5">
                                                     <img src="{{asset('storage/imagenes/productos/'.$orden->imagen)}}" class="img-fluid">
                                                 </div>
@@ -81,7 +93,8 @@
                                             <div class="row">
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-6">
-                                                    <input id="cantidad" type="number" name="cantidad" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control">
+                                                    <input id="cantidad_comprada-{{$orden->id}}" type="number" name="cantidad_comprada" precio ="{{$orden->precio}}"oninput="new_valor();" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
+                                                    
                                                 </div>
                                                 <div class="col-md-3"></div>
                                             </div>
@@ -121,15 +134,16 @@
                                                     <div class="col-md-3">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input style="text-align:center" id="cantidad" type="number" name="cantidad" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control" onchange="cambio_cantidad({{$orden->id}})">
+                                                        <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}"  precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
+                                                        
                                                     </div>
                                                     <div class="col-md-3">
                                                     </div>
                                                 </div>
                                             </div>
-                                            @elseif($orden->categoria=='ropa')
-                                            <div class="col-md-6">
-                                                <div class="row mt-5">
+                                    @elseif($orden->categoria=='ropa')
+                                                <div class="col-md-6">
+                                                    <div class="row mt-5">
                                                         <div class="col-md-5">
                                                             <img src="{{asset('storage/imagenes/productos/'.$orden->imagen)}}" class="img-fluid">
                                                         </div>
@@ -161,15 +175,16 @@
                                                         <div class="col-md-3">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input style="text-align:center" id="cantidad" type="number" name="cantidad" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control">
+                                                            <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
+                                                            
                                                         </div>
                                                         <div class="col-md-3">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 @elseif($orden->categoria=='joyeria')
-                                                <div class="col-md-6">
-                                                    <div class="row mt-5">
+                                                    <div class="col-md-6">
+                                                        <div class="row mt-5">
                                                             <div class="col-md-5">
                                                                 <img src="{{asset('storage/imagenes/productos/'.$orden->imagen)}}" class="img-fluid">
                                                             </div>
@@ -199,7 +214,8 @@
                                                             <div class="col-md-3">
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <input style="text-align:center" id="cantidad" type="number" name="cantidad" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control" onchange="cambio_cantidad2({{$orden->id}})">
+                                                                <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
+                                                                
                                                             </div>
                                                             <div class="col-md-3">
                                                             </div>
@@ -231,65 +247,133 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3" style="align-items: center;display:flex;">
-                                                </div>
                                             </div>
                                             <div class="col-md-3" style="align-items: center;display:flex;">
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input style="text-align:center" id="cantidad" type="number" name="cantidad" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control">
+                                                        <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio="{{$orden->precio}}" oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
+ 
                                                     </div>
                                                     <div class="col-md-3">
                                                     </div>
                                                 </div>
                                             </div>
                                     @endif
-                                @endforeach          
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10"></div>
-                                <div class="col-md-2">
-                                    <div class="row mb-1">
-                                        <div class="col-md-12">
-                                            <h5 style="font-size:18px;color:#b78b1e;float: right;">Total Santos</h5>
+                                @endforeach    
+                                <div class="row">
+                                    <div class="col-md-10"></div>
+                                    <div class="col-md-2">
+                                        <div class="row mb-1">
+                                            <div class="col-md-12">
+                                                <h5 style="font-size:18px;color:#b78b1e;float: right;">Total Santos</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col-md-12 border_bajo">
-                                            <h5 class="mb-3" style="font-size:18px;float: right;">
-                                            {{number_format($total,2)}}
-                                        </h5>
+                                        <div class="row mt-2">
+                                            <div class="col-md-12 border_bajo">
+                                                <h5 class="mb-3" style="font-size:18px;float: right;" id="total_final">
+                                                ${{number_format($total,2)}}
+                                                </h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col-md-12">
-                                            <a href="#" style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none">CONTINUAR</a>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12">
+                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form> 
+                            @endif
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-4" style="text-align:center">
-            <div class="col-md-12">
-                <a href="{{url('/')}}" style="color:black;text-decoration:none;font-size:20px">SEGUIR COMPRANDO</a>
-            </div>
-        </div>
     </div>
     <div class="col-md-1"></div>
+    <div class="row mt-4" style="text-align:center">
+        <div class="col-md-12">
+            <a href="{{url('/')}}" style="color:black;text-decoration:none;font-size:20px">SEGUIR COMPRANDO</a>
+        </div>
+    </div>
 </div>
 @endsection
 @push('scripts') 
 <script>
-    async function cambio_cantidad(id){
-        alert(id);
+    let flag=0;
+    function actualizar(ordenes,folio,fecha){
+        ordenes.forEach(async(element)=>{
+            event.preventDefault();
+            let url = "{{url('carrito/{id}')}}".replace('{id}',element.id);
+            let init = {
+                method: 'PUT',
+                headers: {
+                    'X-CSRF-Token' : "{{ csrf_token() }}",
+                        'Content-Type':'application/json'
+                },
+                body:JSON.stringify({'folio':folio,'fecha':fecha})
+            }
+
+            let req = await fetch(url,init);
+            if(req.ok){
+                if(flag==0){
+                alert("Success");
+                flag++;
+                }
+            }
+            else{
+                Swal.fire({
+                       icon: 'error',
+                       title: 'Error',
+                       text: "Error al actualizar estatus"
+                     });
+            }
+     });
     }
-    async function cambio_cantidad2(id){
-        alert(id);
+ function new_valor(precio,id) {
+     var total=0;
+ let valor = document.getElementsByClassName("numeros");
+ for(let element of valor){
+     total += (element.getAttribute("precio")*element.value);
+ }
+     var formatter = new Intl.NumberFormat('en-US', {
+       style: 'currency',
+       currency: 'USD',
+     });
+ document.getElementById("total_final").innerHTML=formatter.format(total);
+}
+
+
+    async function cambio_cantidad(id){
+        event.preventDefault();
+        let form = new FormData();
+        let cantidad = document.getElementById(`cantidad_comprada-${id}`).value;
+        form.append('id',id);
+        form.append('cantidad_comprada',cantidad);
+
+        let url="{{url('carrito/{id}')}}".replace('{id}',id);
+        let init = {
+            method:"PUT",
+            headers:{
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    , "Content-Type": "application/json"
+            },
+            body:JSON.stringify(Object.fromEntries(form))
+        }
+        let req = await fetch(url,init);
+        if(req.ok){
+            console.log("ok");
+        }
+        else{
+            Swal.fire({
+                    icon: 'error'
+                    , title: 'Error'
+                    , text: 'Error al actualizar cantidad'
+                 });
+        }
     }
 </script>
 @endpush

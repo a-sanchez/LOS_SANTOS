@@ -11,4 +11,13 @@ class ordenes extends Model
 
     protected $table="ordenes";
     protected $guarded=["inventario"];
+    protected $appends=["producto"];
+    public function cliente(){
+        return $this->belongsTo(User::class,"id_usuario");
+    }
+
+    public function getProductoAttribute(){
+        $producto=productos::where("id",$this->id_producto)->first();
+        return $producto;
+    }
 }

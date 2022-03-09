@@ -30,7 +30,7 @@
         <h1 style="font-weight:bold;font-family:italic;font-size:50px;">INFORMACIÓN DE PRODUCTO</h1>
         <hr style="color: #b0831e;">
     </div>
-    <form id="form-prodord" onsubmit="update_producto({{$usuario[0]->id_orden}})">
+    <form id="form-prodord" onsubmit="update_producto({{$usuario[0]->id}})">
         @csrf
         <div class="row">
             <div class="col-md-10"></div>
@@ -87,7 +87,7 @@
         async function update_producto(id){
              event.preventDefault();
              let form =  new FormData(document.getElementById("form-prodord"));
-             let url="{{url('/ordenes/producto/{id}')}}".replace("{id}",id);
+             let url="{{url('/ordenes/{id}')}}".replace("{id}",id);
              let init = {
                  method:"PUT",
                  headers: {

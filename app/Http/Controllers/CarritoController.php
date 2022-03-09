@@ -26,36 +26,21 @@ class CarritoController extends Controller
                 ->whereDate('ordenes.created_at',$date)
                 ->get();
         $total = $ordenes->sum('total');
-                
-        return view('cart.cart',compact('ordenes',"total"));
+        $folio = ordenes::max('folio')+1;
+        return view('cart.cart',compact('ordenes',"total","folio","date"));
     }
 
     public function store(Request $request){
-        $validation =$request->all();
+        $validation = $request->all();
         $orden = ordenes::create($validation);
         return response()->json("El producto se agrego al carrito");
     }
 
-    public function updateCart(Request $request){
-        \Cart::update(
-            $request->id,
-            [
-                'quantity' => [
-                    'relative' => false,
-                    'value' => $request->quantity
-                ],
-            ]);
-        session()->flash('success','El producto se ha actualizado');
-        return redirect()->route('cart.list');
+    public function update(Request $request,$carrito){
+        $producto = ordenes::find($carrito);
+        $update = $producto->update($request->all());
+        return $update;
     }
-    public function removeCart(Request $request){
-        \Cart::remove($request->id);
-        session()->flash('success','Producto eliminado correctamente');
-        return redirect()->route('cart.list');
-    }
-    public function clearAllCart(){
-        \Cart::clear();
-        session()->flash('success','Se ha borrado el carrito');
-        return redirect()->route('cart.list');
-    }
+
+
 }

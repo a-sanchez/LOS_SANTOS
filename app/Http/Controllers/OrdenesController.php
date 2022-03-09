@@ -17,25 +17,37 @@ class OrdenesController extends Controller
      */
     public function index()
     {
-        $usuarios = User::all()->where("estatus","activo");
-        return view('ordenes.index_ordenes',compact("usuarios"));
+        $usuarios = User::all()->where("estatus", "activo")->where("tipo_usuario",2);
+
+        return view('ordenes.index_ordenes', compact("usuarios"));
     }
 
-    public function historial(Request $request,$id){
-        $name= historial_usuarios::where('id_usuario',$id)->first();
-        $usuario = DB::table('historial_usuarios')
-                    ->select('folio','fecha_comprada','id_usuario','estatus')
-                    ->where('id_usuario',$id)
-                    ->groupBy('fecha_comprada','folio','estatus')
-                    ->get();
-        $total=DB::table("historial_usuarios")
-        ->join('productos','historial_usuarios.id_producto','productos.id')
-        ->select(DB::raw('SUM((historial_usuarios.cantidad_comprada * productos.precio)) as total'))
-        ->where("id_status",1)
-        ->get();
-        // var_dump($total);
-        // die;
-        return view('ordenes.historial_ordenes',compact("name","usuario","total"));
+    public function historial(Request $request, $id)
+    {
+        $name = ordenes::where('id_usuario', $id)->first();
+        $usuario = DB::table('ordenes')
+            ->select('folio', 'id_usuario', 'estatus', 'created_at', 'folio', 'id','fecha')
+            ->where('id_usuario', $id)
+            ->groupBy('folio', 'estatus','fecha')
+            ->get();
+            //var_dump($usuario);die;
+        //  $total = DB::table("ordenes")
+        //      ->join('productos', 'ordenes.id_producto', 'productos.id')
+        //      ->select('ordenes.*')
+        //      ->where("id_status", 1)
+        //      ->where('id_usuario', $id)
+        //      ->get();
+        // //  dump($total);die;
+        // if (!$usuario->isEmpty()) {
+        //     $folio = $usuario[0]->folio;
+        //     $ordenes = DB::table('ordenes')
+        //         ->select('id', 'folio')
+        //         ->where('id_usuario', $id)
+        //         ->where('folio', $folio)
+        //         ->get();
+        //     return view('ordenes.historial_ordenes', compact("name", "usuario", "ordenes"));
+        // }
+        return view('ordenes.historial_ordenes',compact("name", "usuario"));
     }
     /**
      * Show the form for creating a new resource.
@@ -47,21 +59,46 @@ class OrdenesController extends Controller
         //
     }
 
-    public function ordenes(Request $request,$id,$folio){
-        // $historiales = historial_usuarios::with('productos')
-        //                 -where('id_usuario',$id)
-        //                 ->where('folio',$folio)
-        //                 ->get();
-        $historiales = DB::table('historial_usuarios')
-                    ->join('productos','historial_usuarios.id_producto','productos.id')
-                    ->join('users','historial_usuarios.id_usuario','users.id')
-                    ->select('historial_usuarios.*','productos.*','users.name',DB::raw('(historial_usuarios.cantidad_comprada * productos.precio) as total'))
-                    ->where('historial_usuarios.folio',$folio)
-                    ->where('historial_usuarios.id_usuario',$id)
-                    ->where('historial_usuarios.estatus',1)
-                    ->where('historial_usuarios.id_status',1)
-                    ->get();
-        return view('ordenes.ordenes_show',compact('historiales'));
+    
+
+
+    public function ordenes(Request $request, $id, $fecha)
+    {
+        $historiales = DB::table('ordenes')
+            ->join('productos', 'ordenes.id_producto', 'productos.id')
+            ->join('users', 'ordenes.id_usuario', 'users.id')
+            ->select(
+                'ordenes.*',
+                'productos.categoria',
+                'productos.nombre',
+                'productos.precio',
+                'productos.inventario',
+                'productos.imagen',
+                'productos.descripcion_arte',
+                'productos.obra',
+                'productos.autor',
+                'productos.medidas',
+                'productos.material_arte',
+                'productos.modelo_reloj',
+                'productos.correa',
+                'productos.modelo_ropa',
+                'productos.color',
+                'productos.modelo_joyeria',
+                'productos.material_joyeria',
+                'productos.descripcion_vuelos',
+                'productos.fecha_inicio',
+                'productos.fecha_final',
+                'productos.estatus',
+                'productos.genero_reloj',
+                'users.name',
+                DB::raw('(ordenes.cantidad_comprada * productos.precio) as total')
+            )
+            ->where('ordenes.fecha', $fecha)
+            ->where('ordenes.id_usuario', $id)
+            ->where('ordenes.id_status', 1)
+            ->get();
+        $orden = str_pad($historiales[0]->folio . "/" . date("Y"), 10, "0", STR_PAD_LEFT);
+        return view('ordenes.ordenes_show', compact('historiales', 'orden'));
     }
 
     /**
@@ -71,9 +108,7 @@ class OrdenesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
+    { }
 
     /**
      * Display the specified resource.
@@ -81,16 +116,16 @@ class OrdenesController extends Controller
      * @param  \App\Models\ordenes  $ordenes
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id)
+    public function show(Request $request, $id)
     {
         //  var_dump($request->all());
         //  die;
     }
-    public function eliminar_producto(Request $request,$id)
+    public function eliminar_producto(Request $request, $id)
     {
-        $orden=historial_usuarios::where('id_orden',$id)
-        ->update(['id_status'=>$request['id_status']]);
-         return $orden;
+        $orden = historial_usuarios::where('id_orden', $id)
+            ->update(['id_status' => $request['id_status']]);
+        return $orden;
     }
     /**
      * Show the form for editing the specified resource.
@@ -98,18 +133,20 @@ class OrdenesController extends Controller
      * @param  \App\Models\ordenes  $ordenes
      * @return \Illuminate\Http\Response
      */
-    public function edit_product_orden(Request $request,$id){
-        $usuario = historial_usuarios::where('id_orden',$id)->get();
-        $total = DB::table('historial_usuarios')
-        ->join('productos','historial_usuarios.id_producto','productos.id')
-        ->select(DB::raw('(historial_usuarios.cantidad_comprada * productos.precio) as total'))
-        ->where('historial_usuarios.id_orden',$id)
-        ->get();
-    return view('ordenes.edit_producto_orden',compact('usuario','total'));
+    public function edit_product_orden(Request $request, $id)
+    {
+        $usuario = ordenes::where('id', $id)->get();
+        $total = DB::table('ordenes')
+            ->join('productos', 'ordenes.id_producto', 'productos.id')
+            ->select(DB::raw('(ordenes.cantidad_comprada * productos.precio) as total'))
+            ->where('ordenes.id', $id)
+            ->get();
+        return view('ordenes.edit_producto_orden', compact('usuario', 'total'));
     }
-    public function edit(Request $request,$id)
-    {   $usuario = historial_usuarios::where('id_usuario',$id)->first();
-        return view('ordenes.ordenes_edit',compact('usuario'));
+    public function edit(Request $request, $id)
+    {
+        $usuario = historial_usuarios::where('id_usuario', $id)->first();
+        return view('ordenes.ordenes_edit', compact('usuario'));
     }
 
     /**
@@ -123,18 +160,56 @@ class OrdenesController extends Controller
     {
         // var_dump($request->all());
         // die;
-         $orden=historial_usuarios::find($id);
-         $update=$orden->update($request->all());
-         return $update;
+        $orden = ordenes::find($id);
+        $update = $orden->update($request->all());
+        return $update;
     }
 
-    public function actualizar(Request $request,$id){
+    public function actualizar_ordenes(Request $request, $id,$fecha){
+        $historiales = DB::table('ordenes')
+            ->join('productos', 'ordenes.id_producto', 'productos.id')
+            ->join('users', 'ordenes.id_usuario', 'users.id')
+            ->select(
+                'ordenes.*',
+                'productos.categoria',
+                'productos.nombre',
+                'productos.precio',
+                'productos.inventario',
+                'productos.imagen',
+                'productos.descripcion_arte',
+                'productos.obra',
+                'productos.autor',
+                'productos.medidas',
+                'productos.material_arte',
+                'productos.modelo_reloj',
+                'productos.correa',
+                'productos.modelo_ropa',
+                'productos.color',
+                'productos.modelo_joyeria',
+                'productos.material_joyeria',
+                'productos.descripcion_vuelos',
+                'productos.fecha_inicio',
+                'productos.fecha_final',
+                'productos.estatus',
+                'productos.genero_reloj',
+                'users.name',
+                DB::raw('(ordenes.cantidad_comprada * productos.precio) as total')
+            )
+            ->where('ordenes.fecha', $fecha)
+            ->where('ordenes.id_usuario', $id)
+            ->where('ordenes.id_status', 1)
+            ->get();
+            return $historiales;
+    }
+
+    public function actualizar(Request $request, $id)
+    {
         $cambio = $request["cantidad_comprada"];
-        $usuario = historial_usuarios::where('id_orden',$id)
-        ->update(['cantidad_comprada'=>$cambio]);
+        $usuario = ordenes::where('id', $id)
+            ->update(['cantidad_comprada' => $cambio]);
         // var_dump($usuario);
         // die;
-         return $usuario;
+        return $usuario;
     }
 
 

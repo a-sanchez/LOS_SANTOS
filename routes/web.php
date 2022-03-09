@@ -48,10 +48,12 @@ Route::resource('/usuarios',HistorialUsuariosController::class);
 /**CATALAGO DE ORDENES */
 Route::get('ordenes/historial/{id}',[OrdenesController::class,'historial']);
 Route::get('ordenes/producto/{id}',[OrdenesController::class,'edit_product_orden']);
-Route::get('ordenes/historial/usuario/{id}/folio/{folio}',[OrdenesController::class,'ordenes']);
+Route::get('ordenes/historial/usuario/{id}/fecha/{fecha}',[OrdenesController::class,'ordenes']);
 Route::put('ordenes/historial/usuario/{id}/folio/{folio}',[OrdenesController::class,'eliminar_producto']);
 Route::put('ordenes/producto/{id}',[OrdenesController::class,'actualizar']);
 Route::resource('/ordenes',OrdenesController::class);
+
+Route::get('ordenes/actualizadas/orden/{id}/fecha/{fecha}',[OrdenesController::class,'actualizar_ordenes']);
 
 // RUTAS DEL LOGIN
 

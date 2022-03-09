@@ -177,7 +177,7 @@
                   </div>
                   <div class="row mt-5 mb-2">
                     <div class="col-md-3">
-                      <input id="cantidad_comprada" type="number" name="cantidad_comprada" value="0" min="0" class="form-control">
+                      <input id="cantidad_comprada" onclick="cambio_inventario()" type="number" name="cantidad_comprada" value="0" min="0" class="form-control">
                     </div>
                     <div class="col-md-7">
                     </div>
@@ -189,7 +189,9 @@
                   </label>
                 </div>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-1">
+              <input type="hidden" name="precio" id="precio">
+            </div>
           </div>
           @if(Auth::check())
           <div class="row mb-3">
@@ -237,6 +239,7 @@
         document.getElementById("modelo_ropa").innerHTML = "Modelo: " + data.modelo_ropa;
         document.getElementById("genero").innerHTML =  data.genero_reloj;
         document.getElementById("color").innerHTML = "Color: " + data.color;
+        document.getElementById("precio").value= data.precio;
 
         // var modal = document.getElementById('')
         $("#myModal").toggle();
@@ -258,11 +261,50 @@
       },
     });
 
+    async function cambio_inventario() {
+  event.preventDefault();
+  let numero = parseInt(document.getElementById("cantidad_comprada").value);
+  let inventario = parseInt(document.getElementById("inventario").value);
+  let id = document.getElementById("id_producto").value;
+  if(numero <= inventario){
+    let resultado = (inventario-numero);
+    let form = new FormData();
+    let url="{{url('historial/{id}')}}".replace('{id}',id);
+    let init = {
+                method:"PUT",
+                headers: {
+                    'X-CSRF-Token': document.getElementsByName("_token")[0].value
+                    , "Content-Type": "application/json"
+                }
+                , body: JSON.stringify({'inventario':resultado})
+              }
+    let req= await fetch(url,init);
+    if(req.ok){
+      "actualizado";
+    }
+    else{
+        Swal.fire({
+               icon: 'error',
+               title: 'Error',
+               text: "Error al autorizar"
+             });
+    }
+    
+  }
+  else{
+        Swal.fire({
+               icon: 'error',
+               title: 'Error',
+               text: "No contamos con esa cantidad"
+             });
+    }
+}
+
     async function InsertRopa(){
       event.preventDefault();
       let numero = parseInt(document.getElementById("cantidad_comprada").value);
       let inventario = parseInt(document.getElementById("inventario").value);
-      if(numero<inventario){
+      if(numero <= inventario){
        let form = new FormData(document.getElementById('count_products')); 
        let url="{{url('/carrito')}}";
        let init={

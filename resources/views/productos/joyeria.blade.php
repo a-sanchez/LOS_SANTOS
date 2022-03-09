@@ -181,7 +181,7 @@
                 </div>
                 <div class="row mt-5 mb-4">
                   <div class="col-md-3">
-                    <input id="cantidad_comprada" type="number" name="cantidad_comprada" value="0" min="0"
+                    <input id="cantidad_comprada" onclick="cambio_inventario()" type="number" name="cantidad_comprada" value="0" min="0"
                       class="form-control">
                   </div>
                   <div class="col-md-7">
@@ -195,7 +195,9 @@
                 </label>
               </div>
             </div>
-            <div class="col-md-1"></div>
+            <div class="col-md-1">
+              <input type="hidden" name="precio" id="precio">
+            </div>
           </div>
           @if(Auth::check())
           <div class="row mb-3">
@@ -241,12 +243,52 @@
       document.getElementById("modal-imagen").src = data.imagen;
       document.getElementById("material_joya").innerHTML = "Material: " + data.material_joyeria;
       document.getElementById("modelo_joyeria").innerHTML = "Modelo: " + data.modelo_joyeria;
-      document.getElementById("joya_nombre").innerHTML = data.nombre;
+      document.getElementById("joya_nombre").value = data.nombre;
+      document.getElementById("precio").value= data.precio;
 
       $("#myModal").toggle();
 
       }
     }
+
+async function cambio_inventario() {
+  event.preventDefault();
+  let numero = parseInt(document.getElementById("cantidad_comprada").value);
+  let inventario = parseInt(document.getElementById("inventario").value);
+  let id = document.getElementById("id_producto").value;
+  if(numero <= inventario){
+    let resultado = (inventario-numero);
+    let form = new FormData();
+    let url="{{url('historial/{id}')}}".replace('{id}',id);
+    let init = {
+                method:"PUT",
+                headers: {
+                    'X-CSRF-Token': document.getElementsByName("_token")[0].value
+                    , "Content-Type": "application/json"
+                }
+                , body: JSON.stringify({'inventario':resultado})
+              }
+    let req= await fetch(url,init);
+    if(req.ok){
+      "actualizado";
+    }
+    else{
+        Swal.fire({
+               icon: 'error',
+               title: 'Error',
+               text: "Error al autorizar"
+             });
+    }
+    
+  }
+  else{
+        Swal.fire({
+               icon: 'error',
+               title: 'Error',
+               text: "No contamos con esa cantidad"
+             });
+    }
+}
 function closeModal() {
 $("#myModal").toggle();
 }
@@ -265,7 +307,7 @@ async function InsertProductjoya() {
 event.preventDefault();
 let numero = parseInt(document.getElementById("cantidad_comprada").value);
     let inventario = parseInt(document.getElementById("inventario").value);
-    if(numero < inventario){
+    if(numero <= inventario){
       let form = new FormData(document.getElementById("count_products"));
       let url="{{url('/carrito')}}";
       let init = {
