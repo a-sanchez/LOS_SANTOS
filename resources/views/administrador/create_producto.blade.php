@@ -109,7 +109,7 @@
             <div class="col-md-4">
                 <label>Género</label>
                 <select name="genero_reloj" id="genero_reloj" class="form-control estilo"  style="border-color:#b0831e">
-                    <option selected value="seleccione">Seleccione:</option>
+                    <option value=" ">Seleccione</option>
                     <option value="UNISEX">UNISEX</option>
                     <option value="MUJER">MUJER</option>
                     <option value="HOMBRE">HOMBRE</option>
@@ -130,8 +130,8 @@
             </div>
             <div class="col-md-4">
                 <label>Género</label>
-                <select name="genero_reloj" id="genero_reloj" class="form-control estilo"  style="border-color:#b0831e">
-                    <option selected value="seleccione">Seleccione:</option>
+                <select name="genero_ropa" id="genero_ropa" class="form-control estilo"  style="border-color:#b0831e">
+                    <option value=" ">Seleccione</option>
                     <option value="UNISEX">UNISEX</option>
                     <option value="MUJER">MUJER</option>
                     <option value="HOMBRE">HOMBRE</option>

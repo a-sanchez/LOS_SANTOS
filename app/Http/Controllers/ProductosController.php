@@ -35,7 +35,6 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        
         $validate = $request->validate(
             [
                 "categoria"=>"string|required",
@@ -58,6 +57,7 @@ class ProductosController extends Controller
                  "fecha_inicio"=>"nullable|date",
                  "fecha_final"=>"nullable|date",
                  "genero_reloj"=>"nullable|string",
+                 "genero_ropa"=>"nullable|string",
                  "inventario_back"=>"nullable"
 
             ]

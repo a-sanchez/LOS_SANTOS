@@ -237,7 +237,7 @@
         document.getElementById("modal-imagen").src = data.imagen;
         document.getElementById("nombre_ropa").innerHTML = data.nombre;
         document.getElementById("modelo_ropa").innerHTML = "Modelo: " + data.modelo_ropa;
-        document.getElementById("genero").innerHTML =  data.genero_reloj;
+        document.getElementById("genero").innerHTML =  data.genero_ropa;
         document.getElementById("color").innerHTML = "Color: " + data.color;
         document.getElementById("precio").value= data.precio;
 
