@@ -27,6 +27,7 @@ class CarritoController extends Controller
                 ->get();
         $total = $ordenes->sum('total');
         $folio = ordenes::max('folio')+1;
+        // var_dump($ordenes);die;
         return view('cart.cart',compact('ordenes',"total","folio","date"));
     }
 

@@ -40,12 +40,12 @@
                             <div class="col-md-12">
                                 <a href="#" style="text-decoration: none;color: black;font-size: 30px;font-family: 'Avenir Next Condensed';"><i style="font-size:2rem;color:#b78b1e" id="shopping-cart"  class="fas fa-shopping-cart"></i> Carrito de Compra </a>
                             </div>
-                            <input type="hidden" id="fecha" name="fecha" value="{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}">
                             @if(sizeof($ordenes)==0)
-                                 <h5 class="mt-5 mb-5" style="font-weight:bold">El carrito No cuenta con productos</h5>
+                            <h5 class="mt-5 mb-5" style="font-weight:bold">El carrito No cuenta con productos</h5>
                             @else
                             <form id="form_cantidades">
                                 <div class="row">
+                                <input type="hidden" id="fecha" name="fecha" value="{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}">
                                 @if($ordenes[0]->folio==null || $ordenes[0]->folio=="")
                                 <input type="hidden" value="1">
                                 @elseif(date('Y-m-d',strtotime($ordenes[0]->created_at)) == date('Y-m-d',strtotime($date)))
