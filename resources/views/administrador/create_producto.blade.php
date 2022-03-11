@@ -99,7 +99,7 @@
     <div id="relojes" style="display:none;">
         <div class="row mt-2">
             <div class="col-md-4">
-                <label>Modelo</label>
+                <label>Descripción</label>
                 <input type="text" name="modelo_reloj" id="modelo_reloj" class="form-control" style="border-color:#b0831e">
             </div>
             <div class="col-md-4">
@@ -121,7 +121,7 @@
     <div id="ropa" style="display:none">
         <div class="row mt-2">
             <div class="col-md-4">
-                <label>Modelo</label>
+                <label>Descripción</label>
                 <input type="text" class="form-control" style="border-color:#b0831e" name="modelo_ropa" id="modelo_ropa">
             </div>
             <div class="col-md-4">
@@ -143,7 +143,7 @@
     <div id="joyeria" style="display:none">
         <div class="row mt-2">
             <div class="col-md-6">
-                <label>Modelo</label>
+                <label>Descripción</label>
                 <input type="text" class="form-control" style="border-color:#b0831e" name="modelo_joyeria" id="modelo_joyeria">
             </div>
             <div class="col-md-6">
