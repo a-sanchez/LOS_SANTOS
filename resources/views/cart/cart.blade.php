@@ -279,7 +279,7 @@
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-12">
-                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');email();"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -375,5 +375,9 @@
                  });
         }
     }
+function email() {
+event.preventDefault();
+window.location.href = '{{url("send-mail")}}';
+}
 </script>
 @endpush

@@ -1,6 +1,7 @@
 <?php
 
 use Maatwebsite\Excel\Row;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarritoController;
@@ -22,6 +23,15 @@ use App\Http\Controllers\HistorialUsuariosController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('send-mail',function (){
+$details=[
+'title'=>'Mails success',
+'body'=>'Testing for email'
+];
+\Mail::to('angelagabrielasancheznio@yahoo.com.mx')->send(new App\Mail\CorreosSantos($details));
+dd('Email is sent');
 });
 
 /** RUTAS INICIO DE SESION*/
