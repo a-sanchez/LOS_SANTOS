@@ -122,7 +122,7 @@
 <div class="col-md-4">
     <div class="row solid" >
         <div class="row">
-            <img src="{{asset("images/iconos/document.jpg")}}" style="height: 60px;width: 80px;position: absolute;top: 825px;left: 130px;">
+            {{-- <img src="{{asset("images/iconos/document.jpg")}}" style="height: 60px;width: 80px;position: absolute;top: 825px;left: 130px;"> --}}
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-10 mt-3 mb-3">
