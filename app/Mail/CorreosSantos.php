@@ -17,19 +17,19 @@ class CorreosSantos extends Mailable
      *
      * @return void
      */
-    public function __construct($details)
-    {
-        $this->details=$details;
-    }
+    // public function __construct($details)
+    // {
+    //     $this->details=$details;
+    // }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        return $this->subject('Mail')
-        ->view('correo.plantilla');
-    }
+    // /**
+    //  * Build the message.
+    //  *
+    //  * @return $this
+    //  */
+    // public function build()
+    // {
+    //     return $this->subject('Mail')
+    //     ->view('correo.plantilla');
+    // }
 }

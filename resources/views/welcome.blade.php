@@ -299,10 +299,10 @@
   </div>
 
 
-    <div class="row mt-5" style="background-color:#212224;">
+    {{-- <div class="row mt-5" style="background-color:#212224;">
       <h1 style="color:white;font-family:Avenir Next Condensed;font-size:50px;">Categorías de Inversionista</h1>
-    </div>
-    <div class="row  mt-5" id="fondo" style="background-color:#212224;">
+    </div> --}}
+    {{-- <div class="row  mt-5" id="fondo" style="background-color:#212224;">
       <div class="col-md-12 mt-5"></div>
       <div class="col-md-12 mt-5"></div>
       <div class="col-md-12 mt-5"></div>
@@ -316,7 +316,7 @@
           <h5 style="color:white;font-family:Avenir Next Condensed;font-size:15px">136,842 LISTINGS </h5>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="row mt-5" style="background-color:#212224;">
       <h1 style="color:white;font-family:Avenir Next Condensed;font-size:50px;">Categorías de Filantropía</h1>
@@ -332,7 +332,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-11 mb-5">
           <a style="color:white;font-size:50px;font-family:Avenir Next Condensed">Proyectos <i style="font-size:2rem"class="fas fa-long-arrow-alt-right"></i></a>
-          <h5 style="color:white;font-family:Avenir Next Condensed;font-size:15px">16,342 LISTINGS </h5>
+          {{-- <h5 style="color:white;font-family:Avenir Next Condensed;font-size:15px">16,342 LISTINGS </h5> --}}
         </div>
       </div>
     </div>
@@ -357,6 +357,7 @@
     var swiper = new Swiper('.swiper', {
       slidesPerView: 4,
       spaceBetween: 0,
+      freeMode: true,
       pagination: {
         el: '.swiper-pagination',
         type: 'fraction',

@@ -71,7 +71,7 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <select class="form-control nuevo" name="venta" id="venta">
-                            <option value="Residencial">Real State</option>
+                            <option value="Residencial">Casas</option>
                             <option value="Terrenos">Terrenos</option>
                         </select>
                     </div>

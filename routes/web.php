@@ -3,6 +3,7 @@
 use Maatwebsite\Excel\Row;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\OrdenesController;
@@ -25,14 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('send-mail',function (){
-$details=[
-'title'=>'Mails success',
-'body'=>'Testing for email'
-];
-\Mail::to('angelagabrielasancheznio@yahoo.com.mx')->send(new App\Mail\CorreosSantos($details));
-dd('Email is sent');
-});
+Route::get('send-mail',[TestController::class, 'sendMailWithPDF']);
 
 /** RUTAS INICIO DE SESION*/
 Route::post('/login',[UserController::class,'inicioSesion']);

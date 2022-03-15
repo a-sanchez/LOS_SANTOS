@@ -80,7 +80,7 @@
     <div class="col-md-2"></div>
 </div>
 <div class="row mt-5"  id="fondo3" style="text-align:center">
-    <img style="width:130px;position: absolute;top: 35px;left: 630px;" src='{{asset("images/Isotipo-1.png")}}'>
+    {{-- <img style="width:130px;position: absolute;top: 35px;left: 630px;" src='{{asset("images/Isotipo-1.png")}}'> --}}
     <div class="row mt-5">
         <div class="col-md-2"></div>
         <div class="col-md-8">
@@ -91,7 +91,7 @@
                 <a style="color:#b0831e;font-size:60px;font-family:Kinlock Regular">
                     EL PODER ES TUYO
                 </a>
-                <a style="color:white;font-size:30px;">Recuerda;Siempre más y nunca menos </a>
+                <a style="color:white;font-size:30px;">Recuerda; Siempre más y nunca menos </a>
                 <p></p>
                 <p></p>
                 <p></p>

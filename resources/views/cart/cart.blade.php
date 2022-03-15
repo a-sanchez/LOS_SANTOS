@@ -320,7 +320,6 @@
             let req = await fetch(url,init);
             if(req.ok){
                 if(flag==0){
-                alert("Success");
                 flag++;
                 }
             }
@@ -377,6 +376,7 @@
     }
 function email() {
 event.preventDefault();
+alert('Se ha mandado la orden a tu correo, espere un momento..');
 window.location.href = '{{url("send-mail")}}';
 }
 </script>
