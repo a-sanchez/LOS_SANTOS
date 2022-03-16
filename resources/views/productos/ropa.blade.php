@@ -82,7 +82,7 @@
 @section('body')
 <div class="row">
     <div class="col-md-12" style="text-align:center">
-        <a style="font-family:Avenir Next Condensed;font-size:60px;"> JOYERÍA</a>
+        <a style="font-family:Avenir Next Condensed;font-size:60px;"> ROPA Y ACCESORIOS</a>
     </div>
 </div>
 <div class="row mb-3">
