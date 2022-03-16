@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VentasController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\OrdenesController;
 use App\Http\Controllers\routes_diseño_nav;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\ContactarAgenteController;
 use App\Http\Controllers\HistorialUsuariosController;
 
 /*
@@ -37,6 +39,9 @@ Route::delete('historial/eliminar/{id}',[ProductosController::class,'eliminar_im
 Route::post('historial/actualizar/{id}',[ProductosController::class,'actualizar']);
 Route::resource('/historial',ProductosController::class);
 
+/**ADMINISTRADOR-CONTACTOS */
+Route::resource('/contactos',ContactarAgenteController::class);
+Route::resource('/ventas',VentasController::class);
 /** RUTAS SHOPPING CART */
 
 // Route::get('cart', [CarritoController::class, 'cartList'])->name('cart.list');

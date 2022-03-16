@@ -18,6 +18,13 @@
          position: fixed;
          bottom: 25px;            
         }
+        .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        margin-right: auto;
+        margin-left: auto;
+      }
         @font-face{
             font-family: 'Kinlock Regular';
             src:url('css/FontsFree-Net-ps-kinlock-regular.ttf') format('truetype');
@@ -138,7 +145,7 @@
 <div class="row mt-5"></div>
 <div class="row mt-5"></div>
 <div style="width: 100%;">
-    <div class="row mt-5">
+    <div class="row mt-5" style="width:100%">
         <div class="col-md-12" style="text-align:end">
             <a href="" type="link" style="color:white;text-decoration: underline 3px;font-size:20px">CHAT EN VIVO</a>
         </div>

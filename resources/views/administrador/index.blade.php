@@ -36,7 +36,7 @@
         <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
     </div>
     <div class="col md-12 mt-3" style="text-align:center;font-size:40px">
-        <h1 style="font-weight:bold;font-family:italic;font-size:50px;">CATÁLAGO DE PRODUCTOS</h1>
+        <h1 style="font-weight:bold;font-family:italic;font-size:50px;">CATÁLOGO DE PRODUCTOS</h1>
         <h4 style="color:gray;font-size:20px;">-LISTADO DE PRODUCTOS</h4>
         <hr style="color: #b0831e;">
     </div>

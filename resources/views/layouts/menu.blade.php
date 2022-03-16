@@ -8,9 +8,11 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav">
             <li>
-              <a class="nav-link active" aria-current="page" href="{{url('usuarios')}}">CATÁLAGO DE CLIENTES</a>
-              <a class="nav-link active" href="{{url('historial/productos')}}">CATÁLAGO DE PRODUCTOS</a>
-              <a class="nav-link active" href="{{url('/ordenes')}}">CATÁLAGO DE ORDENES</a>
+              <a class="nav-link active" aria-current="page" href="{{url('usuarios')}}">CATÁLOGO DE CLIENTES</a>
+              <a class="nav-link active" href="{{url('historial/productos')}}">CATÁLOGO DE PRODUCTOS</a>
+              <a class="nav-link active" href="{{url('/ordenes')}}">CATÁLOGO DE ORDENES</a>
+              <a class="nav-link active" href="{{url('/contactos')}}">CONTACTAR AGENTE</a>
+              <a class="nav-link active" href="{{url('/ventas')}}">VENDER PROPIEDADES</a>
               <a class="nav-link active " href="{{url('/salir')}}" >SALIR</a>
             </li>
         </ul>
@@ -27,9 +29,11 @@
             </div>
             <ul>
                 <li class="colorlib-active">
-                        <li><a href="{{url('/usuarios')}}">Catálago de clientes</a></li>
-                        <li><a href="{{url('/historial/productos')}}">Catálago de productos</a></li>
-                        <li><a href="{{url('/ordenes')}}">Catálago de ordenes</a></li>
+                        <li><a href="{{url('/usuarios')}}">Catálogo de clientes</a></li>
+                        <li><a href="{{url('/historial/productos')}}">Catálogo de productos</a></li>
+                        <li><a href="{{url('/ordenes')}}">Catálogo de ordenes</a></li>
+                        <li><a href="{{url('/contactos')}}">Catálogo de Contactar agente</a></li>
+                        <li><a href="{{url('/ventas')}}">Catálogo de Vender Propiedades</a></li>
                         <li><a href="{{url('/salir')}}">Salir</a></li>
                 </li>
             </ul>

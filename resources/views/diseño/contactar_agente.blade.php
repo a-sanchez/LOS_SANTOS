@@ -59,6 +59,8 @@
                 <div class="row">
                     <a>8443924199</a>
                 </div>
+            <form id="contactar_agente" onsubmit="addContacto();">
+                @csrf
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <div class="row">
@@ -83,6 +85,7 @@
                     </div>
                     <div class="col-md-1"></div>
                 </div>
+            </form>
             </div>
             <div class="col-md-1"></div>
         </div>
@@ -96,5 +99,28 @@
 </div>
 @endsection
 @push('scripts')
-    
+    <script>
+        async function addContacto(){
+            event.preventDefault();
+            let form = new FormData(document.getElementById("contactar_agente"));
+            let url="{{url('/contactos')}}";
+            let init = {
+                method: 'POST',
+                body: form
+            }
+            let req = await fetch(url, init);
+            if(req.ok){
+                alert("Su solicitud ha sido enviada,un asesor se comunicara con usted");
+                document.getElementById("contactar_agente").reset();
+
+            }
+            else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error comunicarse con el administrador'
+                });
+            }
+        }
+    </script>
 @endpush

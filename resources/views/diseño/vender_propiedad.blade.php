@@ -67,36 +67,39 @@
                 <div class="row mt-5" style="text-align:center">
                     <a style="font-weight:bold">¿Qué estas vendiendo?</a>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <select class="form-control nuevo" name="venta" id="venta">
-                            <option value="Residencial">Casas</option>
-                            <option value="Terrenos">Terrenos</option>
-                        </select>
+        <form id="ventas" onsubmit="AddVenta()">
+        @csrf
+                    <div class="row mt-3">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <select class="form-control nuevo" name="producto" id="producto">
+                                <option value="Casas">Casas</option>
+                                <option value="Terrenos">Terrenos</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3"></div>
                     </div>
-                    <div class="col-md-3"></div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <div class="row mt-4">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="col-md-3"></div>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="row mb-3">
+                        
+                    </div>
                 </div>
-                <div class="row mb-3">
-    
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row mb-5" style="text-align:center">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <button style="border:none;background-color:white;font-weight: bold;" type="submit">ENVIAR</button>
                 </div>
+                <div class="col-md-4"></div>
             </div>
-            <div class="col-md-2"></div>
-        </div>
-        <div class="row mb-5" style="text-align:center">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <button style="border:none;background-color:white;font-weight: bold;">ENVIAR</button>
-            </div>
-            <div class="col-md-4"></div>
-        </div>
+        </form>
     </div>
     <div class="col-md-2"></div>
 </div>
@@ -187,5 +190,29 @@
 </div>
 @endsection
 @push('scripts')
-    
+<script>
+async function AddVenta(){
+    event.preventDefault();
+    let form = new FormData(document.getElementById("ventas"));
+            let url="{{url('/ventas')}}";
+            let init = {
+                method: 'POST',
+                body: form
+            }
+            let req = await fetch(url, init);
+            if(req.ok){
+                alert("Su solicitud ha sido enviada,un asesor se comunicara con usted");
+                document.getElementById("ventas").reset();
+
+            }
+            else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error comunicarse con el administrador'
+                });
+            }
+
+}
+</script>
 @endpush
