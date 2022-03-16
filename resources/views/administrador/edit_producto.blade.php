@@ -177,6 +177,10 @@
                         <option value="HOMBRE">HOMBRE</option>
                         <option value="UNISEX">UNISEX</option>
                         <option value="MUJER">MUJER</option>
+                        @elseif($producto->genero_reloj==NULL)
+                        <option value="UNISEX">UNISEX</option>
+                        <option value="MUJER">MUJER</option>
+                        <option value="HOMBRE">HOMBRE</option>
                         @endif
                     </select>
                 </div>
@@ -209,6 +213,10 @@
                         <option value="HOMBRE">HOMBRE</option>
                         <option value="UNISEX">UNISEX</option>
                         <option value="MUJER">MUJER</option>
+                        @elseif($producto->genero_ropa==NULL)
+                        <option value="UNISEX">UNISEX</option>
+                        <option value="MUJER">MUJER</option>
+                        <option value="HOMBRE">HOMBRE</option>
                         @endif
                     </select>
                 </div>

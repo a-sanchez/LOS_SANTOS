@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-md-6">
             <label >Seleccione la categoria del nuevo producto</label>
-            <select name="categoria" id="categoria" class="form-control estilo" onchange="mostrar(this.value)" style="border-color:#b0831e">
+            <select name="categoria" id="categoria" class="form-control estilo" onchange="mostrar(this.value)" style="border-color:#b0831e" required>
                 <option selected value="seleccione">Seleccione:</option>
                 <option value="arte">ARTE</option>
                 <option value="relojes">RELOJES</option>
@@ -50,22 +50,22 @@
         </div>
         <div class="col-md-6">
             <label >Ingrese el nombre del producto</label>
-            <input type="text" id="nombre" name="nombre" class="form-control" style="border-color:#b0831e">
+            <input type="text" id="nombre" name="nombre" class="form-control" style="border-color:#b0831e" required>
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-md-4">
             <label>Cantidad de santos</label>
-            <input type="text" id="precio" name="precio" class="form-control" style="border-color:#b0831e">
+            <input type="text" id="precio" name="precio" class="form-control" style="border-color:#b0831e" required>
         </div>
         <div class="col-md-4">
             <label>Cantidad disponible</label>
-            <input type="text" name="inventario" id="inventario" class="form-control" style="border-color:#b0831e" oninput="llenado()">
+            <input type="text" name="inventario" id="inventario" class="form-control" style="border-color:#b0831e" oninput="llenado()" required>
             <a type="text" style="display:none" name="inventario_back" id="inventario_back" class="form-control" style="border-color:#b0831e"></a>
         </div>
         <div class="col-md-4">
             <label>IMAGEN</label>
-            <input type="file" name="imagen" id="imagen" class="form-control" style="border-color:#b0831e" accept="image/*">
+            <input type="file" name="imagen" id="imagen" class="form-control" style="border-color:#b0831e" accept="image/*" required>
         </div>
     </div>
     {{-- ARTE --}}
