@@ -14,7 +14,7 @@ class ContactarAgenteChange extends Migration
     public function up()
     {
         Schema::table('contactar_agente', function (Blueprint $table) {
-            $table->integer('estatus')->default(1);
+            // $table->integer('estatus')->default(1);
             $table->longText('mensaje');
 
         });
