@@ -171,7 +171,7 @@
                 <div class="col-md-12">
                   <a style="font-family:Avenir Next Condensed;font-size:20px;color:#B78B1E" id="santos"></a>
                 </div>
-                <div class="col-md-12 mt-3">
+                <div class="col-md-12 mt-3 text-break">
                   <a style="font-size:20px;font-family:Avenir Next Condensed;" id="modelo_joyeria">
                   </a>
                 </div>

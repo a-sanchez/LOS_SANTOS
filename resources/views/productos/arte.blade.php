@@ -160,8 +160,8 @@
                 <div class="col-md-12">
                   <a style="font-family:Avenir Next Condensed;font-size:20px;color:#B78B1E" id="santos"></a>
                 </div>
-                <div class="col-md-12 mt-2">
-                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="descripcion_arte" class="words"></a>
+                <div class="col-md-12 mt-2 text-break">
+                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="descripcion_arte"></a>
                 </div>
                 <div class="col-md-12">
                   <a id="obra" style="font-family:Avenir Next Condensed;font-size:20px"></a>

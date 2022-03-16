@@ -182,8 +182,8 @@
                 <div class="col-md-12">
                   <a style="font-family:Avenir Next Condensed;font-size:20px;color:#B78B1E" id="santos"></a>
                 </div>
-                <div class="col-md-12 mt-2">
-                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="modelo_reloj" class="words"></a>
+                <div class="col-md-12 mt-2 text-break">
+                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="modelo_reloj"></a>
                 </div>
                 <div class="col-md-12">
                   <a id="genero_reloj" style="font-family:Avenir Next Condensed;font-size:20px"></a>

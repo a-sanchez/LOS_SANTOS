@@ -132,7 +132,7 @@
 </div>
 <div class="row mb-2">
     <div class="col-md-12 col-sm-4" style="text-align:center">
-        <h1 style="color:white;font-family:Kinlock Regular;font-size:95px;">THE WORLD IS</h1>
+        <h1 class="display-1 " style="color:white;font-family:Kinlock Regular;">THE WORLD IS</h1>
     </div>
 </div>
 <div class="row">
