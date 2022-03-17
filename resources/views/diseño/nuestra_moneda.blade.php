@@ -91,7 +91,7 @@
     <div class="row" style="display: flex;align-items: center;">
         <div class="col-md-2"></div>
         <div class="col-md-8" style="text-align:center">
-            <a  style="color:white;font-family:italic;font-size:65px;">Nuestro trabajo es darte el poder, y el tuyo usarlo a tu antojo</a>
+            <h1  class="dusplay-1" style="color:white;font-family:italic;">Nuestro trabajo es darte el poder, y el tuyo usarlo a tu antojo</h1>
         </div>
         <div class="col-md-2"></div>
     </div>

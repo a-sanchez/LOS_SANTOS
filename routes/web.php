@@ -80,10 +80,29 @@ Route::get('/vender_propiedad',[routes_diseño_nav::class,'vender_propiedad']);
 
 /**RUTAS PARA CATEGORIAS-PRODUCTOS */
 
-Route::get('/arte',[ProductosController::class,'arte']);
-Route::get('/relojes',[ProductosController::class,'relojes']);
-Route::get('/ropas',[ProductosController::class,'ropas']);
-Route::get('/joyeria',[ProductosController::class,'joyeria']);
-Route::get('/vuelos',[ProductosController::class,'vuelos']);
+// Route::get('/arte',[ProductosController::class,'arte']);
+// Route::get('/ropas',[ProductosController::class,'ropas']);
+// Route::get('/joyeria',[ProductosController::class,'joyeria']);
+// Route::get('/vuelos',[ProductosController::class,'vuelos']);
 Route::get('/datos/{id}',[ProductosController::class,'datos']);
 
+
+Route::post('/relojes/{categoria}',[ProductosController::class,'relojes']);
+
+Route::get('/relojes/{categoria}',[ProductosController::class,'relojes']);
+
+Route::post('/arte/{categoria}',[ProductosController::class,'arte']);
+
+Route::get('/arte/{categoria}',[ProductosController::class,'arte']);
+
+Route::post('/joyeria/{categoria}',[ProductosController::class,'joyeria']);
+
+Route::get('/joyeria/{categoria}',[ProductosController::class,'joyeria']);
+
+Route::post('/ropas/{categoria}',[ProductosController::class,'ropas']);
+
+Route::get('/ropas/{categoria}',[ProductosController::class,'ropas']);
+
+Route::post('/vuelos/{categoria}',[ProductosController::class,'vuelos']);
+
+Route::get('/vuelos/{categoria}',[ProductosController::class,'vuelos']);

@@ -104,12 +104,33 @@
     <div class="col-md-4" style="text-align: center;">
       <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
-          <select name="cantidad" id="cantidad" class="form-control" style="text-align:center">
-            <option value="25">25 Santos</option>
+        <div class="col-md-5">
+          <select name="cantidad" id="cantidad" class="form-control" style="text-align:center" onclick="filtrado()">
+            <option value="0" selected="selected" disabled hidden >
+              @if($categorias=="1")
+              TODOS
+              @elseif($categorias=="2")
+              1-10 Santos
+              @elseif($categorias=="3")
+              10-20 Santos
+              @elseif($categorias=="4")
+              20-30 Santos
+              @elseif($categorias=="5")
+              30-40 Santos
+              @elseif($categorias=="6")
+              40-50 Santos
+              @endif
+            </option>
+
+            <option value="1">TODOS</option>
+            <option value="2">1-10 Santos</option>
+            <option value="3">10-20 Santos</option>
+            <option value="4">20-30 Santos</option>
+            <option value="5">30-40 Santos</option>
+            <option value="6">40-50 Santos</option>
           </select>
         </div>
-        <div class="col-md-4"></div>
+        <div class="col-md-3"></div>
       </div>
     </div>
     <div class="col-md-4"></div>
@@ -117,7 +138,6 @@
   <div class="row">
     <div class="swiper">
       <div class="swiper-wrapper">
-
         @foreach($relojes as $reloj)
         <div class="swiper-slide" style="width: 380px !important;">
           <div class="card zoom">
@@ -180,7 +200,7 @@
                   <a style="font-family:Avenir Next Condensed;font-size:25px" id="reloj_nombre"></a>
                 </div>
                 <div class="col-md-12">
-                  <a style="font-family:Avenir Next Condensed;font-size:20px;color:#B78B1E" id="santos"></a>
+                  <a type="text" style="font-family:Avenir Next Condensed;font-size:20px;color:#B78B1E" id="santos"></a>
                 </div>
                 <div class="col-md-12 mt-2 text-break">
                   <a style="font-size:20px;font-family:Avenir Next Condensed;" id="modelo_reloj"></a>
@@ -243,6 +263,30 @@
 @push('scripts')
 
 <script type="text/javascript">
+
+async function filtrado(){
+      event.preventDefault();
+      let categoria = document.getElementById('cantidad').value;
+      if(categoria != "0"){
+       let form = new FormData();
+       form.append('categoria','relojes');
+       form.append('filtrado',document.getElementById('cantidad').value);
+       let url = '{{url("/relojes/{categoria}")}}'.replace('{categoria}',categoria);
+       let init = {
+                   method:'POST',
+                   headers: {
+                     'X-CSRF-TOKEN': "{{csrf_token()}}",
+                     'Content-Type':'application/json'
+                  },
+                  body:JSON.stringify(form)
+       }
+       let req = await fetch(url,init);
+       if(req.ok){
+         window.location.href=url;
+       }
+    }
+  }
+
   async function modal(id){
         let url = "{{url('/datos/{id}')}}".replace('{id}',id);
         let req = await fetch(url);

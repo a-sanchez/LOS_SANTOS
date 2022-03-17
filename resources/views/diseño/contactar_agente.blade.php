@@ -59,7 +59,8 @@
                 <div class="row">
                     <a>8443924199</a>
                 </div>
-            <form id="contactar_agente" onsubmit="addContacto();">
+            <form id="contactar_agente" onsubmit="addContacto();" style="padding-right: calc(var(--bs-gutter-x) * .5);
+            padding-left: calc(var(--bs-gutter-x) * .5);">
                 @csrf
                 <div class="row mb-3">
                     <div class="col-md-6">

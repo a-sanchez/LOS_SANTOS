@@ -55,7 +55,7 @@
         <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid" style="height:230px;">
     </div>
     <div class="col-md-6">
-        <h5 style="font-size:80px;font-family:Avenir Next Condensed">Celebramos el éxito de nuestros clientes</h5>
+        <h5 class="display-1" style="font-family:Avenir Next Condensed">Celebramos el éxito de nuestros clientes</h5>
     </div>
     <div class="col-md-3">
         <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid"style="height:230px;">

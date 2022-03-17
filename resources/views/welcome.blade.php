@@ -68,22 +68,34 @@
         .row{
           margin-left: 0;
         }
-        .zoom {
-            transition: transform .2s; 
-            height: 500px;
-            width:330px;
-            filter: grayscale(100%);
-            opacity: 0.6;
-        }
+        .swiper-slide {
+        text-align: start;
+        color:white;
+        font-size:30px;
+        font-family:Avenir Next Condensed;
 
-        .zoom:hover {
-            transform: scale(1.1); 
-            filter:brightness(85%);
+        /* Center slide text vertically */
+        
+      }
+        
+        .swiper-slide img:hover{
+          transform: scale(1.1); 
+            filter:none;
             opacity:1;
         }
+        .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+        opacity: 0.6;
+        transition: transform .2s;
+        }
+
         .swiper {
-          width: 100%;
-          height: 500px;
+        width: 100%;
+        height: 100%;
         }
         .swiper-button-next{
           opacity:0;
@@ -130,12 +142,12 @@
 <div class="loader">
     <H1 style="color:white">CARGANDO...</H1>
 </div>
-<div class="row mb-2">
-    <div class="col-md-12 col-sm-4" style="text-align:center">
-        <h1 class="display-1 " style="color:white;font-family:Kinlock Regular;">THE WORLD IS</h1>
+<div class="row mb-2"style="width: 100%;text-align:center">
+    <div class="col-md-12 col-sm-12" style="text-align:center">
+        <h1 class="display-1" style="color:white;font-family:Kinlock Regular;">THE WORLD IS</h1>
     </div>
 </div>
-<div class="row">
+<div class="row" style="width: 100%;text-align:center">
     <div class="col-md-1"></div>
     <div class="col-md-10" style="text-align:center">
         <img class="img-fluid"src='{{asset("images/Yours.png")}}' >
@@ -262,40 +274,37 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <a href="{{url('/arte')}}"><img src='{{asset("images/Arte.jpg")}}' class="zoom"></a>
-          <div class="texto" style="color:white;font-size:40px;font-family:Avenir Next Condensed">
-            ARTE
-            <a><i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+          <a onclick="filtrado_ropa()"><img src='{{asset("images/Arte.jpg")}}' class="zoom"></a>
+          <div class="texto_ropa" >
+            <a >ARTE<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="swiper-slide">
-          <a href="{{url('/relojes')}}"><img src='{{asset("images/Relojes.jpg")}}' alt="" class="zoom"></a>
-          <div class="texto" style="color:white;font-size:40px;font-family:Avenir Next Condensed">
-            RELOJES
-            <a ><i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+          <a onclick="filtrado();"><img src='{{asset("images/Relojes.jpg")}}' alt="" class="zoom"></a>
+          <div class="texto_ropa" >
+            <a >RELOJES<i style="font-size:2rem;" id="arrow-right" class="fas fa-arrow-right"></i></a>
           </div>
-          <i class="fa-solid fa-arrow-right"></i>
         </div>
         <div class="swiper-slide">
-          <a href="{{url('/ropas')}}"><img src='{{asset("images/Ropa_Accesorios.jpg")}}' alt="" class="zoom"></a>
-          <div class="texto_ropa" style="color:white;font-size:28px;font-family:Avenir Next Condensed">
+          <a onclick="filtrado_ropa()"><img src='{{asset("images/Ropa_Accesorios.jpg")}}' alt="" class="zoom"></a>
+          <div class="texto_ropa" >
             <a >ROPA Y ACCESORIOS<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="swiper-slide">
-          <a href="{{url('/joyeria')}}">
+          <a onclick="filtrado_joyeria()">
             <img src='{{asset("images/Joyas.jpg")}}' alt="" class="zoom">
           </a>
-          <div class="texto" style="color:white;font-size:40px;font-family:Avenir Next Condensed">JOYERÍA
-            <a ><i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+          <div class="texto_ropa" >
+            <a >JOYERIA<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="swiper-slide">
-          <a href="{{url('/vuelos')}}">
+          <a onclick="filtrado_vuelos()">
           <img src='{{asset("images/Viajes.jpg")}}' alt="" class="zoom">
           </a>
-          <div class="texto" style="color:white;font-size:40px;font-family:Avenir Next Condensed">VIAJES
-            <a ><i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+          <div class="texto_ropa" >
+            <a >VIAJES<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -363,8 +372,7 @@
 
     var swiper = new Swiper('.swiper', {
       slidesPerView: 4,
-      spaceBetween: 0,
-      freeMode: true,
+      spaceBetween: -1,
       pagination: {
         el: '.swiper-pagination',
         type: 'fraction',
@@ -396,6 +404,100 @@
          }
         
        }
+    }
+    async function filtrado_ropa(){
+      event.preventDefault();
+      let categoria = 1;
+      let form = new FormData();
+      form.append('categoria','ropa');
+      form.append('filtrado',1);
+      let url = '{{url("/ropas/{categoria}")}}'.replace('{categoria}',categoria);
+      let init = {
+                  method:'POST',
+                  headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    'Content-Type':'application/json'
+                 },
+                 body:JSON.stringify(form)
+      }
+      let req = await fetch(url,init);
+      if(req.ok){
+        window.location.href=url;
+      }
+      else{
+        alert('Error');
+      }
+    }
+    async function filtrado_vuelos(){
+      event.preventDefault();
+      let categoria = 1;
+      let form = new FormData();
+      form.append('categoria','vuelos');
+      form.append('filtrado',1);
+      let url = '{{url("/vuelos/{categoria}")}}'.replace('{categoria}',categoria);
+      let init = {
+                  method:'POST',
+                  headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    'Content-Type':'application/json'
+                 },
+                 body:JSON.stringify(form)
+      }
+      let req = await fetch(url,init);
+      if(req.ok){
+        window.location.href=url;
+      }
+      else{
+        alert('Error');
+      }
+    }
+
+    async function filtrado_joyeria(){
+      event.preventDefault();
+      let categoria = 1;
+      let form = new FormData();
+      form.append('categoria','joyeria');
+      form.append('filtrado',1);
+      let url = '{{url("/joyeria/{categoria}")}}'.replace('{categoria}',categoria);
+      let init = {
+                  method:'POST',
+                  headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    'Content-Type':'application/json'
+                 },
+                 body:JSON.stringify(form)
+      }
+      let req = await fetch(url,init);
+      if(req.ok){
+        window.location.href=url;
+      }
+      else{
+        alert('Error');
+      }
+    }
+
+    async function filtrado(){
+      event.preventDefault();
+      let categoria = 1;
+      let form = new FormData();
+      form.append('categoria','relojes');
+      form.append('filtrado',1);
+      let url = '{{url("/relojes/{categoria}")}}'.replace('{categoria}',categoria);
+      let init = {
+                  method:'POST',
+                  headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    'Content-Type':'application/json'
+                 },
+                 body:JSON.stringify(form)
+      }
+      let req = await fetch(url,init);
+      if(req.ok){
+        window.location.href=url;
+      }
+      else{
+        alert('Error');
+      }
     }
     </script>
 @endpush

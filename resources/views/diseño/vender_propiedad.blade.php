@@ -52,8 +52,9 @@
     </style>
 @endpush
 @section('body')
-<div class="row">
-    <div class="col-md-2"></div>
+<div class="container-fluid"> 
+    <div class="row">
+        <div class="col-md-2"></div>
     <div class="col-md-8 section">
         <div class="row">
             <div class="col-md-2"></div>
@@ -119,25 +120,22 @@
     </div>
 </div>
 <div class="row mt-5">
-<div class="row">
-{{-- division de columnas --}}
-<div class="col-md-1"></div>
-<div class="col-md-4">
-    <div class="row solid" >
-        <div class="row">
-            {{-- <img src="{{asset("images/iconos/document.jpg")}}" style="height: 60px;width: 80px;position: absolute;top: 825px;left: 130px;"> --}}
-        </div>
+    <div class="row">
+        {{-- division de columnas --}}
         <div class="col-md-1"></div>
-        <div class="col-md-10 mt-3 mb-3">
-            <div class="col-md-12 mt-4 mb-4">
-                <a style="font-family:venir Next Condensed;font-size:18px">Verificamos con nuestro grupo de abogados
-                    que la documentación de su inmueble esté
-                    en orden.
-                </a>
+        <div class="col-md-4">
+        <div class="row solid" >
+            <div class="col-md-1"></div>
+            <div class="col-md-10 mt-3 mb-3">
+                <div class="col-md-12 mt-4 mb-4">
+                    <a style="font-family:venir Next Condensed;font-size:18px">Verificamos con nuestro grupo de abogados
+                        que la documentación de su inmueble esté
+                        en orden.
+                    </a>
+                </div>
             </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
-    </div>
     <div class="row mt-5"></div>
     <div class="row solid">
         <div class="col-md-1"></div>
@@ -147,8 +145,8 @@
                     de Mercado Comparativo personalizado a tu
                     inmueble.
                 </a>
-                </div>
             </div>
+        </div>
         <div class="col-md-1"></div>
     </div>
 </div>
@@ -185,13 +183,14 @@
 </div>
 <div class="row mt-2" style="text-align:center;background-color:white;">
     <div class="col-md-12">
-      <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
+        <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
     </div>
+</div>
 </div>
 @endsection
 @push('scripts')
 <script>
-async function AddVenta(){
+    async function AddVenta(){
     event.preventDefault();
     let form = new FormData(document.getElementById("ventas"));
             let url="{{url('/ventas')}}";

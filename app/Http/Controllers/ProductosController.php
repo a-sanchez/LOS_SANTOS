@@ -147,44 +147,284 @@ class ProductosController extends Controller
         return $eliminar;
     }
 
-    public function arte(){
-        $artes=productos::where('categoria','arte')
+    public function arte(Request $request, $categoria){
+        if($categoria=="1"){
+            $artes=productos::where('categoria','arte')
                             ->where('imagen','!=','NULL')
                             ->where('estatus','1')->get();
-        $date = Carbon::now()->format('Y-m-d');
-        return view('productos.arte',compact('artes','date'));
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+            }
+            elseif($categoria=="2"){
+                $artes=productos::where('categoria','arte')
+                            ->where('imagen','!=','NULL')
+                            ->where('estatus','1')
+                            ->whereBetween('precio',[1,10])
+                            ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="3"){
+                $artes=productos::where('categoria','arte')
+                            ->where('imagen','!=','NULL')
+                            ->where('estatus','1')
+                            ->whereBetween('precio',[10,20])
+                            ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="4"){
+                $artes=productos::where('categoria','arte')
+                            ->where('imagen','!=','NULL')
+                            ->where('estatus','1')
+                            ->whereBetween('precio',[20,30])
+                            ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="5"){
+                $artes=productos::where('categoria','arte')
+                            ->where('imagen','!=','NULL')
+                            ->where('estatus','1')
+                            ->whereBetween('precio',[30,40])
+                            ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="6"){
+                $artes=productos::where('categoria','arte')
+                            ->where('imagen','!=','NULL')
+                            ->where('estatus','1')
+                            ->whereBetween('precio',[40,50])
+                            ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+
+        return view('productos.arte',compact('artes','date','categorias'));
     }
 
-    public function relojes(){
+    public function relojes(Request $request,$categoria){
+        if($categoria=="1"){
         $relojes=productos::where('categoria','relojes')
                             ->where('imagen','!=','NULL')
                             ->where('estatus','1')->get();
         $date = Carbon::now()->format('Y-m-d');
-        return view('productos.relojes',compact('relojes','date'));
+        $categorias =$categoria; 
+        }
+        elseif($categoria=="2"){
+            $relojes=productos::where('categoria','relojes')
+            ->where('imagen','!=','NULL')
+            ->where('estatus','1')
+            ->whereBetween('precio',[1,10])
+            ->get();
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+        }
+        elseif($categoria=="3"){
+            $relojes=productos::where('categoria','relojes')
+            ->where('imagen','!=','NULL')
+            ->where('estatus','1')
+            ->whereBetween('precio',[10,20])
+            ->get();
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+        }
+        elseif($categoria=="4"){
+            $relojes=productos::where('categoria','relojes')
+            ->where('imagen','!=','NULL')
+            ->where('estatus','1')
+            ->whereBetween('precio',[20,30])
+            ->get();
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+        }
+        elseif($categoria=="5"){
+            $relojes=productos::where('categoria','relojes')
+            ->where('imagen','!=','NULL')
+            ->where('estatus','1')
+            ->whereBetween('precio',[30,40])
+            ->get();
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+        }
+        elseif($categoria=="6"){
+            $relojes=productos::where('categoria','relojes')
+            ->where('imagen','!=','NULL')
+            ->where('estatus','1')
+            ->whereBetween('precio',[40,50])
+            ->get();
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+        }
+        return view('productos.relojes',compact('relojes','date','categorias'));
     }
 
-    public function ropas(){
-        $ropas=productos::where('categoria','ropa')
+    public function ropas(Request $request, $categoria){
+        if($categoria=="1"){
+            $ropas=productos::where('categoria','ropa')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                        ->get();
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+            }
+            elseif($categoria=="2"){
+                $ropas=productos::where('categoria','ropa')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                        ->whereBetween('precio',[1,10])
+                        ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="3"){
+                $ropas=productos::where('categoria','ropa')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                        ->whereBetween('precio',[10,20])
+                        ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="4"){
+                $ropas=productos::where('categoria','ropa')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                ->whereBetween('precio',[20,30])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="5"){
+                $ropas=productos::where('categoria','ropa')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                ->whereBetween('precio',[30,40])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="6"){
+                $ropas=productos::where('categoria','ropa')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                ->whereBetween('precio',[40,50])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; }
+        return view('productos.ropa',compact('ropas','date','categorias'));
+    }
+
+    public function joyeria(Request $request, $categoria){
+        if($categoria=="1"){
+            $joyas=productos::where('categoria','joyeria')
                         ->where('imagen','!=','NULL')
                         ->where('estatus','1')->get();
-        $date = Carbon::now()->format('Y-m-d');
-        return view('productos.ropa',compact('ropas','date'));
-    }
-
-    public function joyeria(){
-        $joyas=productos::where('categoria','joyeria')
+            $date = Carbon::now()->format('Y-m-d');
+            $categorias =$categoria; 
+            }
+            elseif($categoria=="2"){
+                $joyas=productos::where('categoria','joyeria')
                         ->where('imagen','!=','NULL')
-                        ->where('estatus','1')->get();
-        $date = Carbon::now()->format('Y-m-d');
-        return view('productos.joyeria',compact('joyas','date'));
-    }
-
-    public function vuelos(){
-        $vuelos=productos::where('categoria','vuelos')
+                        ->where('estatus','1')
+                        ->whereBetween('precio',[1,10])
+                        ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="3"){
+                $joyas=productos::where('categoria','joyeria')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                        ->whereBetween('precio',[10,20])
+                        ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="4"){
+                $joyas=productos::where('categoria','joyeria')
                 ->where('imagen','!=','NULL')
-                ->where('estatus','1')->get();
+                ->where('estatus','1')
+                ->whereBetween('precio',[20,30])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="5"){
+                $joyas=productos::where('categoria','joyeria')
+                ->where('imagen','!=','NULL')
+                ->where('estatus','1')
+                ->whereBetween('precio',[30,40])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="6"){
+                $joyas=productos::where('categoria','joyeria')
+                ->where('imagen','!=','NULL')
+                ->where('estatus','1')
+                ->whereBetween('precio',[40,50])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; }
+        return view('productos.joyeria',compact('joyas','date','categorias'));
+    }
+
+    public function vuelos(Request $request, $categoria){
+        if($categoria=="1"){
+            $vuelos=productos::where('categoria','vuelos')
+                ->where('imagen','!=','NULL')
+                ->where('estatus','1')
+                ->get();
         $date = Carbon::now()->format('Y-m-d');
-        return view('productos.vuelos',compact('vuelos','date'));
+            $categorias =$categoria; 
+            }
+            elseif($categoria=="2"){
+                $vuelos=productos::where('categoria','vuelos')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                        ->whereBetween('precio',[1,10])
+                        ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="3"){
+                $vuelos=productos::where('categoria','vuelos')
+                        ->where('imagen','!=','NULL')
+                        ->where('estatus','1')
+                        ->whereBetween('precio',[10,20])
+                        ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="4"){
+                $vuelos=productos::where('categoria','vuelos')
+                ->where('imagen','!=','NULL')
+                ->where('estatus','1')
+                ->whereBetween('precio',[20,30])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="5"){
+                $vuelos=productos::where('categoria','vuelos')
+                ->where('imagen','!=','NULL')
+                ->where('estatus','1')
+                ->whereBetween('precio',[30,40])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; 
+            }
+            elseif($categoria=="6"){
+                $vuelos=productos::where('categoria','vuelos')
+                ->where('imagen','!=','NULL')
+                ->where('estatus','1')
+                ->whereBetween('precio',[40,50])
+                ->get();
+                $date = Carbon::now()->format('Y-m-d');
+                $categorias =$categoria; }
+        return view('productos.vuelos',compact('vuelos','date','categorias'));
     }
 
     public function datos(int $id){
