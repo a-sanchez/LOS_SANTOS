@@ -279,7 +279,7 @@
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-12">
-                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');email();"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');cantidad({{Auth::user()->id}});"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -303,6 +303,37 @@
 @endsection
 @push('scripts') 
 <script>
+
+    async function cantidad(id){
+        event.preventDefault();
+        let total = (document.getElementById('total_final').innerHTML).split("$");
+        let total2 = parseFloat(total[1]);
+        let puntos = {{Auth::user()->puntos}};
+        let newpoints = (puntos - total2).toFixed(2);
+        let form = new FormData();
+        form.append('puntos',newpoints);
+        let url = "{{url('usuarios/{id}')}}".replace('{id}',id);
+        let init = {
+                method:"PUT",
+                headers:{
+                    'X-CSRF-Token':document.getElementsByName("_token")[0].value
+                        , "Content-Type": "application/json"
+                },
+                body:JSON.stringify({'puntos':newpoints})
+            }
+            let req = await fetch(url,init);
+            if(req.ok){
+                console.log('ok')
+            }
+            else{
+                Swal.fire({
+                        icon: 'error'
+                        , title: 'Error'
+                        , text: 'Error al actualizar puntos'
+                    , });
+            }
+
+    }
     let flag=0;
     function actualizar(ordenes,folio,fecha){
         ordenes.forEach(async(element)=>{
@@ -375,9 +406,9 @@
         }
     }
 function email() {
-event.preventDefault();
-alert('Se ha mandado la orden a tu correo, espere un momento..');
-window.location.href = '{{url("send-mail")}}';
+    event.preventDefault();
+    alert('Se ha mandado la orden a tu correo, espere un momento..');
+    window.location.href = '{{url("send-mail")}}';
 }
 </script>
 @endpush

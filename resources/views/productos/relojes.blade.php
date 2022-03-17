@@ -121,7 +121,6 @@
               40-50 Santos
               @endif
             </option>
-
             <option value="1">TODOS</option>
             <option value="2">1-10 Santos</option>
             <option value="3">10-20 Santos</option>
