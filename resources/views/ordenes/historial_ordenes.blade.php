@@ -63,10 +63,11 @@
             </thead>
             <tbody>
                 @foreach($usuario as $user)
+                @if($user->folio!=NUll || $user->folio!="")    
                 <tr>
                     <td scope="row">
                         @if($user->folio=="" || $user->folio==NULL)
-                            EN PROCESO DE COMPRA
+                        EN PROCESO DE COMPRA
                         @else
                         {{str_pad($user->folio . "/" . date("Y"), 10, "0", STR_PAD_LEFT)}}
                         @endif
@@ -76,17 +77,18 @@
                     </td>
                     <td>
                         @if($user->estatus==1)
-                            PENDIENTE
+                        PENDIENTE
                         @else
                         ENTREGADO
                         @endif
                     </td>
                     <td>
-                        <a  style="color: black" onclick="busqueda('{{$user->id_usuario}}','{{$user->fecha}}');"  class="btn"><i style="font-size:1.5rem" id="eye"  class="fas fa-eye"></i></a>
+                        <a  style="color: black" onclick="busqueda('{{$user->id_usuario}}','{{$user->fecha}}',{{$user->folio}});"  class="btn"><i style="font-size:1.5rem" id="eye"  class="fas fa-eye"></i></a>
                         {{-- <a  style="color: black" href="{{url("ordenes/{$user->id_usuario}/edit")}}"  class="btn"><i style="font-size:1.5rem" id="pen"  class="fas fa-pen"></i></a> --}}
-    
+                        
                     </td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>
@@ -103,7 +105,7 @@
 @push('scripts')
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="{{asset('lib/DataTableswe/Responsive-2.2.9/js/dataTables.responsive.js')}}"></script>
+    <script src="{{asset('lib/DataTables/Responsive-2.2.9/js/dataTables.responsive.js')}}"></script>
 
     <script>
         let table = $("#ordenes_table").DataTable({
@@ -111,19 +113,20 @@
         });
 
 
-        async function busqueda(id,fecha) {
+        async function busqueda(id,fecha,folio) {
            event.preventDefault();
             let form = new FormData();
             form.append("id",id);
             form.append("fecha",fecha);
-            let url = "{{url('ordenes/historial/usuario/{id}/fecha/{fecha}')}}".replace('{id}',id);
+            let url = "{{url('ordenes/historial/usuario/{id}/fecha/{fecha}/folio/{folio}')}}".replace('{id}',id);
             let url2 = url.replace('{fecha}',fecha);
+            let url3 = url2.replace('{folio}',folio);
             let init = {
                 method:"GET"
             }
-            let req = await fetch(url2,init);
+            let req = await fetch(url3,init);
             if(req.ok){
-                window.location.href = url2;
+                window.location.href = url3;
             }
             else{
                 Swal.fire({

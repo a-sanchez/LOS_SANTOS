@@ -42,7 +42,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <a type="btn" class="btn btn-dark" href="{{url('/ordenes')}}">REGRESAR</a>
+            <a type="btn" class="btn btn-dark" href="{{url("ordenes/historial/{$historiales[0]->id_usuario}")}}">REGRESAR</a>
         </div>
         <div class="col-md-6"  style="text-align:end">
             <a type="btn" class="btn btn-success" onclick="updates_ordenes({{$historiales}})">ORDEN ENTREGADA</a>
@@ -169,5 +169,6 @@
          }
 
     }
+
     </script>
 @endpush

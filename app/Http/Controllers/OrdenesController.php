@@ -30,23 +30,6 @@ class OrdenesController extends Controller
             ->where('id_usuario', $id)
             ->groupBy('folio', 'estatus','fecha')
             ->get();
-            //var_dump($usuario);die;
-        //  $total = DB::table("ordenes")
-        //      ->join('productos', 'ordenes.id_producto', 'productos.id')
-        //      ->select('ordenes.*')
-        //      ->where("id_status", 1)
-        //      ->where('id_usuario', $id)
-        //      ->get();
-        // //  dump($total);die;
-        // if (!$usuario->isEmpty()) {
-        //     $folio = $usuario[0]->folio;
-        //     $ordenes = DB::table('ordenes')
-        //         ->select('id', 'folio')
-        //         ->where('id_usuario', $id)
-        //         ->where('folio', $folio)
-        //         ->get();
-        //     return view('ordenes.historial_ordenes', compact("name", "usuario", "ordenes"));
-        // }
         return view('ordenes.historial_ordenes',compact("name", "usuario"));
     }
     /**
@@ -62,7 +45,7 @@ class OrdenesController extends Controller
     
 
 
-    public function ordenes(Request $request, $id, $fecha)
+    public function ordenes(Request $request, $id, $fecha,$folio)
     {
         $historiales = DB::table('ordenes')
             ->join('productos', 'ordenes.id_producto', 'productos.id')
@@ -95,6 +78,7 @@ class OrdenesController extends Controller
             )
             ->where('ordenes.fecha', $fecha)
             ->where('ordenes.id_usuario', $id)
+            ->where('folio',$folio)
             ->where('ordenes.id_status', 1)
             ->get();
         $orden = str_pad($historiales[0]->folio . "/" . date("Y"), 10, "0", STR_PAD_LEFT);

@@ -23,6 +23,7 @@ class CarritoController extends Controller
                  'productos.fecha_inicio','productos.fecha_final','productos.estatus','productos.genero_reloj',DB::raw('(productos.precio * ordenes.cantidad_comprada) as total'))
                 ->join('productos','productos.id','=','ordenes.id_producto')
                 ->where('ordenes.id_usuario',$user)
+                ->where('folio',"=",NULL)
                 ->whereDate('ordenes.created_at',$date)
                 ->get();
         $total = $ordenes->sum('total');
