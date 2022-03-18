@@ -123,12 +123,45 @@
             left: 35%;
             transform: translate(-50%, -50%);
         }
-        .texto_ropa{
-          position: absolute;
+
+
+        @media (max-width:576px) {  
+          .texto_ropa{
             top: 90%;
-            left: 35%;
-            transform: translate(-50%, -50%);
+            transform: translate(5%, -50%);
+            font-size: 10px;
+            position: absolute;
+          }
         }
+
+        @media(min-width:576px){
+          .texto_ropa{
+            top: 90%;
+            left: 20%;
+            transform: translate(5%, -50%);
+            font-size: 28px;
+            position: absolute;
+          }
+        }
+        @media (min-width: 768px) { 
+          .texto_ropa{
+            top: 90%;
+            left: 15%;
+            transform: translate(5%, -50%);
+            font-size: 30px;
+            position: absolute;
+          }
+        }
+        @media (max-width: 768px) { 
+          .texto_ropa{
+            top: 85%;
+            left:3%;
+            transform: translate(0%, -50%);
+            font-size: 15px;
+            position: absolute;
+          }
+        }
+
 
         .modal-header{
           border-bottom: 2px solid #B78B1E;
@@ -276,19 +309,19 @@
         <div class="swiper-slide">
           <a onclick="filtrado_ropa()"><img src='{{asset("images/Arte.jpg")}}' class="zoom"></a>
           <div class="texto_ropa" >
-            <a >ARTE<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+            <a >ARTE<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="swiper-slide">
           <a onclick="filtrado();"><img src='{{asset("images/Relojes.jpg")}}' alt="" class="zoom"></a>
           <div class="texto_ropa" >
-            <a >RELOJES<i style="font-size:2rem;" id="arrow-right" class="fas fa-arrow-right"></i></a>
+            <a >RELOJES<i style="font-size:auto;" id="arrow-right" class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="swiper-slide">
           <a onclick="filtrado_ropa()"><img src='{{asset("images/Ropa_Accesorios.jpg")}}' alt="" class="zoom"></a>
           <div class="texto_ropa" >
-            <a >ROPA Y ACCESORIOS<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+            <a >ROPA Y ACCESORIOS<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="swiper-slide">
@@ -296,7 +329,7 @@
             <img src='{{asset("images/Joyas.jpg")}}' alt="" class="zoom">
           </a>
           <div class="texto_ropa" >
-            <a >JOYERIA<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+            <a >JOYERIA<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
         <div class="swiper-slide">
@@ -304,7 +337,7 @@
           <img src='{{asset("images/Viajes.jpg")}}' alt="" class="zoom">
           </a>
           <div class="texto_ropa" >
-            <a >VIAJES<i style="font-size:2rem;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+            <a >VIAJES<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -328,7 +361,7 @@
       <div class="row mt-5">
         <div class="col-md-1"></div>
         <div class="col-md-11 mb-5">
-          <a style="color:white;font-size:40px;font-family:Avenir Next Condensed">Startups / Franquicias <i style="font-size:2rem"class="fas fa-long-arrow-alt-right"></i></a>
+          <a style="color:white;font-size:40px;font-family:Avenir Next Condensed">Startups / Franquicias <i style="font-size:auto"class="fas fa-long-arrow-alt-right"></i></a>
           <h5 style="color:white;font-family:Avenir Next Condensed;font-size:15px">136,842 LISTINGS </h5>
         </div>
       </div>
@@ -372,7 +405,7 @@
 
     var swiper = new Swiper('.swiper', {
       slidesPerView: 4,
-      spaceBetween: -1,
+      spaceBetween: 5,
       pagination: {
         el: '.swiper-pagination',
         type: 'fraction',
