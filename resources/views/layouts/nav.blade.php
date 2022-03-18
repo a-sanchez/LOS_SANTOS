@@ -7,9 +7,7 @@
           font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .navbar-nav.navbar-center {
-            position: absolute;
-            left: 30%;
-            transform: translatex(-10%);
+          position: relative;
         }
         
       .form-control{
@@ -26,6 +24,10 @@
 
       #password::placeholder{
         color:black;
+      }
+
+      .show {
+      background-color:rgba(0, 0, 0, .5)!important;
       }
 
 

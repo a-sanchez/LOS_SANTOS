@@ -7,10 +7,9 @@
           font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .navbar-nav.navbar-center {
-            position: absolute;
-            left: 30%;
-            transform: translatex(-10%);
+          position: relative;
         }
+        
         
       .form-control{
         border-color: #B78B1E;
@@ -28,6 +27,7 @@
         color:black;
       }
 
+     
 
     </style>
 @endpush

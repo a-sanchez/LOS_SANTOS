@@ -304,7 +304,7 @@
         <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
         <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
         <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
-        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
+        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;" class="ocultar">
     </div>
 </div>
 <div class="row " style="text-align: center;background-color:white">
