@@ -49,6 +49,41 @@
       }
       .solid {border-style: solid;border-color: #b0831e}
 
+     
+        @media(max-width:576px){
+            .espacio{
+                margin-top: 0rem !important;
+            }
+            .servicio{
+                margin-right: 0px;
+                padding-right: 0px;
+                padding-left: 0px;
+                margin-left: 0px;
+            }
+        }
+        @media(min-width:576px){
+            .espacio{
+                margin-top: 3rem !important;
+                
+            }
+        }
+        @media(max-width:768px){
+            .espacio{
+                margin-top: 3rem !important;
+            }
+            .servicio{
+                margin-right: 0px;
+                padding-right: 0px;
+                padding-left: 0px;
+                margin-left: 0px;
+            }
+        }
+        @media (min-width:768px){
+            .espacio{
+                margin-top: 0rem !important;
+            }
+        }
+
     </style>
 @endpush
 @section('body')
@@ -60,7 +95,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="row mt-4" style="text-align:center;"">
-                    <a style="color:#b0831e;font-size:40px;font-family:Avenir Next Condensed">¿Buscas incrementar tus posibilidades de venta?</a>
+                    <a class="buscar" style="color:#b0831e;font-size:40px;font-family:Avenir Next Condensed;text-decoration:none">¿Buscas incrementar tus posibilidades de venta?</a>
                 </div>
                 <div class="row mt-2" style="text-align:center">
                     <a>Muestra tu propiedad a los mejores prospectos</a>
@@ -120,7 +155,7 @@
     </div>
 </div>
 <div class="row mt-5">
-    <div class="row">
+    <div class="row servicio">
         {{-- division de columnas --}}
         <div class="col-md-1"></div>
         <div class="col-md-4">
@@ -152,7 +187,7 @@
 </div>
 <div class="col-md-2"></div>
 <div class="col-md-4">
-    <div class="row solid">
+    <div class="row solid espacio">
         <div class="col-md-1"></div>
         <div class="col-md-10 mt-3 mb-3">
             <div class="col-md-12 mt-4 mb-4">

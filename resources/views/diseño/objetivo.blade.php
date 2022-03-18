@@ -13,7 +13,6 @@
             width: 100%;
             overflow-x: hidden;
         }
-        #fo
         @font-face{
             font-family: 'Kinlock Regular';
             src:url('css/FontsFree-Net-ps-kinlock-regular.ttf') format('truetype');
@@ -47,18 +46,163 @@
           width: 100%;
           display: block;
         }
+        /* margin-left: 0px;
+            margin-right: 0px;
+            border-right-width: 0px;
+            border-right-style: solid;
+            padding-right: 150px;
+            padding-left: 150px;
+            margin-top: 100px;
+            margin-bottom: 100px; 
+
+            .texto1{
+            font-size:60px;
+            }
+            .texto2{
+            font-size:30px;
+            }*/
+            @media (min-width:576px) {  
+                .poder{
+                    margin-left: 0px;
+                    margin-right: 0px;
+                    border-right-width: 0px;
+                    border-right-style: solid;
+                    padding-right: 5rem !important;
+                    padding-left: 5rem !important;
+                    margin-top: 2rem !important;
+                    margin-bottom: 5rem !important;
+                    }
+                    .texto1{
+                    font-size:40px;
+                    text-decoration: none;
+                    }
+                    .texto2{
+                    font-size:25px;
+                    text-decoration: none;
+                    }
+                    .celebrar{
+                        height:230px;
+                    }
+                    .celebrar2{
+                        height:230px;
+                    }
+                    .texto_nuestro{
+                        font-size:30px;
+                    }
+            }
+            @media(max-width:576px){
+                .poder{
+                    margin-left: 0px;
+                    margin-right: 0px;
+                    border-right-width: 0px;
+                    border-right-style: solid;
+                    padding-right: 9rem !important;
+                    padding-left: 9rem !important;
+                    margin-top: 5rem !important;
+                    margin-bottom: 5rem !important;
+                    }
+                    .texto1{
+                    font-size:15px;
+                    text-decoration: none;
+                    }
+                    .texto2{
+                    font-size:10px;
+                    text-decoration: none;
+                    }
+
+                    .celebrar{display:none;
+
+                    }
+                    .celebrar2{
+                        height:180px;
+                    }
+                    .texto_nuestro{
+                        font-size:30px;
+                    }
+                    
+            }
+
+            @media (min-width: 768px){
+                .poder{
+                    margin-left: 0px;
+                    margin-right: 0px;
+                    border-right-width: 0px;
+                    border-right-style: solid;
+                    padding-right: 9rem !important;
+                    padding-left: 9rem !important;
+                    margin-top: 5rem !important;
+                    margin-bottom: 5rem !important;
+                    }
+                    .texto1{
+                    font-size:70px;
+                    text-decoration: none;
+                    }
+                    .texto2{
+                    font-size:30px;
+                    text-decoration: none;
+                    }
+                    .celebrar2{
+                        height:180px;
+                    }
+                    .texto_nuestro{
+                        font-size:60px;
+                    }
+                    
+            }
+            @media (max-width: 768px) {
+                #fondo3{
+                    background-image: url('images/objetivo2_copia.jpg');
+                    background-position: center;
+                    background-repeat:no-repeat; 
+                    background-size: cover; 
+                    height: 70vw;
+                    width: 100vw;
+                    filter: brightness(0.8);
+                }
+                .poder{
+                    margin-left: 0px;
+                    margin-right: 0px;
+                    border-right-width: 0px;
+                    border-right-style: solid;
+                    padding-right: 1rem !important;
+                    padding-left: 2rem !important;
+                    margin-top: 2rem !important;
+                    margin-bottom: 5rem !important;
+                    }
+                    .texto1{
+                    font-size:25px;
+                    text-decoration: none;
+                    }
+                    .texto2{
+                    font-size:15px;
+                    text-decoration: none;
+                    }
+                    .celebrar{
+                        display:none;
+                    }
+                    .celebrar2{
+                        height:180px;
+                    }
+                    .texto_nuestro{
+                        font-size:30px;
+                    }
+                    
+            }
+
+            
+
     </style>
 @endpush
 @section('body')
 <div class="row" style="text-align:center">
     <div class="col-md-3">
-        <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid" style="height:230px;">
+        <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid celebrar">
     </div>
     <div class="col-md-6">
-        <h5 class="display-1" style="font-family:Avenir Next Condensed">Celebramos el éxito de nuestros clientes</h5>
+        <h5  style="font-family:Avenir Next Condensed" class="texto_nuestro">Celebramos el éxito de nuestros clientes</h5>
     </div>
     <div class="col-md-3">
-        <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid"style="height:230px;">
+        <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid celebrar2">
     </div>
 </div>
 <div class="row mt-2" style="text-align:center">
@@ -81,23 +225,19 @@
 </div>
 <div class="row mt-5"  id="fondo3" style="text-align:center">
     {{-- <img style="width:130px;position: absolute;top: 35px;left: 630px;" src='{{asset("images/Isotipo-1.png")}}'> --}}
-    <div class="row mt-5">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div class="row mt-5 solid" id="trans">
+    <div class="row poder" >
+            <div class="row solid" id="trans">
                 <p></p>
                 <p></p>
                 <p></p>
-                <a style="color:#b0831e;font-size:60px;font-family:Kinlock Regular">
+                <a class="texto1" style="color:#b0831e;font-family:Kinlock Regular">
                     EL PODER ES TUYO
                 </a>
-                <a style="color:white;font-size:30px;">Recuerda; Siempre más y nunca menos </a>
+                <a class="texto2" style="color:white;">Recuerda; Siempre más y nunca menos </a>
                 <p></p>
                 <p></p>
                 <p></p>
             </div>
-        </div>
-        <div class="col-md-2"></div>
     </div>
 </div>
 <div class="row" style="text-align:center;background-color:white">

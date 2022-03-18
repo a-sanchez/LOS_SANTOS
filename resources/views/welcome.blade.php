@@ -132,6 +132,9 @@
             font-size: 10px;
             position: absolute;
           }
+          .ocultar{
+            display: none;
+          }
         }
 
         @media(min-width:576px){
@@ -142,6 +145,9 @@
             font-size: 28px;
             position: absolute;
           }
+          .ocultar{
+            display: none;
+          }
         }
         @media (min-width: 768px) { 
           .texto_ropa{
@@ -151,6 +157,9 @@
             font-size: 30px;
             position: absolute;
           }
+          .ocultar{
+            display: none;
+          }
         }
         @media (max-width: 768px) { 
           .texto_ropa{
@@ -159,6 +168,9 @@
             transform: translate(0%, -50%);
             font-size: 15px;
             position: absolute;
+          }
+          .ocultar{
+            display: none;
           }
         }
 
@@ -198,7 +210,7 @@
 </div>
 <div class="row mt-5"></div>
 
-<div class="row" style="background-color:white">
+<div class="row ocultar" style="background-color:white" >
         <nav class="navbar navbar-expand-lg navbar-light " >
             <div class="container-fluid">
               <a class="navbar-brand" href="#">
