@@ -95,7 +95,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <div class="row mt-4" style="text-align:center;"">
-                    <a class="buscar" style="color:#b0831e;font-size:40px;font-family:Avenir Next Condensed;text-decoration:none">¿Buscas incrementar tus posibilidades de venta?</a>
+                    <a class="buscar" style="color:#b0831e;font-size:40px;font-family:Avenir Next Condensed;text-decoration:none;">¿Buscas incrementar tus posibilidades de venta?</a>
                 </div>
                 <div class="row mt-2" style="text-align:center">
                     <a>Muestra tu propiedad a los mejores prospectos</a>
