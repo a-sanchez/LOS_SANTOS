@@ -41,12 +41,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div class="d-flex justify-content-between" style="width:100%">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
           <li class="nav-item">
             <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}" style="padding-right: 25px;">Objetivo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" style="padding-right: 25px;">Propiedades</a>
+            <a class="nav-link" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
@@ -57,7 +58,10 @@
           <li class="nav-item">
             <a class="nav-link " href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
           </li>
-          <li class="nav-item">
+        </div>
+
+        <div class="d-flex">
+          <li class="nav-item" style="list-style: none;">
             @if(Auth::check())
             <div class="dropdown mt-1">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
@@ -70,11 +74,13 @@
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1" style="color:black" data-bs-toggle="modal" data-bs-target="#Modal">
+            <a type="button" class="btn nav-link mt-1" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
               Ingresar
             </a>
             @endif
           </li>
+        </div>
+
         </ul>
       </div>
     </div>

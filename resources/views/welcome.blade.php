@@ -145,9 +145,9 @@
             font-size: 28px;
             position: absolute;
           }
-          .ocultar{
+          /* .ocultar{
             display: none;
-          }
+          } */
         }
         @media (min-width: 768px) { 
           .texto_ropa{
@@ -157,9 +157,9 @@
             font-size: 30px;
             position: absolute;
           }
-          .ocultar{
+          /* .ocultar{
             display: none;
-          }
+          } */
         }
         @media (max-width: 768px) { 
           .texto_ropa{
@@ -216,16 +216,14 @@
               <a class="navbar-brand" href="#">
                   <img style="width:50px;" src='{{asset("images/Isotipo-3.png")}}'>
               </a>
-              {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" style="filter: invert(100%);" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button> --}}
               <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
-                  <li class="nav-item">
+                <div class="d-flex justify-content-between" style="width:100%">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
+                    <li class="nav-item">
                     <a class="nav-link " style="color:black" aria-current="page" href="{{url('/objetivo')}}"  style="padding-right: 25px;">Objetivo</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style="color:black" href="#" style="padding-right: 25px;">Propiedades</a>
+                    <a class="nav-link" style="color:black" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" style="color:black" href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
@@ -236,25 +234,28 @@
                   <li class="nav-item">
                     <a class="nav-link" style="color:black"  href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
                   </li>
-                  <li class="nav-item">
+                </div>
+                <div class="d-flex">
+
+                  <li class="nav-item" style="list-style: none;">
                     @if(Auth::check())
                     <div class="dropdown mt-1">
                       <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:12px">
                         {{Auth::user()->name}}
                         <br>
-                      {{Auth::user()->puntos}} SANTOS
+                        {{Auth::user()->puntos}} SANTOS
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      </div>
                         <li><a class="dropdown-item" href="{{url('/salir')}}">SALIR</a></li>
                       </ul>
-                    </div>
-                    @else
-                    <a type="button" class="btn nav-link mt-1" style="color:black" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      Ingresar
-                    </a>
-                    @endif
-                    
-                  </li>
+                      @else
+                      <a type="button" class="btn nav-link mt-1" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Ingresar
+                      </a>
+                      @endif
+                    </li>
+                  </div>
                 </ul>
               </div>
             </div>

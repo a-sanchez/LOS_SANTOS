@@ -27,10 +27,15 @@ class routes_diseño_nav extends Controller
     {
         return view('diseño.vender_propiedad');
     }
+
+    public function propiedades(){
+        return view('diseño.propiedad');
+    }
     public function index()
     {
         //
     }
+
 
     /**
      * Show the form for creating a new resource.

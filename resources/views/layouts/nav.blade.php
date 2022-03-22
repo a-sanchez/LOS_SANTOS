@@ -34,7 +34,9 @@
     </style>
 @endpush
 @section('menu')
-<nav class="navbar navbar-expand-lg navbar-light " >
+<section>
+
+  <nav class="navbar navbar-expand-lg navbar-light " >
     <div class="container-fluid">
       <a class="navbar-brand" href="{{url('/')}}">
           <img style="width:50px;" src='{{asset("images/Isotipo-2.png")}}'>
@@ -43,12 +45,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
-          <li class="nav-item">
+        <div class="d-flex justify-content-between" style="width:100%">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
+            <li class="nav-item">
             <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}" style="padding-right: 25px;">Objetivo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" style="padding-right: 25px;">Propiedades</a>
+            <a class="nav-link" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
           </li>
           <li class="nav-item">
             <a class="nav-link " href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
@@ -59,7 +62,10 @@
           <li class="nav-item">
             <a class="nav-link " href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
           </li>
-          <li class="nav-item">
+        </div>
+
+        <div class="d-flex" style="text-align:center">
+          <li class="nav-item" style="width: 100%;">
             @if(Auth::check())
             <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;font-size:12px">
@@ -72,30 +78,33 @@
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1" style="color:rgb(253, 253, 253)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a type="button" class="btn nav-link mt-1" style="color:rgb(253, 253, 253);font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Ingresar
             </a>
             @endif
           </li>
+        </div>
+        
         </ul>
       </div>
     </div>
   </nav>
- 
-    <main>
-      <div id="colorlib-main">
-		  	<div class="colorlib-contact">
-		  		<div class="container-fluid">
-		  			<!-- titulo -->
+</section>
+  
+<main>
+  <div id="colorlib-main">
+        <div class="colorlib-contact">
+          <div class="container-fluid">
+            <!-- titulo -->
             <div class="row">
-		  				<div class="col-md-12">
-		  					<h1 class="animate-box fadeInLeft animated" data-animate-effect="fadeInLeft">
+              <div class="col-md-12">
+                <h1 class="animate-box fadeInLeft animated" data-animate-effect="fadeInLeft">
                     @yield('title')
-                </h1>
-		  				</div>
-		  			</div>
-                 <!-- body -->
-                 @yield("body")
+                  </h1>
+                </div>
+              </div>
+              <!-- body -->
+              @yield("body")
 	    			</div>
 	    		</div>
 	    	</div>

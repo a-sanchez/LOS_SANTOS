@@ -80,6 +80,8 @@ Route::get('/contactar_agente',[routes_diseño_nav::class,'contactar_agente']);
 
 Route::get('/vender_propiedad',[routes_diseño_nav::class,'vender_propiedad']);
 
+Route::get('/propiedades',[routes_diseño_nav::class,'propiedades']);
+
 /**RUTAS PARA CATEGORIAS-PRODUCTOS */
 
 // Route::get('/arte',[ProductosController::class,'arte']);
