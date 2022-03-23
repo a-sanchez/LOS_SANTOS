@@ -530,6 +530,7 @@
       form.append('categoria','relojes');
       form.append('filtrado',1);
       let url = '{{url("/relojes/{categoria}")}}'.replace('{categoria}',categoria);
+      console.log(url);
       let init = {
                   method:'POST',
                   headers: {
