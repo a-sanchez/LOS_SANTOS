@@ -24,7 +24,7 @@
     <script src="{{ asset('lib/jquery/jquery.min.js') }}" ></script>
     <!-- IMPORTACION BOOTSTRAP -->
     <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script>
+    {{-- <script src="{{asset('lib/bootstrap/js/bootstrap.min.js')}}"></script> --}}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
     <!-- IMPORTACION SWEETALERT 2 -->

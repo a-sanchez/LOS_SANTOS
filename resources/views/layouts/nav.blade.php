@@ -28,8 +28,20 @@
 
       .show {
       background-color:rgba(0, 0, 0, .5)!important;
+      
       }
 
+      .navbar-light .navbar-nav .nav-link:hover {
+        color: #e7b22b;
+      text-decoration:#e7b22b;
+      border-bottom: 2px solid;
+      font-weight: 600;
+      }
+      .boton:hover{
+        color: #e7b22b !important;
+        border-bottom: 2px solid #e7b22b;
+        font-weight: 600;
+      }
 
     </style>
 @endpush
@@ -45,22 +57,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <div class="d-flex justify-content-between" style="width:100%">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
+        <div class="d-flex justify-content-between" style="width:100%;padding-left: 12px;">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center"  data-animation="center">
             <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}" style="padding-right: 25px;">Objetivo</a>
+            <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}">Objetivo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
+            <a class="nav-link" href="{{url('/propiedades')}}" >Propiedades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
+            <a class="nav-link " href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{url('/contactar_agente')}}" style="padding-right: 25px;"  aria-disabled="true">Contactar Agente</a>
+            <a class="nav-link " href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
+            <a class="nav-link " href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
           </li>
         </div>
 
@@ -68,7 +80,7 @@
           <li class="nav-item" style="width: 100%;">
             @if(Auth::check())
             <div class="dropdown">
-              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;font-size:12px">
+              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;font-size:12px">
                 {{Auth::user()->name}}
                 <br>
                 {{Auth::user()->puntos}} SANTOS
@@ -78,7 +90,7 @@
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1" style="color:rgb(253, 253, 253);font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a type="button" class="btn nav-link mt-1 boton" style="color:rgb(253, 253, 253);font-family:Arial, Helvetica, sans-serif;text-align: start;" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Ingresar
             </a>
             @endif
@@ -90,6 +102,44 @@
     </div>
   </nav>
 </section>
+
+<div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="col-md-11" style="text-align:center">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold;">Ingresa a tu perfil</h5>
+        </div>
+        <div class="col-md-1">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+      <form id="login" onsubmit="submitForm2()">
+        @csrf
+        <div class="modal-body">
+          <div class="col-md-12" style="text-align: center;">
+            <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
+           {{-- <a style="font-size: 3rem;"><i class="fas fa-user-circle" style="color:#B78B1E"></i></a> --}}
+          </div>
+          <div class="col-md-12" style="text-align:center">
+            <h5 style="color:#B78B1E;font-family:Avenir Next Condensed;font-weight:bold;font-size:21px">CUENTA</h5>
+          </div>
+          <div class="input-group col-md-12 mt-3">
+            <span class="input-group-text" style="background-color:#B78B1E;border-color: #B78B1E;"><a style="color:white"><i class="fas fa-envelope"></i></a></span>
+            <input type="text" placeholder="Email" id="email" class="form-control" style="text-align:center;color:black">
+          </div>
+          <div class="input-group col-md-12 mt-4 mb-5">
+            <span class="input-group-text" style="background-color:#B78B1E;border-color: #B78B1E;"><a style="color:white"><i class="fas fa-lock"></i></a></span>
+            <input type="password"placeholder="Contraseña" id="password" class="form-control" style="text-align:center;color:black">
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="submit" class="btn" style="color:#B78B1E;font-weight:bold;font-size:21px">Continuar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
   
 <main>
   <div id="colorlib-main">
@@ -113,5 +163,27 @@
 @endsection
 @push('scripts')
     <script>
+      async function submitForm2(){
+       event.preventDefault();
+       let form= new FormData(document.getElementById('login'));
+       form.append('email',document.getElementById('email').value);
+       form.append('password',document.getElementById('password').value);
+       let url = "{{url('/login')}}";
+       let init = {
+         method: 'POST',
+         body: form
+       };
+       let req = await fetch(url,init);
+       if (req.ok){
+         let res = await req.json();
+         if(res==1){
+           window.location.href='{{url("/historial")}}';
+         }
+         else{
+          window.location.href='{{url("/")}}';
+         }
+        
+       }
+    }
     </script>
 @endpush

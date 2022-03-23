@@ -221,19 +221,19 @@
                 <div class="d-flex justify-content-between" style="width:100%">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
                     <li class="nav-item">
-                    <a class="nav-link " style="color:black" aria-current="page" href="{{url('/objetivo')}}"  style="padding-right: 25px;">Objetivo</a>
+                    <a class="nav-link boton" style="color:black" aria-current="page" href="{{url('/objetivo')}}"  style="padding-right: 25px;">Objetivo</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style="color:black" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
+                    <a class="nav-link boton" style="color:black" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style="color:black" href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
+                    <a class="nav-link boton" style="color:black" href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style="color:black"  href="{{url('/contactar_agente')}}" style="padding-right: 25px;"  aria-disabled="true">Contactar Agente</a>
+                    <a class="nav-link boton" style="color:black"  href="{{url('/contactar_agente')}}" style="padding-right: 25px;"  aria-disabled="true">Contactar Agente</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" style="color:black"  href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
+                    <a class="nav-link boton" style="color:black"  href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
                   </li>
                 </div>
                 <div class="d-flex">
@@ -251,7 +251,7 @@
                         <li><a class="dropdown-item" href="{{url('/salir')}}">SALIR</a></li>
                       </ul>
                       @else
-                      <a type="button" class="btn nav-link mt-1" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Ingresar
                       </a>
                       @endif

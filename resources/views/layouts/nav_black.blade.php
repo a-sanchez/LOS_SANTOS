@@ -26,9 +26,22 @@
       #password::placeholder{
         color:black;
       }
+      .navbar-light .navbar-nav .nav-link:hover  {
+      color: #e7b22b;
+      text-decoration:#e7b22b;
+      border-bottom: 2px solid;
+      font-weight: 600;
+      
+      }
 
-     
+     .boton:hover{
+        color: #e7b22b !important;
+        border-bottom: 2px solid #e7b22b;
+        font-weight: 600;
+      }
 
+
+      
     </style>
 @endpush
 @section('menu')
@@ -41,22 +54,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <div class="d-flex justify-content-between" style="width:100%">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
+        <div class="d-flex justify-content-between" style="width:100%;padding-left: 12px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" data-animation="center">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}" style="padding-right: 25px;">Objetivo</a>
+            <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
+            <a class="nav-link" href="{{url('/propiedades')}}" >Propiedades</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
+            <a class="nav-link " href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{url('/contactar_agente')}}" style="padding-right: 25px;"  aria-disabled="true">Contactar Agente</a>
+            <a class="nav-link " href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
+            <a class="nav-link " href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
           </li>
         </div>
 
@@ -64,7 +77,7 @@
           <li class="nav-item" style="list-style: none;">
             @if(Auth::check())
             <div class="dropdown mt-1">
-              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
+              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
                 {{Auth::user()->name}}
                 <br>
                 {{Auth::user()->puntos}} SANTOS
@@ -74,7 +87,7 @@
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
+            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
               Ingresar
             </a>
             @endif
