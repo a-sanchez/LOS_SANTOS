@@ -1,7 +1,8 @@
 @extends('layouts.nav')
 @push('styles')
     <style>
-        body,html{
+        body,html
+        {
             background-image: url('images/background.jpg');
             background-position: center;
             background-repeat:no-repeat; 
