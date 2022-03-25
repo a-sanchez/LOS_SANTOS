@@ -165,6 +165,7 @@
     <script>
       async function submitForm2(){
        event.preventDefault();
+       console.log('hola');
        let form= new FormData(document.getElementById('login'));
        form.append('email',document.getElementById('email').value);
        form.append('password',document.getElementById('password').value);
@@ -183,6 +184,9 @@
           window.location.href='{{url("/")}}';
          }
         
+       }
+       else{
+         alert("Usuario o contraseña incorrectos");
        }
     }
     </script>

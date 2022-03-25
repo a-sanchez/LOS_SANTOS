@@ -178,6 +178,9 @@
          }
         
        }
+       else{
+         alert("Usuario o contraseña incorrectos");
+       }
     }
     </script>
 @endpush

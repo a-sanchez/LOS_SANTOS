@@ -451,6 +451,9 @@
          }
         
        }
+       else{
+         alert("Usuario o contraseña incorrectos");
+       }
     }
 
     async function filtrado_arte(){

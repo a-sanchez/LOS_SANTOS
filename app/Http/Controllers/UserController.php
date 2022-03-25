@@ -26,7 +26,7 @@ class UserController extends Controller
     {
        
        $credenciales =User::where('email',$request->email)
-                                        ->where('password',$request->password);
+                                        ->where('password',$request->password)->where('estatus','activo');
             
         if($credenciales->exists()){
             Auth::login($credenciales->first());
@@ -39,7 +39,7 @@ class UserController extends Controller
             }
         }
         else{
-            return response()->json("Usuario o contraseña incorrectos",400);
+            return response()->json("Usuario o contraseña incorrectos",404);
         }
        
     }
