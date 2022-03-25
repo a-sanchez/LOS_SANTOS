@@ -51,7 +51,7 @@
         }
         
         #fondo{
-          background-image: url('images/background.jpg');
+          background-image: url('images/proyectos.jpg');
           background-position: center;
           background-repeat:no-repeat; 
           background-size: cover; 
@@ -202,13 +202,13 @@
 </div>
 <div class="row mt-5"></div>
 <div class="row mt-5"></div>
-<div style="width: 100%;">
+{{-- <div style="width: 100%;">
     <div class="row mt-5" style="width:100%">
         <div class="col-md-12" style="text-align:end">
             <a href="" type="link" style="color:white;text-decoration: underline 3px;font-size:20px">CHAT EN VIVO</a>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="row mt-5"></div>
 
 <div class="row ocultar" style="background-color:white" >
@@ -321,7 +321,7 @@
     <div class="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <a onclick="filtrado_ropa()"><img src='{{asset("images/Arte.jpg")}}' class="zoom"></a>
+          <a onclick="filtrado_arte()"><img src='{{asset("images/Arte.jpg")}}' class="zoom"></a>
           <div class="texto_ropa" >
             <a >ARTE<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
@@ -451,6 +451,30 @@
          }
         
        }
+    }
+
+    async function filtrado_arte(){
+      event.preventDefault();
+      let categoria = 1;
+      let form = new FormData();
+      form.append('categoria','arte');
+      form.append('filtrado',1);
+      let url = '{{url("/arte/{categoria}")}}'.replace('{categoria}',categoria);
+      let init = {
+                  method:'POST',
+                  headers: {
+                    'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    'Content-Type':'application/json'
+                 },
+                 body:JSON.stringify(form)
+      }
+      let req = await fetch(url,init);
+      if(req.ok){
+        window.location.href=url;
+      }
+      else{
+        alert('Error');
+      }
     }
     async function filtrado_ropa(){
       event.preventDefault();

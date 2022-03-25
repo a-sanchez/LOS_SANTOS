@@ -61,7 +61,7 @@
         <div class="col-md-4">
             <label>Cantidad disponible</label>
             <input type="text" name="inventario" id="inventario" class="form-control" style="border-color:#b0831e" oninput="llenado()" required>
-            <a type="text" style="display:none" name="inventario_back" id="inventario_back" class="form-control" style="border-color:#b0831e"></a>
+            <input type="text" style="display:none" name="inventario_back" id="inventario_back" class="form-control" style="border-color:#b0831e;color:black">
         </div>
         <div class="col-md-4">
             <label>IMAGEN</label>
@@ -183,7 +183,7 @@
 <script>
     function llenado(){
         var x = document.getElementById('inventario').value;
-        document.getElementById('inventario_back').innerHTML = x;
+        document.getElementById('inventario_back').value = x;
     }
 
     function mostrar(id){

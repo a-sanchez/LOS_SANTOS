@@ -43,6 +43,9 @@
                             @if(sizeof($ordenes)==0)
                             <h5 class="mt-5 mb-5" style="font-weight:bold">El carrito No cuenta con productos</h5>
                             @else
+                            <input type="hidden" id="santos_actuales" value="{{Auth::user()->puntos}}" oninput="new_valor();">
+                            <h5 id="santos_nuevos" class="mt-2" oninput="new_valor();"><b>Cantidad de Santos:</b> {{$cantidad_esperada}}</h5>
+                            <input type="hidden" id="totales" value="{{$cantidad_esperada}}" oninput="new_valor();">
                             <form id="form_cantidades">
                                 <div class="row">
                                 <input type="hidden" id="fecha" name="fecha" value="{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}">
@@ -94,7 +97,7 @@
                                                 <div class="col-md-3"></div>
                                                 <div class="col-md-6">
                                                     <input id="cantidad_comprada-{{$orden->id}}" type="number" name="cantidad_comprada" precio ="{{$orden->precio}}"oninput="new_valor();" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
-                                                    
+                                                    <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                 </div>
                                                 <div class="col-md-3"></div>
                                             </div>
@@ -135,7 +138,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}"  precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
-                                                        
+                                                        <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                     </div>
                                                     <div class="col-md-3">
                                                     </div>
@@ -176,7 +179,7 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
-                                                            
+                                                            <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                         </div>
                                                         <div class="col-md-3">
                                                         </div>
@@ -215,7 +218,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
-                                                                
+                                                                <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                             </div>
                                                             <div class="col-md-3">
                                                             </div>
@@ -254,7 +257,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio="{{$orden->precio}}" oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
- 
+                                                        <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                     </div>
                                                     <div class="col-md-3">
                                                     </div>
@@ -279,7 +282,7 @@
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-12">
-                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');cantidad({{Auth::user()->id}});email()"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                                <button onclick="inventario({{$ordenes}})"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -303,65 +306,69 @@
 @endsection
 @push('scripts') 
 <script>
-
+    let bandera=0;
+    async function inventario(ordenes){
+        ordenes.forEach(async(element)=>{
+             event.preventDefault();
+             console.log(element.producto);
+      });
+    }
     async function cantidad(id){
         event.preventDefault();
-        let total = (document.getElementById('total_final').innerHTML).split("$");
-        let total2 = parseFloat(total[1]);
-        let puntos = {{Auth::user()->puntos}};
-        let newpoints = (puntos - total2).toFixed(2);
-        let form = new FormData();
-        form.append('puntos',newpoints);
-        let url = "{{url('usuarios/{id}')}}".replace('{id}',id);
-        let init = {
-                method:"PUT",
-                headers:{
-                    'X-CSRF-Token':document.getElementsByName("_token")[0].value
-                        , "Content-Type": "application/json"
-                },
-                body:JSON.stringify({'puntos':newpoints})
-            }
-            let req = await fetch(url,init);
-            if(req.ok){
-                console.log('ok')
-            }
-            else{
-                Swal.fire({
-                        icon: 'error'
-                        , title: 'Error'
-                        , text: 'Error al actualizar puntos'
-                    , });
-            }
+        let totales = document.getElementById("totales").value;
+        // let puntos = {{Auth::user()->puntos}};
+        // let newpoints = (puntos - total2).toFixed(2);
+         let form = new FormData();
+         form.append('puntos',totales);
+         let url = "{{url('usuarios/{id}')}}".replace('{id}',id);
+         let init = {
+                 method:"PUT",
+                 headers:{
+                     'X-CSRF-Token':document.getElementsByName("_token")[0].value
+                         , "Content-Type": "application/json"
+                 },
+                 body:JSON.stringify({'puntos':totales})
+             }
+             let req = await fetch(url,init);
+             if(req.ok){
+                 console.log('ok')
+             }
+             else{
+                 Swal.fire({
+                         icon: 'error'
+                         , title: 'Error'
+                         , text: 'Error al actualizar puntos'
+                     , });
+             }
 
     }
     let flag=0;
     function actualizar(ordenes,folio,fecha){
-        ordenes.forEach(async(element)=>{
-            event.preventDefault();
-            let url = "{{url('carrito/{id}')}}".replace('{id}',element.id);
-            let init = {
-                method: 'PUT',
-                headers: {
-                    'X-CSRF-Token' : "{{ csrf_token() }}",
-                        'Content-Type':'application/json'
-                },
-                body:JSON.stringify({'folio':folio,'fecha':fecha})
-            }
-
-            let req = await fetch(url,init);
-            if(req.ok){
-                if(flag==0){
-                flag++;
+         ordenes.forEach(async(element)=>{
+             event.preventDefault();
+             let url = "{{url('carrito/{id}')}}".replace('{id}',element.id);
+             let init = {
+                 method: 'PUT',
+                 headers: {
+                     'X-CSRF-Token' : "{{ csrf_token() }}",
+                         'Content-Type':'application/json'
+                 },
+                 body:JSON.stringify({'folio':folio,'fecha':fecha})
                 }
-            }
-            else{
-                Swal.fire({
-                       icon: 'error',
-                       title: 'Error',
-                       text: "Error al actualizar estatus"
-                     });
-            }
-     });
+             let req = await fetch(url,init);
+             if(req.ok){
+                 if(flag==0){
+                 flag++;
+                 }
+             }
+             else{
+                 Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: "Error al actualizar estatus"
+                      });
+             }
+      });
     }
  function new_valor(precio,id) {
      var total=0;
@@ -373,42 +380,57 @@
        style: 'currency',
        currency: 'USD',
      });
- document.getElementById("total_final").innerHTML=formatter.format(total);
+     document.getElementById("total_final").innerHTML=formatter.format(total);
+    let santos = parseFloat(document.getElementById("santos_actuales").value);
+    let santos_precio = parseFloat(total);
+    document.getElementById("santos_nuevos").innerHTML=(santos - santos_precio);
+    document.getElementById("totales").value=(santos - santos_precio);
 }
 
 
-    async function cambio_cantidad(id){
+    async function cambio_cantidad(id)
+    {
         event.preventDefault();
-        let form = new FormData();
+        let numero = parseInt(document.getElementById(`cantidad_comprada-${id}`).value);
+        let inventario = parseInt(document.getElementById(`inventario_back-${id}`).value);
         let cantidad = document.getElementById(`cantidad_comprada-${id}`).value;
-        form.append('id',id);
-        form.append('cantidad_comprada',cantidad);
-
-        let url="{{url('carrito/{id}')}}".replace('{id}',id);
-        let init = {
-            method:"PUT",
-            headers:{
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    , "Content-Type": "application/json"
-            },
-            body:JSON.stringify(Object.fromEntries(form))
-        }
-        let req = await fetch(url,init);
-        if(req.ok){
-            console.log("ok");
+        if(numero<=inventario){
+            let form = new FormData();
+            form.append('id',id);
+            form.append('cantidad_comprada',cantidad);
+            let url="{{url('carrito/{id}')}}".replace('{id}',id);
+            let init = {
+                method:"PUT",
+                headers:{
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        , "Content-Type": "application/json"
+                },
+                body:JSON.stringify(Object.fromEntries(form))
+            }
+            let req = await fetch(url,init);
+            if(req.ok){
+                console.log("ok");
+            }
+            else{
+                Swal.fire({
+                        icon: 'error'
+                        , title: 'Error'
+                        , text: 'Error al actualizar cantidad'
+                     });
+            }
         }
         else{
-            Swal.fire({
-                    icon: 'error'
-                    , title: 'Error'
-                    , text: 'Error al actualizar cantidad'
-                 });
+        Swal.fire({
+               icon: 'error',
+               title: 'Error',
+               text: "No contamos con esa cantidad"
+             });
         }
     }
 function email() {
-    event.preventDefault();
-    alert('Se ha mandado la orden a tu correo, espere un momento..');
-    window.location.href = '{{url("send-mail")}}';
+     event.preventDefault();
+     alert('Se ha mandado la orden a tu correo, espere un momento..');
+     window.location.href = '{{url("send-mail")}}';
 }
 </script>
 @endpush

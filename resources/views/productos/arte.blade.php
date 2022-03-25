@@ -198,7 +198,7 @@
                 </div>
                 <div class="row mt-5 mb-2">
                   <div class="col-md-3">
-                    <input style="font-weight:bold;text-align:center" id="cantidad_comprada" type="number" name="cantidad_comprada" value="0" min="0" class="form-control">
+                    <input style="font-weight:bold;text-align:center" onclick="cambio_inventario()" id="cantidad_comprada" type="number" name="cantidad_comprada" value="0" min="0" class="form-control">
                   </div>
                   <div class="col-md-7">
                   </div>
