@@ -282,7 +282,7 @@
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-12">
-                                                <button onclick="inventario({{$ordenes}})"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');cantidad({{Auth::user()->id}});inventario({{$ordenes}});email();"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
                                             </div>
                                         </div>
                                     </div>
@@ -310,7 +310,32 @@
     async function inventario(ordenes){
         ordenes.forEach(async(element)=>{
              event.preventDefault();
-             console.log(element.producto);
+             let new_inventario = 0;
+             new_inventario = parseFloat(element.inventario_back)- element.cantidad_comprada;
+             let url = "{{url('historial/{id}')}}".replace('{id}',element.producto);
+             let init = {
+                    method: 'PUT',
+                    headers: {
+                        'X-CSRF-Token' : "{{ csrf_token() }}",
+                            'Content-Type':'application/json'
+                    },
+                    body:JSON.stringify({'inventario':new_inventario,'inventario_back':new_inventario})
+                }
+                let req = await fetch(url,init);
+                if(req.ok){
+                    if(flag==0){
+                        console.log("ok");
+                        flag++;
+                    }
+                }
+                else{
+                    Swal.fire({
+                              icon: 'error',
+                              title: 'Error',
+                              text: "Error al actualizar inventario"
+                            });
+                }
+
       });
     }
     async function cantidad(id){

@@ -136,11 +136,20 @@
       <div class="swiper-button-prev"></div>
     </div>
   </div>
+  @if(Auth::check())
   <div class="row">
     <div class="col-md-12" style="text-align:center">
       <a href="{{url('/carrito')}}" style="color:black;font-size:25px;text-decoration: none;">VER CARRITO DE COMPRA</a>
     </div>
   </div>
+  @else
+  <div class="row" style="display:none">
+    <div class="col-md-12" style="text-align:center">
+      <a href="{{url('/carrito')}}" style="color:black;font-size:25px;text-decoration: none;">VER CARRITO DE COMPRA</a>
+    </div>
+  </div>
+  @endif
+
   <div class="row" style="text-align:center;background-color:white">
     <div class="col-md-12">
       <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
@@ -222,13 +231,6 @@
               <button type="submit" class="btn" style="background-color:white;color:black;display: contents;"><a><i
                     style="font-size:2rem;color:#b78b1e" id="shopping-cart" class="fas fa-shopping-cart"></i></a>Agregar
                 al carrito</button>
-            </div>
-          </div>
-          @else
-          <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6" style="text-align:end">
-              <h5 style="font-size:15px">Si desea ordenar inicie sesión</h5>
             </div>
           </div>
           @endif

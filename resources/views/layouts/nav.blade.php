@@ -85,7 +85,7 @@
                 {{Auth::user()->puntos}} SANTOS
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="{{url('/salir')}}">SALIR</a></li>
+                <li><a class="dropdown-item" href="{{url('/salir')}}" style="background-color:#B78B1E">SALIR</a></li>
               </ul>
             </div>
             @else

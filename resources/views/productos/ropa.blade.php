@@ -143,11 +143,13 @@
       <div class="swiper-button-prev"></div>
     </div>
 </div>
+@if(Auth::check())
 <div class="row">
   <div class="col-md-12" style="text-align:center">
     <a href="{{url('/carrito')}}" style="color:black;font-size:25px;text-decoration: none;">VER CARRITO DE COMPRA</a>
   </div>
 </div>
+@endif
 <div class="row" style="text-align:center;background-color:white">
     <div class="col-md-12">
       <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
