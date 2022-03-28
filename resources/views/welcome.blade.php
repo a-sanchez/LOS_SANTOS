@@ -73,7 +73,7 @@
         text-align: start;
         color:white;
         font-size:30px;
-        font-family:Avenir Next Condensed;
+        font-family:Kinlock Regular;
 
         /* Center slide text vertically */
         
@@ -315,7 +315,7 @@
 </div>
 <div class="row option" style="background-color:#212224;">
   <div class="col-md-12 mt-3 mb-3" style="background-color:#212224;">
-  <h1 style="color:white;font-family:Avenir Next Condensed;font-size:50px;">Categorías de Comprador</h1>
+  <h1 class="mt-4 mb-4" style="color:white;font-family:Kinlock Regular;font-size:50px;">Categorías de Comprador</h1>
   </div>
   <div class="row">
     <div class="swiper">
@@ -382,7 +382,7 @@
     </div> --}}
 
     <div class="row mt-5" style="background-color:#212224;">
-      <h1 style="color:white;font-family:Avenir Next Condensed;font-size:50px;">Categorías de Filantropía</h1>
+      <h1 style="color:white;font-family:Kinlock Regular;font-size:50px;">Categorías de Filantropía</h1>
     </div>
     <div class="row  mt-5" id="fondo" style="background-color:#212224;">
       <div class="col-md-12 mt-5"></div>
@@ -394,7 +394,7 @@
       <div class="row mt-5">
         <div class="col-md-1"></div>
         <div class="col-md-11 mb-5">
-          <a style="color:white;font-size:50px;font-family:Avenir Next Condensed">Proyectos <i style="font-size:2rem"class="fas fa-long-arrow-alt-right"></i></a>
+          <a style="color:white;font-size:50px;font-family:Kinlock Regular">Proyectos <i style="font-size:2rem"class="fas fa-long-arrow-alt-right"></i></a>
           {{-- <h5 style="color:white;font-family:Avenir Next Condensed;font-size:15px">16,342 LISTINGS </h5> --}}
         </div>
       </div>
