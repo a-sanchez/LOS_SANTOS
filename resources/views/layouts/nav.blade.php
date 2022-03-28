@@ -4,7 +4,6 @@
         .navbar-light .navbar-nav .nav-link {
           color: white;
           font-size: 15px;
-          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .navbar-nav.navbar-center {
           position: relative;
@@ -77,7 +76,7 @@
         </div>
 
         <div class="d-flex" style="text-align:center">
-          <li class="nav-item" style="width: 100%;">
+          <li class="nav-item" style="width: 100%;list-style: none;">
             @if(Auth::check())
             <div class="dropdown">
               <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;font-size:12px">
