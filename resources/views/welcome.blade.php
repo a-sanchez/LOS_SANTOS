@@ -237,26 +237,25 @@
                   </li>
                 </div>
                 <div class="d-flex">
-
                   <li class="nav-item" style="list-style: none;">
                     @if(Auth::check())
                     <div class="dropdown mt-1">
-                      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:12px">
+                      <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
                         {{Auth::user()->name}}
                         <br>
                         {{Auth::user()->puntos}} SANTOS
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      </div>
                         <li><a class="dropdown-item" href="{{url('/salir')}}">SALIR</a></li>
                       </ul>
-                      @else
-                      <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Ingresar
-                      </a>
-                      @endif
-                    </li>
-                  </div>
+                    </div>
+                    @else
+                    <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
+                      Ingresar
+                    </a>
+                    @endif
+                  </li>
+                </div>
                 </ul>
               </div>
             </div>

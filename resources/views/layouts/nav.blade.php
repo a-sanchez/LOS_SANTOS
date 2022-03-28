@@ -164,7 +164,7 @@
     <script>
       async function submitForm2(){
        event.preventDefault();
-       console.log('hola');
+      //  console.log('hola');
        let form= new FormData(document.getElementById('login'));
        form.append('email',document.getElementById('email').value);
        form.append('password',document.getElementById('password').value);

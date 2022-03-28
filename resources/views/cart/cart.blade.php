@@ -383,8 +383,8 @@
      document.getElementById("total_final").innerHTML=formatter.format(total);
     let santos = parseFloat(document.getElementById("santos_actuales").value);
     let santos_precio = parseFloat(total);
-    document.getElementById("santos_nuevos").innerHTML=(santos - santos_precio);
-    document.getElementById("totales").value=(santos - santos_precio);
+    document.getElementById("santos_nuevos").innerHTML= "Cantidad de Santos: " + (santos - santos_precio);
+    document.getElementById("totales").value= (santos - santos_precio);
 }
 
 
