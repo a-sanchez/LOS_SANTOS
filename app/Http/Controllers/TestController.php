@@ -17,6 +17,10 @@ class TestController extends Controller
         $nombre = Auth::user()->name;
         $user=Auth::user()->id;
         $date=Carbon::today();
+        $folio = DB::table('ordenes')
+                ->select('folio')
+                ->whereDate('ordenes.created_at',$date)
+                ->max('folio');
         $ordenes=DB::table('ordenes')
                  ->select('ordenes.*','productos.categoria','productos.nombre','productos.nombre',
                  'productos.precio','productos.inventario','productos.imagen','productos.descripcion_arte',
@@ -27,6 +31,7 @@ class TestController extends Controller
                 ->join('productos','productos.id','=','ordenes.id_producto')
                 ->where('ordenes.id_usuario',$user)
                 ->whereDate('ordenes.created_at',$date)
+                ->where('folio',$folio)
                 ->get();
         $folio =str_pad($ordenes[0]->folio . "/" . date("Y"), 10, "0", STR_PAD_LEFT);
         $data["email"] = $email;

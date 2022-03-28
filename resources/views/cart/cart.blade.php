@@ -297,7 +297,8 @@
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-12">
-                                                <button onclick="actualizar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}');cantidad({{Auth::user()->id}});inventario({{$ordenes}});email();"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                                <button onclick="validar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}',{{Auth::user()->id}});"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                                {{--  --}}
                                             </div>
                                         </div>
                                     </div>
@@ -321,6 +322,18 @@
 @endsection
 @push('scripts') 
 <script>
+    function validar(ordenes,folio,fecha,id){
+        let valor = document.getElementById("totales").value;
+        if(valor < 0){ 
+            alert("USTED NO CUENTA CON SUFICIENTES SANTOS PARA REALIZAR ESTA ORDEN");
+        }
+        else{
+            actualizar(ordenes,folio,fecha);
+            cantidad(id);
+            inventario(ordenes);
+            email();
+        }
+    }
     let bandera=0;
     async function eliminar(id) {
         event.preventDefault();
