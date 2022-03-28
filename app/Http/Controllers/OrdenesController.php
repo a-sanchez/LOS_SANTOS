@@ -204,8 +204,10 @@ class OrdenesController extends Controller
      * @param  \App\Models\ordenes  $ordenes
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ordenes $ordenes)
+    public function destroy($id)
     {
-        //
+        $orden=ordenes::find($id);
+        ordenes::destroy($id);
+        return $orden;
     }
 }

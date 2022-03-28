@@ -94,10 +94,13 @@
                                         <div class="col-md-3"></div>
                                         <div class="col-md-3" style="align-items: center;display:flex;">
                                             <div class="row">
-                                                <div class="col-md-3"></div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-5">
                                                     <input id="cantidad_comprada-{{$orden->id}}" type="number" name="cantidad_comprada" precio ="{{$orden->precio}}"oninput="new_valor();" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
                                                     <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
+                                                </div>
+                                                <div class="col-md-2" style="align-items: center;display:flex;"> 
+                                                   <a><i class="fas fa-trash-alt" style="font-size:2em;color:#b0831e" onclick="eliminar({{$orden->id}});"></i></a>
                                                 </div>
                                                 <div class="col-md-3"></div>
                                             </div>
@@ -134,12 +137,15 @@
                                             </div>
                                             <div class="col-md-3" style="align-items: center;display:flex;">
                                                 <div class="row">
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-5">
                                                         <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}"  precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
                                                         <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                     </div>
+                                                    <div class="col-md-2" style="align-items: center;display:flex;">
+                                                        <a><i class="fas fa-trash-alt" style="font-size:2em;color:#b0831e" onclick="eliminar({{$orden->id}});" ></i></a>
+                                                     </div>
                                                     <div class="col-md-3">
                                                     </div>
                                                 </div>
@@ -175,12 +181,15 @@
                                                 </div>
                                                 <div class="col-md-3" style="align-items: center;display:flex;">
                                                     <div class="row">
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-5">
                                                             <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
                                                             <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                         </div>
+                                                        <div class="col-md-2" style="align-items: center;display:flex;">
+                                                            <a><i class="fas fa-trash-alt" style="font-size:2em;color:#b0831e" onclick="eliminar({{$orden->id}});"></i></a>
+                                                         </div>
                                                         <div class="col-md-3">
                                                         </div>
                                                     </div>
@@ -214,12 +223,15 @@
                                                     </div>
                                                     <div class="col-md-3" style="align-items: center;display:flex;">
                                                         <div class="row">
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-2">
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-5">
                                                                 <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio ="{{$orden->precio}}"oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
                                                                 <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                             </div>
+                                                            <div class="col-md-2" style="align-items: center;display:flex;">
+                                                                <a><i class="fas fa-trash-alt" style="font-size:2em;color:#b0831e" onclick="eliminar({{$orden->id}});"></i></a>
+                                                             </div>
                                                             <div class="col-md-3">
                                                             </div>
                                                         </div>
@@ -253,12 +265,15 @@
                                             </div>
                                             <div class="col-md-3" style="align-items: center;display:flex;">
                                                 <div class="row">
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-2">
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-5">
                                                         <input style="text-align:center" id="cantidad_comprada-{{$orden->id}}" precio="{{$orden->precio}}" oninput="new_valor();" type="number" name="cantidad_comprada" value={{number_format($orden->cantidad_comprada,0)}} min="0" class="form-control numeros" onchange="cambio_cantidad({{$orden->id}})">
                                                         <input type="hidden" id="inventario_back-{{$orden->id}}" value="{{$orden->inventario_back}}">
                                                     </div>
+                                                    <div class="col-md-2" style="align-items: center;display:flex;">
+                                                        <a><i class="fas fa-trash-alt" style="font-size:2em;color:#b0831e" onclick="eliminar({{$orden->id}});"></i></a>
+                                                     </div>
                                                     <div class="col-md-3">
                                                     </div>
                                                 </div>
@@ -307,6 +322,26 @@
 @push('scripts') 
 <script>
     let bandera=0;
+    async function eliminar(id) {
+        event.preventDefault();
+        let url='{{url("ordenes/{id}")}}'.replace('{id}',id);
+        let init={
+            method:'DELETE',
+            headers:{'X-CSRF-TOKEN':"{{csrf_token()}}"
+            }
+        }
+        let req = await fetch(url,init);
+        if(req.ok){
+            location.reload();
+        }
+        else{
+            Swal.fire({
+                    icon:"error",
+                    title:"Error",
+                    text:"NOS SE PUEDE ELIMINAR"
+                });
+        }
+    }
     async function inventario(ordenes){
         ordenes.forEach(async(element)=>{
              event.preventDefault();
