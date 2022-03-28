@@ -73,7 +73,7 @@
         text-align: start;
         color:white;
         font-size:30px;
-        font-family:Kinlock Regular;
+        font-family:Avenir Next Condensed;
 
         /* Center slide text vertically */
         
