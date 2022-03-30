@@ -40,6 +40,25 @@
         font-weight: 600;
       }
 
+      @font-face{
+          font-family: 'Avenir Next Condensed';
+          src:url('css/Avenir Next Condensed.ttc') format('truetype');
+          font-style: normal;
+          font-weight: normal;
+        }
+        @font-face{
+          font-family: 'Cormorant1';
+          src:url('css/CormorantInfant-SemiBold.ttf') format('truetype');
+          font-style: normal;
+          font-weight: normal;
+        }
+        @font-face{
+          font-family: 'Cormorant2';
+          src:url('css/CormorantInfant-Medium.ttf') format('truetype');
+          font-style: normal;
+          font-weight: normal;
+        }
+
 
       
     </style>
@@ -47,37 +66,41 @@
 @section('menu')
 <nav class="navbar navbar-expand-lg navbar-light " >
     <div class="container-fluid">
-      <a class="navbar-brand" href="{{url('/')}}">
+      <div class="flex">
+        <a class="navbar-brand" href="{{url('/')}}">
           <img style="width:50px;" src='{{asset("images/Isotipo-3.png")}}'>
-      </a>
+        </a>
+      </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <div class="d-flex justify-content-between" style="width:100%;padding-left: 12px;">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" data-animation="center">
-          <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/propiedades')}}" >Propiedades</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
-          </li>
+        <div class="d-flex justify-content-between" style="width:100%;">
+          <div class="d-flex justify-content-center w-100">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" data-animation="center" style="margin-right:0px !important;">
+                <li class="nav-item">
+              <a class="nav-link " style="font-family:Cormorant1" aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="font-family:Cormorant1" href="{{url('/propiedades')}}" >Propiedades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " style="font-family:Cormorant1" href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " style="font-family:Cormorant1" href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " style="font-family:Cormorant1" href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
+            </li>
+          </div>
         </div>
 
         <div class="d-flex">
           <li class="nav-item" style="list-style: none;">
             @if(Auth::check())
             <div class="dropdown mt-1">
-              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
+              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px;font-family:Cormorant1">
                 {{Auth::user()->name}}
                 <br>
                 {{Auth::user()->puntos}} SANTOS
@@ -87,7 +110,7 @@
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
+            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Cormorant1" data-bs-toggle="modal" data-bs-target="#Modal">
               Ingresar
             </a>
             @endif

@@ -218,8 +218,8 @@
             <input type="text" id="id_usuario" name="id_usuario" value="{{Auth::user()->id}}" style="display:none">
             <div class="col-md-6"></div>
             <div class="col-md-6">
-              <button type="submit" class="btn" style="background-color:white;color:black;display: contents;"><a><i
-                    style="font-size:2rem;color:#b78b1e" id="shopping-cart" class="fas fa-shopping-cart"></i></a>Agregar
+              <button type="submit" class="btn" style="background-color:white;color:black;display: contents;"><a>
+                <img class="imagen" width="30" heigth="30" src="{{asset("images/carrito.png")}}"></a>Agregar
                 al carrito</button>
             </div>
           </div>

@@ -3,7 +3,7 @@
     <style>
         body,html
         {
-            background-image: url('images/background.jpg');
+            background-image: url('images/iniciopantalla.jpg');
             background-position: center;
             background-repeat:no-repeat; 
             background-size: cover; 
@@ -38,6 +38,18 @@
           font-style: normal;
           font-weight: normal;
         }
+        @font-face{
+          font-family: 'Cormorant1';
+          src:url('css/CormorantInfant-SemiBold.ttf') format('truetype');
+          font-style: normal;
+          font-weight: normal;
+        }
+        @font-face{
+          font-family: 'Cormorant2';
+          src:url('css/CormorantInfant-Medium.ttf') format('truetype');
+          font-style: normal;
+          font-weight: normal;
+        }
         .loader {
             position: fixed;
             left: 0px;
@@ -51,13 +63,12 @@
         }
         
         #fondo{
-          background-image: url('images/proyectos.jpg');
+          background-image: url('images/proyectos2.jpg');
           background-position: center;
           background-repeat:no-repeat; 
           background-size: cover; 
           height: 100%;
           width: 100%;
-          filter: brightness(0.8);
         }
         .colorlib-blog, .colorlib-work, .colorlib-about, .colorlib-services, .colorlib-contact {
         padding-top: 2em;
@@ -174,14 +185,25 @@
             display: none;
           }
         }
-
-
+        
         .modal-header{
           border-bottom: 2px solid #B78B1E;
         }
         .modal-footer{
           border-top: 2px solid #B78B1E;
         }
+        .navbar-light .navbar-nav .nav-link:hover {
+        color: #e7b22b;
+      text-decoration:#e7b22b;
+      border-bottom: 2px solid;
+      font-weight: 600;
+      }
+      .navbar-light .navbar-nav .nav-link:hover {
+        color: #e7b22b;
+      text-decoration:#e7b22b;
+      border-bottom: 2px solid;
+      font-weight: 600;
+      }
     </style>
 @endpush
 @section('body')
@@ -212,54 +234,66 @@
 <div class="row mt-5"></div>
 
 <div class="row ocultar" style="background-color:white" >
-        <nav class="navbar navbar-expand-lg navbar-light " >
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                  <img style="width:50px;" src='{{asset("images/Isotipo-3.png")}}'>
-              </a>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <div class="d-flex justify-content-between" style="width:100%">
-                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" style="margin-left: 30px;text-align: center;" data-animation="center">
-                    <li class="nav-item">
-                    <a class="nav-link boton" style="color:black" aria-current="page" href="{{url('/objetivo')}}"  style="padding-right: 25px;">Objetivo</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link boton" style="color:black" href="{{url('/propiedades')}}" style="padding-right: 25px;">Propiedades</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link boton" style="color:black" href="{{url('/nuestra_moneda')}}" style="padding-right: 25px;"  aria-disabled="true">Nuestra Moneda</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link boton" style="color:black"  href="{{url('/contactar_agente')}}" style="padding-right: 25px;"  aria-disabled="true">Contactar Agente</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link boton" style="color:black"  href="{{url('/vender_propiedad')}}" style="padding-right: 25px;"  aria-disabled="true">Vender Propiedad</a>
-                  </li>
-                </div>
-                <div class="d-flex">
-                  <li class="nav-item" style="list-style: none;">
-                    @if(Auth::check())
-                    <div class="dropdown mt-1">
-                      <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
-                        {{Auth::user()->name}}
-                        <br>
-                        {{Auth::user()->puntos}} SANTOS
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="{{url('/salir')}}">SALIR</a></li>
-                      </ul>
-                    </div>
-                    @else
-                    <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
-                      Ingresar
-                    </a>
-                    @endif
-                  </li>
-                </div>
-                </ul>
-              </div>
+  <nav class="navbar navbar-expand-lg navbar-light " >
+    <div class="container-fluid">
+      <div class="flex">
+        <a class="navbar-brand" href="{{url('/')}}">
+          <img style="width:50px;" src='{{asset("images/Isotipo-3.png")}}'>
+        </a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" style="filter: invert(100%);" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Avenir Next Condensed;">
+        <div class="d-flex justify-content-between" style="width:100%;">
+          <div class="d-flex justify-content-center w-100">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" data-animation="center" style="margin-right:0px !important;">
+                <li class="nav-item">
+              <a class="nav-link" style="color:black" aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color:black" href="{{url('/propiedades')}}" >Propiedades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color:black" href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color:black" href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color:black" href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
+            </li>
+          </div>
+        </div>
+
+        <div class="d-flex">
+          <li class="nav-item" style="list-style: none;">
+            @if(Auth::check())
+            <div class="dropdown mt-1">
+              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
+                {{Auth::user()->name}}
+                <br>
+                {{Auth::user()->puntos}} SANTOS
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{{url('/salir')}}">SALIR</a></li>
+              </ul>
             </div>
-          </nav>
+            @else
+            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
+              Ingresar
+            </a>
+            @endif
+          </li>
+        </div>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+        
           {{-- MODAL DE INICIO DE SESION --}}
           <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -308,13 +342,13 @@
         <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;" class="ocultar">
     </div>
 </div>
-<div class="row " style="text-align: center;background-color:white">
-  <h1 style="font-weight: bold;">UTILIZA TUS SANTOS</h1>
+<div class="row " style="text-align: center;background-color:white;font-family:Avenir Next Condensed">
+  <h1 style="font-family:Avenir Next Condensed;">UTILIZA TUS SANTOS</h1>
   <h1><br></h1>
 </div>
 <div class="row option" style="background-color:#212224;">
-  <div class="col-md-12 mt-3 mb-3" style="background-color:#212224;">
-  <h1 class="mt-4 mb-4" style="color:white;font-family:Kinlock Regular;font-size:50px;">Categorías de Comprador</h1>
+  <div class="col-md-12 mt-3 mb-3 " style="background-color:#212224;">
+  <h1 class="mt-4 mb-4" style="color:white;font-family:Cormorant2;font-size:50px;padding-left: 30px;">Categorías de Comprador</h1>
   </div>
   <div class="row">
     <div class="swiper">
@@ -381,7 +415,7 @@
     </div> --}}
 
     <div class="row mt-5" style="background-color:#212224;">
-      <h1 style="color:white;font-family:Kinlock Regular;font-size:50px;">Categorías de Filantropía</h1>
+      <h1 style="color:white;font-family:Cormorant2;font-size:50px;padding-left: 0px;padding-left: 30px;">Categorías de Filantropía</h1>
     </div>
     <div class="row  mt-5" id="fondo" style="background-color:#212224;">
       <div class="col-md-12 mt-5"></div>
@@ -390,10 +424,9 @@
       <div class="col-md-12 mt-5"></div>
       <div class="col-md-12 mt-5"></div>
       <div class="col-md-12 mt-5"></div>
-      <div class="row mt-5">
-        <div class="col-md-1"></div>
-        <div class="col-md-11 mb-5">
-          <a style="color:white;font-size:50px;font-family:Kinlock Regular">Proyectos <i style="font-size:2rem"class="fas fa-long-arrow-alt-right"></i></a>
+      <div class="row mt-5" style="padding-left: 0px;">
+        <div class="col-md-12 mb-5" style="padding-left: 0px;">
+          <a style="color:white;font-size:50px;font-family:Cormorant2;padding-left: 30px;">Proyectos <i style="font-size:2rem"class="fas fa-long-arrow-alt-right"></i></a>
           {{-- <h5 style="color:white;font-family:Avenir Next Condensed;font-size:15px">16,342 LISTINGS </h5> --}}
         </div>
       </div>

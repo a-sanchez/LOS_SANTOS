@@ -16,14 +16,17 @@
         /* SOLO SE LE ASIGNA EL COLOR AL NOMBRE Y TELEFONO YA QUE EL ESITLO DE EMAIL VIENE EN LOS EXTENDS*/
         #nombre::placeholder{
         color:black;
+        font-size:13px;
         }
         #telefono::placeholder{
-        color:black;}
+        color:black;
+        font-size:13px;}
         
         /*ASIGNARLE COLOR AL PLACEHOLDER EN UN TEXT AREA */
         ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: black;
             opacity: 1; /* Firefox */
+            font-size:13px;
         }
         .colorlib-blog, .colorlib-work, .colorlib-about, .colorlib-services, .colorlib-contact {
           padding-top: 0em;
@@ -47,10 +50,10 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <div class="row mt-4" style="text-align:center;"">
-                    <a style="color:#b0831e;font-size:40px;font-family:Avenir Next Condensed">Contactar Agente</a>
+                    <a style="color:#b0831e;font-size:40px;font-family:Cormorant1;font-weight:bold">Contactar Agente</a>
                 </div>
                 <div class="row">
-                    <a>Contáctanos para que un agente de Los Santos te ayude a buscar una
+                    <a style="font-family:Conmorant1;font-size:25px;">Contáctanos para que un agente de Los Santos te ayude a buscar una
                     propiedad fuera de nuestra página y puedas obtener nuestros servicios.</a>
                 </div>
                 <div class="row mt-4">
@@ -75,14 +78,14 @@
                         </div>
                     </div>
                     <div class="col-md-6 d-flex justify-content-center">
-                        <textarea class=" mt-5" placeholder="Mensaje" name="mensaje" id="mensaje" style="border-color:#b0831e; outline-color:#b0831e;" cols="30" rows="5" ></textarea>
+                        <textarea class=" mt-5" placeholder="Mensaje" name="mensaje" id="mensaje" style="border:solid 1px #B78B1E;padding-left: 10px;padding-top:8px" cols="30" rows="5" ></textarea>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <div class="col-md-6"></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-1" style="text-align:end">
-                        <button type="submit" style="border:none;background-color:white;font-weight: bold;">Enviar</button>
+                        <button type="submit" style="border:none;background-color:white;font-weight: bold;">ENVIAR</button>
                     </div>
                     <div class="col-md-1"></div>
                 </div>

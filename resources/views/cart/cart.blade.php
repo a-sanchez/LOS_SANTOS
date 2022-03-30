@@ -44,7 +44,7 @@
                             <h5 class="mt-5 mb-5" style="font-weight:bold">El carrito No cuenta con productos</h5>
                             @else
                             <input type="hidden" id="santos_actuales" value="{{Auth::user()->puntos}}" oninput="new_valor();">
-                            <h5 id="santos_nuevos" class="mt-2" oninput="new_valor();"><b>Cantidad de Santos:</b> {{$cantidad_esperada}}</h5>
+                            <h5 id="santos_nuevos" class="mt-2" oninput="new_valor();"><b>Saldo disponible:</b> {{$cantidad_esperada}}</h5>
                             <input type="hidden" id="totales" value="{{$cantidad_esperada}}" oninput="new_valor();">
                             <form id="form_cantidades">
                                 <div class="row">
@@ -291,11 +291,11 @@
                                         <div class="row mt-2">
                                             <div class="col-md-12 border_bajo">
                                                 <h5 class="mb-3" style="font-size:18px;float: right;" id="total_final">
-                                                ${{number_format($total,2)}}
+                                                {{number_format($total,2)}}
                                                 </h5>
                                             </div>
                                         </div>
-                                        <div class="row mt-3">
+                                        <div class="row mt-5">
                                             <div class="col-md-12">
                                                 <button onclick="validar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}',{{Auth::user()->id}});"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
                                                 {{--  --}}
@@ -453,10 +453,10 @@
        style: 'currency',
        currency: 'USD',
      });
-     document.getElementById("total_final").innerHTML=formatter.format(total);
+     document.getElementById("total_final").innerHTML=total.toFixed(2);
     let santos = parseFloat(document.getElementById("santos_actuales").value);
     let santos_precio = parseFloat(total);
-    document.getElementById("santos_nuevos").innerHTML= "Cantidad de Santos: " + (santos - santos_precio);
+    document.getElementById("santos_nuevos").innerHTML= "Saldo disponible: " + (santos - santos_precio);
     document.getElementById("totales").value= (santos - santos_precio);
 }
 

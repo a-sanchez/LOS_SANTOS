@@ -87,20 +87,20 @@
 
             .imagen1{
                 position: absolute;
-                  top: 820px;
+                  top: 860px;
                 }
             .imagen2{
                 position: absolute;
-                  top: 820px;
+                  top: 860px;
                 }
             .imagen3{
             position: absolute;
-              top: 1055px;
+              top: 1095px;
             }
 
             .imagen4{
             position: absolute;
-              top: 1050px;
+              top: 1090px;
             }
         }
         @media(max-width:600px){
@@ -432,93 +432,93 @@
     <div class="col-md-2"></div>
 </div>
 <div class="row mt-5"></div>
-<div class="row mt-5">
-    <div class="col-md-12" style="text-align:center">
-        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
-        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
-        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
-        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
-        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
-    </div>
-</div>
-<div class="row" style="text-align:center">
+<div class="row mt-5" style="text-align:center">
     <div class="col-md-12">
-        <h5 style="font-size: 30px;font-weight: bold;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">SERVICIO AL CLIENTE</h5>
+        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 70px;">
+        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 70px;">
+        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 70px;">
+        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 70px;">
+        <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 70px;">
+    </div>
+    <div class="col-md-12">
+        <h5 style="font-size: 30px;font-weight: bold;font-family:Cormorant2">SERVICIO AL CLIENTE</h5>
     </div>
 </div>
-<div class="row mt-5">
-    <div class="row servicio">
-        {{-- division de columnas --}}
-        <div class="col-md-1"></div>
-        <div class="col-md-4">
-        <div class="row solid" >
+<div class="row mt-5 mb-5">
+        <div class="row mt-5">
+            <div class="row servicio">
+            {{-- division de columnas --}}
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+            <div class="row solid" >
+                <div class="col-md-1"></div>
+                <div class="col-md-10 mt-3 mb-3">
+                    <div class="col-2 imagen1">
+                        <img src="{{asset('images/iconos/iconos-1.jpg')}}" class="img-fluid">
+                    </div>
+                    <div class="col-md-12 mt-4 mb-4">
+                        <a style="font-family:Avenir Next Condensed;font-size:18px">Verificamos con nuestro grupo de abogados
+                            que la documentación de su inmueble esté
+                            en orden.
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        <div class="row mt-5"></div>
+        <div class="row solid">
             <div class="col-md-1"></div>
             <div class="col-md-10 mt-3 mb-3">
-                <div class="col-2 imagen1">
-                    <img src="{{asset('images/iconos/iconos-1.jpg')}}" class="img-fluid">
+                <div class="col-2 imagen3">
+                    <img src="{{asset('images/iconos/iconos-3.jpg')}}" class="img-fluid">
                 </div>
                 <div class="col-md-12 mt-4 mb-4">
-                    <a style="font-family:venir Next Condensed;font-size:18px">Verificamos con nuestro grupo de abogados
-                        que la documentación de su inmueble esté
-                        en orden.
+                    <a style="font-family:Avenir Next Condensed;font-size:18px"> Ofrecemos servicios profesionales de Análisis
+                        de Mercado Comparativo personalizado a tu
+                        inmueble.
                     </a>
                 </div>
             </div>
             <div class="col-md-1"></div>
         </div>
-    <div class="row mt-5"></div>
-    <div class="row solid">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 mt-3 mb-3">
-            <div class="col-2 imagen3">
-                <img src="{{asset('images/iconos/iconos-3.jpg')}}" class="img-fluid">
-            </div>
-            <div class="col-md-12 mt-4 mb-4">
-                <a style="font-family:venir Next Condensed;font-size:18px"> Ofrecemos servicios profesionales de Análisis
-                    de Mercado Comparativo personalizado a tu
-                    inmueble.
-                </a>
-            </div>
-        </div>
-        <div class="col-md-1"></div>
     </div>
-</div>
-<div class="col-md-2"></div>
-<div class="col-md-4">
-    <div class="row solid espacio">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 mt-3 mb-3">
-            <div class="col-2 imagen2" >
-                <img src="{{asset('images/iconos/iconos-2.jpg')}}" class="img-fluid">
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <div class="row solid espacio">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 mt-3 mb-3">
+                <div class="col-2 imagen2" >
+                    <img src="{{asset('images/iconos/iconos-2.jpg')}}" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-4 mb-4">
+                    <a style="font-family:Avenir Next Condensed;font-size:17px">
+                        Nuestra marca enfatiza la atención al cliente.
+                        Por eso brindamos asesoría legal con total disponibilidad durante el transcurso de la venta.    
+                    </a> 
+                </div>
             </div>
-            <div class="col-md-12 mt-4 mb-4">
-                <a style="font-family:venir Next Condensed;font-size:17px">
-                    Nuestra marca enfatiza la atención al cliente.
-                    Por eso brindamos asesoría legal con total disponibilidad durante el transcurso de la venta.    
-                </a> 
-            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="row mt-5"></div>
-    <div class="row solid">
-        <div class="col-md-1"></div>
-        <div class="col-md-10 mt-3 mb-3">
-            <div class="col-2 imagen4">
-                <img src="{{asset('images/iconos/iconos-4.jpg')}}" class="img-fluid">
+        <div class="row mt-5"></div>
+        <div class="row solid">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 mt-3 mb-3">
+                <div class="col-2 imagen4">
+                    <img src="{{asset('images/iconos/iconos-4.jpg')}}" class="img-fluid">
+                </div>
+                <div class="col-md-12 mt-4 mb-4">
+                    <a style="font-family:Avenir Next Condensed;font-size:19px">
+                        Todo es respaldado de un plan de mercado
+                        elaborado por agencias de marketing de
+                        primer nivel.
+                    </a>
+                </div>
             </div>
-            <div class="col-md-12 mt-4 mb-4">
-                <a style="font-family:venir Next Condensed;font-size:19px">
-                    Todo es respaldado de un plan de mercado
-                    elaborado por agencias de marketing de
-                    primer nivel.
-                </a>
-            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-1"></div>
     </div>
-</div>
-<div class="col-md-1"></div>
+    <div class="col-md-1"></div>
+    </div>
 </div>
 <div class="row mt-2" style="text-align:center;background-color:white;">
     <div class="col-md-12">
@@ -530,18 +530,18 @@
 @push('scripts')
 <script>
     async function AddVenta(){
-    event.preventDefault();
-    let form = new FormData(document.getElementById("ventas"));
-            let url="{{url('/ventas')}}";
-            let init = {
-                method: 'POST',
-                body: form
-            }
-            let req = await fetch(url, init);
-            if(req.ok){
+        event.preventDefault();
+        let form = new FormData(document.getElementById("ventas"));
+        let url="{{url('/ventas')}}";
+        let init = {
+            method: 'POST',
+            body: form
+        }
+        let req = await fetch(url, init);
+        if(req.ok){
                 alert("Su solicitud ha sido enviada,un asesor se comunicara con usted");
                 document.getElementById("ventas").reset();
-
+                
             }
             else{
                 Swal.fire({

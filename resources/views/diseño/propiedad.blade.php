@@ -288,7 +288,7 @@
 @section('body')
     <div class="row">
         <div class="col-2"></div>
-        <div class="col-8" style="text-align:center;font-family:Avenir Next Condensed">
+        <div class="col-8" style="text-align:center;font-family:Cormorant1">
             <a class="display-3" style="text-decoration:none;color:black">Encuentra terrenos y casas según tus necesidades y deseos</a>
         </div>
         <div class="col-2"></div>
@@ -296,13 +296,13 @@
     <div class="row mt-5">
         <div class="col-6 contenedor" style="padding-right: 0px;padding-left: 0px">
             <img src="{{asset('images/propiedades/casa1.jpg')}}" class="img-fluid" style="filter: brightness(0.6);">
-            <div class="centrado h3" style="color:white;text-align:center;font-family:Avenir Next Condensed;font-weight:bold">Residencial<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
+            <div class="centrado h3" style="color:white;text-align:center;font-family:Cormorant1;font-weight:bold">Residencial<i style="font-size:1.5rem;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
             <div class="centrado2" style="color:white;">Te ayudamos a encontrar tu nuevo hogar</div>
         </div>
         
         <div class="col-6 contenedor" style="padding-right: 0px;padding-left: 0px">
             <img src="{{asset('images/propiedades/edificio7.jpg')}}" class="img-fluid" style="filter: brightness(0.3);">
-            <div class="centrado h3" style="color:white;text-align:center;font-family:Avenir Next Condensed;font-weight:bold">Terrenos<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
+            <div class="centrado h3" style="color:white;text-align:center;font-family:Cormorant1;font-weight:bold">Terrenos<i style="font-size:1.5rem;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
             <div class="centrado3" style="color:white;">Invierte en un terreno y obtén rentabilidad segura a largo plazo </div>
         </div>
     </div>

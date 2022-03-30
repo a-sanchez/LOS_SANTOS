@@ -40,7 +40,7 @@
             background-color: rgba(0, 0, 0, .5);
         }
         .colorlib-blog, .colorlib-work, .colorlib-about, .colorlib-services, .colorlib-contact {
-          padding-top: 2em;
+          padding-top: 0em;
           padding-bottom: 0em;
           clear: both;
           width: 100%;
@@ -195,7 +195,27 @@
 @endpush
 @section('body')
 <div class="row" style="text-align:center">
-    <div class="col-md-3">
+    <div class="col-3">
+        <div class="row">
+            <div class="col-4" style="padding-left: 0px;">
+                <img src='{{asset("images/isotipo_mitad2.png")}}' class="img-fluid">
+            </div>
+            <div class="col-8"></div>
+        </div>
+    </div>
+    <div class="col-6">
+        <img src='{{asset("images/celebramos.png")}}' class="img-fluid">
+    </div>
+    <div class="col-3">
+        <div class="row">
+            <div class="col-8">
+            </div>
+            <div class="col-4" style="padding-right: 0px;">
+                <img src='{{asset("images/isotipo_mitad.png")}}' class="img-fluid">
+            </div>
+        </div>
+    </div>
+    {{-- <div class="col-md-3">
         <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid celebrar">
     </div>
     <div class="col-md-6">
@@ -203,9 +223,9 @@
     </div>
     <div class="col-md-3">
         <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid celebrar2">
-    </div>
+    </div> --}}
 </div>
-<div class="row mt-2" style="text-align:center">
+{{-- <div class="row mt-2" style="text-align:center">
     <div class="col-md-12">
         <h5 style="color:#b0831e;font-weight:bold;font-size:28px;font-family:Avenir Next Condensed">En Casas Los Santos buscamos la grandeza dentro de la vida.</h5>
     </div>
@@ -214,12 +234,14 @@
     <div class="col-md-3"></div>
     <div class="col-md-6" style="font-size:25px;font-family:cursive">Filosofía: Siempre más y nunca menos.</div>
     <div class="col-md-3"></div>
-</div>
-<div class="row mt-5"></div>
-<div class="row mt-5" style="text-align:center">
+</div> --}}
+<div class="row mt-4" style="text-align:center">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <h5 style="font-size:25px;font-family:'Times New Roman', Times, serif">La compra de una propiedad es un evento que debe de celebrarse y Los Santos lo hace a través de monedas digitales que podrás utilizar en nuestra plataforma para comprar o ayudar a otras personas a tu disposición.</h5>
+        <h5 style="font-family:Avenir Next Condensed;">
+            La compra de una propiedad es un evento que debe de celebrarse y Los Santos<br>
+            lo hace a través de monedas digitales que podrás utilizar en nuestra plataforma<br>
+            para comprar o ayudar a otras personas a tu disposición.</h5>
     </div>
     <div class="col-md-2"></div>
 </div>
