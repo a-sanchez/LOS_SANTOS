@@ -26,30 +26,6 @@
         margin-right: auto;
         margin-left: auto;
       }
-        @font-face{
-            font-family: 'Kinlock Regular';
-            src:url('css/FontsFree-Net-ps-kinlock-regular.ttf') format('truetype');
-            font-style: normal;
-            font-weight: normal;
-        }
-        @font-face{
-          font-family: 'Avenir Next Condensed';
-          src:url('css/Avenir Next Condensed.ttc') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
-        @font-face{
-          font-family: 'Cormorant1';
-          src:url('css/CormorantInfant-SemiBold.ttf') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
-        @font-face{
-          font-family: 'Cormorant2';
-          src:url('css/CormorantInfant-Medium.ttf') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
         .loader {
             position: fixed;
             left: 0px;
@@ -198,12 +174,6 @@
       border-bottom: 2px solid;
       font-weight: 600;
       }
-      .navbar-light .navbar-nav .nav-link:hover {
-        color: #e7b22b;
-      text-decoration:#e7b22b;
-      border-bottom: 2px solid;
-      font-weight: 600;
-      }
     </style>
 @endpush
 @section('body')
@@ -244,24 +214,24 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" style="filter: invert(100%);" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Avenir Next Condensed;">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Copper;">
         <div class="d-flex justify-content-between" style="width:100%;">
           <div class="d-flex justify-content-center w-100">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" data-animation="center" style="margin-right:0px !important;">
                 <li class="nav-item">
-              <a class="nav-link" style="color:black" aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
+              <a class="nav-link" style="color:black;font-family: Cooper;" aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color:black" href="{{url('/propiedades')}}" >Propiedades</a>
+              <a class="nav-link" style="color:black;font-family: Cooper;" href="{{url('/propiedades')}}" >Propiedades</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color:black" href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
+              <a class="nav-link" style="color:black;font-family: Cooper;" href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color:black" href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
+              <a class="nav-link" style="color:black;font-family: Cooper;" href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color:black" href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
+              <a class="nav-link" style="color:black;font-family: Cooper;" href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
             </li>
           </div>
         </div>
@@ -270,7 +240,7 @@
           <li class="nav-item" style="list-style: none;">
             @if(Auth::check())
             <div class="dropdown mt-1">
-              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px">
+              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px;font-family: Cooper;">
                 {{Auth::user()->name}}
                 <br>
                 {{Auth::user()->puntos}} SANTOS
@@ -280,7 +250,7 @@
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Arial, Helvetica, sans-serif" data-bs-toggle="modal" data-bs-target="#Modal">
+            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family: Cooper;" data-bs-toggle="modal" data-bs-target="#Modal">
               Ingresar
             </a>
             @endif
@@ -300,7 +270,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <div class="col-md-11" style="text-align:center">
-                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold;">Ingresa a tu perfil</h5>
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold;font-family: Cooper;">Ingresa a tu perfil</h5>
                   </div>
                   <div class="col-md-1">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -343,7 +313,7 @@
     </div>
 </div>
 <div class="row " style="text-align: center;background-color:white;font-family:Avenir Next Condensed">
-  <h1 style="font-family:Avenir Next Condensed;">UTILIZA TUS SANTOS</h1>
+  <h1 style="font-family:Cooper;font-weight:bold">UTILIZA TUS SANTOS</h1>
   <h1><br></h1>
 </div>
 <div class="row option" style="background-color:#212224;">

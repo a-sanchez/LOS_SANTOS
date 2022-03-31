@@ -48,12 +48,6 @@
           width: 100%;
           display: block;
         }
-        @font-face{
-            font-family: 'Kinlock Regular';
-            src:url('css/FontsFree-Net-ps-kinlock-regular.ttf') format('truetype');
-            font-style: normal;
-            font-weight: normal;
-        }
         .section {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("images/final.jpg");
             background-position: center; 
@@ -69,6 +63,43 @@
         .container-fluid{
             padding-left: 0px;padding-right: 0px;
         }
+
+        
+        @media(max-width: 767px){
+            .ocultar{
+            display:none;
+        }
+        }
+        @media(max-width:600px){
+            .ocultar{
+            display:none;
+        }
+        }
+        @media(max-width:450px){
+            .ocultar{
+            display:none;
+        }
+        }
+        @media(min-width: 768px){
+            .ocultar{
+            display:none;
+        }
+        }
+        @media(min-width: 768px) and (max-width: 1200px){
+            .ocultar{
+            display:none;
+        }
+        }
+        @media (min-width: 1024px){
+            .ocultar{
+            display:none;
+        }
+        }
+        @media(min-width: 1200px){
+            .ocultar{
+            display:flex;
+        }
+        }
     </style>
 @endpush
 
@@ -76,7 +107,7 @@
 <div class="row mt-5 fondo_estilo">
     <div class="col-4"></div>
     <div class="col-4">
-        <div class="row">
+        <div class="row ocultar">
             <div class="col-4"></div>
             <div class="col-3">
                 <img class="img-fluid" src='{{asset("images/moneda.png")}}' >
@@ -90,13 +121,13 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="row" style="text-align:center">
-            <a style="font-size:20px;font-family:Avenir Next Condensed;">
+            <a style="font-size:20px;font-family:Cooper;">
                 Casas Los Santos le otorga una moneda digital a sus clientes que podrán <br>
                 usar en nuestra plataforma para comprar o donar a su disposición.
             </a>
         </div>
         <div class="row mt-2" style="text-align:center">
-            <a style="font-size:20px;font-weight:bold;font-family:Cormorant1">
+            <a style="font-size:20px;font-weight:bold;font-family:Cooper">
                 A esta moneda le denominamos como:
             </a>
         </div>
@@ -104,7 +135,7 @@
             <a style="color:#b0831e;font-size:40px;font-weight:bold;font-family:Cormorant1">“SANTOS”</a>
         </div>
         <div class="row mt-2 mb-1"></div>
-        <div class="row" style="text-align:center;font-size:20px;font-family:Avenir Next Condensed">
+        <div class="row" style="text-align:center;font-size:20px;font-family:Cooper">
             <a>Nuestra moneda es para agradecer a nuestros clientes e impulsarlos <br>
                 a seguir con una vida llena de éxito.</a>
         </div>

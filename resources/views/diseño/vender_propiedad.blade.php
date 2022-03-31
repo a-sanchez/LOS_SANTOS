@@ -6,13 +6,7 @@
         -webkit-transition: 0.5s;
         -o-transition: 0.5s;
         transition: 0.5s;
-        }
-        @font-face{
-          font-family: 'Avenir Next Condensed';
-          src:url('css/Avenir Next Condensed.ttc') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
+        }        }
         /* SOLO SE LE ASIGNA EL COLOR AL NOMBRE Y TELEFONO YA QUE EL ESITLO DE EMAIL VIENE EN LOS EXTENDS*/
         #nombre::placeholder{
         color:black;
@@ -390,10 +384,10 @@
                     <a class="buscar" style="color:#b0831e;font-size:40px;font-family:Avenir Next Condensed;text-decoration:none;">¿Buscas incrementar tus posibilidades de venta?</a>
                 </div>
                 <div class="row mt-2" style="text-align:center">
-                    <a>Muestra tu propiedad a los mejores prospectos</a>
+                    <a style="font-family: Cooper;">Muestra tu propiedad a los mejores prospectos</a>
                 </div>
                 <div class="row mt-5" style="text-align:center">
-                    <a style="font-weight:bold">¿Qué estas vendiendo?</a>
+                    <a style="font-weight:bold;font-family: Cooper;">¿Qué estas vendiendo?</a>
                 </div>
         <form id="ventas" onsubmit="AddVenta()">
         @csrf
@@ -441,7 +435,7 @@
         <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 70px;">
     </div>
     <div class="col-md-12">
-        <h5 style="font-size: 30px;font-weight: bold;font-family:Cormorant2">SERVICIO AL CLIENTE</h5>
+        <h5 style="font-size: 30px;font-weight: bold;font-family:Cooper">SERVICIO AL CLIENTE</h5>
     </div>
 </div>
 <div class="row mt-5 mb-5">
@@ -452,12 +446,12 @@
             <div class="col-md-4">
             <div class="row solid" >
                 <div class="col-md-1"></div>
-                <div class="col-md-10 mt-3 mb-3">
+                <div class="col-md-10 mt-3 mb-4">
                     <div class="col-2 imagen1">
                         <img src="{{asset('images/iconos/iconos-1.jpg')}}" class="img-fluid">
                     </div>
                     <div class="col-md-12 mt-4 mb-4">
-                        <a style="font-family:Avenir Next Condensed;font-size:18px">Verificamos con nuestro grupo de abogados
+                        <a style="font-family:Cooper;font-size:18px">Verificamos con nuestro grupo de abogados
                             que la documentación de su inmueble esté
                             en orden.
                         </a>
@@ -473,7 +467,7 @@
                     <img src="{{asset('images/iconos/iconos-3.jpg')}}" class="img-fluid">
                 </div>
                 <div class="col-md-12 mt-4 mb-4">
-                    <a style="font-family:Avenir Next Condensed;font-size:18px"> Ofrecemos servicios profesionales de Análisis
+                    <a style="font-family:Cooper;font-size:18px"> Ofrecemos servicios profesionales de Análisis
                         de Mercado Comparativo personalizado a tu
                         inmueble.
                     </a>
@@ -486,12 +480,12 @@
     <div class="col-md-4">
         <div class="row solid espacio">
             <div class="col-md-1"></div>
-            <div class="col-md-10 mt-3 mb-3">
+            <div class="col-md-10 mt-3 mb-1">
                 <div class="col-2 imagen2" >
                     <img src="{{asset('images/iconos/iconos-2.jpg')}}" class="img-fluid">
                 </div>
                 <div class="col-md-12 mt-4 mb-4">
-                    <a style="font-family:Avenir Next Condensed;font-size:17px">
+                    <a style="font-family:Cooper;font-size:17px">
                         Nuestra marca enfatiza la atención al cliente.
                         Por eso brindamos asesoría legal con total disponibilidad durante el transcurso de la venta.    
                     </a> 
@@ -507,7 +501,7 @@
                     <img src="{{asset('images/iconos/iconos-4.jpg')}}" class="img-fluid">
                 </div>
                 <div class="col-md-12 mt-4 mb-4">
-                    <a style="font-family:Avenir Next Condensed;font-size:19px">
+                    <a style="font-family:Cooper;font-size:19px">
                         Todo es respaldado de un plan de mercado
                         elaborado por agencias de marketing de
                         primer nivel.

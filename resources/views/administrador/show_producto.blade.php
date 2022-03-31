@@ -107,18 +107,18 @@
                 <div class="col-md-4">
                     <label>Género</label>
                     <select name="genero_reloj" id="genero_reloj" class="form-control estilo"  disabled style="border-color:#b0831e">
-                        @if($producto->genero_reloj == 'UNISEX')
-                        <option value="UNISEX">UNISEX</option>
-                        <option value="MUJER">MUJER</option>
-                        <option value="HOMBRE">HOMBRE</option>
-                        @elseif($producto->genero_reloj == 'MUJER')
-                        <option value="MUJER">MUJER</option>
-                        <option value="UNISEX">UNISEX</option>
-                        <option value="HOMBRE">HOMBRE</option>
-                        @elseif($producto->genero_reloj == 'HOMBRE')
-                        <option value="HOMBRE">HOMBRE</option>
-                        <option value="UNISEX">UNISEX</option>
-                        <option value="MUJER">MUJER</option>
+                        @if($producto->genero_reloj == 'unisex')
+                        <option value="unisex">unisex</option>
+                        <option value="mujer">mujer</option>
+                        <option value="hombre">hombre</option>
+                        @elseif($producto->genero_reloj == 'mujer')
+                        <option value="mujer">mujer</option>
+                        <option value="unisex">unisex</option>
+                        <option value="hombre">hombre</option>
+                        @elseif($producto->genero_reloj == 'hombre')
+                        <option value="hombre">hombre</option>
+                        <option value="unisex">unisex</option>
+                        <option value="mujer">mujer</option>
                         @endif
                     </select>
                 </div>
@@ -139,18 +139,18 @@
                 <div class="col-md-4">
                     <label>Género</label>
                     <select name="genero_reloj" id="genero_reloj" class="form-control estilo" disabled  style="border-color:#b0831e">
-                        @if($producto->genero_reloj == 'UNISEX')
-                        <option value="UNISEX">UNISEX</option>
-                        <option value="MUJER">MUJER</option>
-                        <option value="HOMBRE">HOMBRE</option>
-                        @elseif($producto->genero_reloj == 'MUJER')
-                        <option value="MUJER">MUJER</option>
-                        <option value="UNISEX">UNISEX</option>
-                        <option value="HOMBRE">HOMBRE</option>
-                        @elseif($producto->genero_reloj == 'HOMBRE')
-                        <option value="HOMBRE">HOMBRE</option>
-                        <option value="UNISEX">UNISEX</option>
-                        <option value="MUJER">MUJER</option>
+                        @if($producto->genero_reloj == 'unisex')
+                        <option value="unisex">unisex</option>
+                        <option value="mujer">mujer</option>
+                        <option value="hombre">hombre</option>
+                        @elseif($producto->genero_reloj == 'mujer')
+                        <option value="mujer">mujer</option>
+                        <option value="unisex">unisex</option>
+                        <option value="hombre">hombre</option>
+                        @elseif($producto->genero_reloj == 'hombre')
+                        <option value="hombre">hombre</option>
+                        <option value="unisex">unisex</option>
+                        <option value="mujer">mujer</option>
                         @endif
                     </select>
                 </div>

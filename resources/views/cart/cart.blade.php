@@ -38,10 +38,10 @@
                     <div class="col-md-12">
                         <div class="row mt-5 ms-3 me-3 mb-3">
                             <div class="col-md-12">
-                                <a href="#" style="text-decoration: none;color: black;font-size: 30px;font-family: 'Avenir Next Condensed';"><i style="font-size:2rem;color:#b78b1e" id="shopping-cart"  class="fas fa-shopping-cart"></i> Carrito de Compra </a>
+                                <a href="#" style="text-decoration: none;color: black;font-size: 30px;font-family: 'Cooper';"><i style="font-size:2rem;color:#b78b1e" id="shopping-cart"  class="fas fa-shopping-cart"></i> Carrito de Compra </a>
                             </div>
                             @if(sizeof($ordenes)==0)
-                            <h5 class="mt-5 mb-5" style="font-weight:bold">El carrito No cuenta con productos</h5>
+                            <h5 class="mt-5 mb-5" style="font-weight:bold;font-family:Cooper">El carrito No cuenta con productos</h5>
                             @else
                             <input type="hidden" id="santos_actuales" value="{{Auth::user()->puntos}}" oninput="new_valor();">
                             <h5 id="santos_nuevos" class="mt-2" oninput="new_valor();"><b>Saldo disponible:</b> {{$cantidad_esperada}}</h5>
@@ -66,7 +66,7 @@
                                                 <div class="col-md-7" style="align-content: center;display: flex;">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <h4 style="font-family: 'Avenir Next Condensed';font-weight: bolder;">{{$orden->nombre}}</h4>
+                                                            <h4 style="font-family: 'Cooper';font-weight: bolder;">{{$orden->nombre}}</h4>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <h5 style="color:#b78b1e">{{$orden->precio}}</h5>
@@ -114,7 +114,7 @@
                                                     <div class="col-md-7" style="align-content: center;display: flex;">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <h4 style="font-family: 'Avenir Next Condensed';font-weight: bolder;">{{$orden->nombre}}</h4>
+                                                                <h4 style="font-family: 'Cooper';font-weight: bolder;">{{$orden->nombre}}</h4>
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <h5 style="color:#b78b1e">{{$orden->precio}}</h5>
@@ -159,7 +159,7 @@
                                                         <div class="col-md-7" style="align-content: center;display: flex;">
                                                             <div class="row">
                                                                 <div class="col-md-12">
-                                                                    <h4 style="font-family: 'Avenir Next Condensed';font-weight: bolder;">{{$orden->nombre}}</h4>
+                                                                    <h4 style="font-family: 'Cooper';font-weight: bolder;">{{$orden->nombre}}</h4>
                                                                 </div>
                                                                 <div class="col-md-12">
                                                                     <h5 style="color:#b78b1e">{{$orden->precio}}</h5>
@@ -203,7 +203,7 @@
                                                             <div class="col-md-7" style="align-content: center;display: flex;">
                                                                 <div class="row">
                                                                     <div class="col-md-12">
-                                                                        <h4 style="font-family: 'Avenir Next Condensed';font-weight: bolder;">{{$orden->nombre}}</h4>
+                                                                        <h4 style="font-family: 'Cooper';font-weight: bolder;">{{$orden->nombre}}</h4>
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <h5 style="color:#b78b1e">{{$orden->precio}}</h5>
@@ -245,7 +245,7 @@
                                                     <div class="col-md-7" style="align-content: center;display: flex;">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <h4 style="font-family: 'Avenir Next Condensed';font-weight: bolder;">{{$orden->nombre}}</h4>
+                                                                <h4 style="font-family: 'Cooper';font-weight: bolder;">{{$orden->nombre}}</h4>
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <h5 style="color:#b78b1e">{{$orden->precio}}</h5>
@@ -285,7 +285,7 @@
                                     <div class="col-md-2">
                                         <div class="row mb-1">
                                             <div class="col-md-12">
-                                                <h5 style="font-size:18px;color:#b78b1e;float: right;">Total Santos</h5>
+                                                <h5 style="font-size:18px;color:#b78b1e;float: right;font-family:Cooper">Total Santos</h5>
                                             </div>
                                         </div>
                                         <div class="row mt-2">
@@ -297,7 +297,7 @@
                                         </div>
                                         <div class="row mt-5">
                                             <div class="col-md-12">
-                                                <button onclick="validar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}',{{Auth::user()->id}});"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none" type="button">CONTINUAR</button>
+                                                <button onclick="validar({{$ordenes}},{{$folio}},'{{\Carbon\Carbon::parse($ordenes[0]->created_at)->format('Y/m/d')}}',{{Auth::user()->id}});"style="font-size:20px;color:#b78b1e;float: right;font-weight:bolder;text-decoration:none;font-family:Cooper" type="button">CONTINUAR</button>
                                                 {{--  --}}
                                             </div>
                                         </div>
@@ -315,7 +315,7 @@
     <div class="col-md-1"></div>
     <div class="row mt-4" style="text-align:center">
         <div class="col-md-12">
-            <a href="{{url('/')}}" style="color:black;text-decoration:none;font-size:20px">SEGUIR COMPRANDO</a>
+            <a href="{{url('/')}}" style="color:black;text-decoration:none;font-size:20px;font-family:Cooper">SEGUIR COMPRANDO</a>
         </div>
     </div>
 </div>

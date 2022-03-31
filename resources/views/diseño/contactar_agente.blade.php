@@ -7,12 +7,6 @@
         -o-transition: 0.5s;
         transition: 0.5s;
         }
-        @font-face{
-          font-family: 'Avenir Next Condensed';
-          src:url('css/Avenir Next Condensed.ttc') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
         /* SOLO SE LE ASIGNA EL COLOR AL NOMBRE Y TELEFONO YA QUE EL ESITLO DE EMAIL VIENE EN LOS EXTENDS*/
         #nombre::placeholder{
         color:black;
@@ -50,14 +44,14 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <div class="row mt-4" style="text-align:center;"">
-                    <a style="color:#b0831e;font-size:40px;font-family:Cormorant1;font-weight:bold">Contactar Agente</a>
+                    <a style="color:#b0831e;font-size:40px;font-family:Cooper;font-weight:bold">Contactar Agente</a>
                 </div>
                 <div class="row">
-                    <a style="font-family:Conmorant1;font-size:25px;">Contáctanos para que un agente de Los Santos te ayude a buscar una
+                    <a style="font-family:Cooper;font-size:22px;">Contáctanos para que un agente de Los Santos te ayude a buscar una
                     propiedad fuera de nuestra página y puedas obtener nuestros servicios.</a>
                 </div>
                 <div class="row mt-4">
-                    <a style="font-weight:bold">Agente Gerardo del Bosque</a>
+                    <a style="font-weight:bold;font-family:Cooper">Agente Gerardo del Bosque</a>
                 </div>
                 <div class="row">
                     <a>8443924199</a>
@@ -85,7 +79,7 @@
                     <div class="col-md-6"></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-1" style="text-align:end">
-                        <button type="submit" style="border:none;background-color:white;font-weight: bold;">ENVIAR</button>
+                        <button type="submit" style="border:none;background-color:white;font-weight: bold;font-family:Cooper">ENVIAR</button>
                     </div>
                     <div class="col-md-1"></div>
                 </div>

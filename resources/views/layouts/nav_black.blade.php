@@ -1,10 +1,11 @@
 @extends('layouts.base')
 @push('styles')
     <style>
+      
         .navbar-light .navbar-nav .nav-link {
           color: black;
           font-size: 15px;
-          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-family:Cooper !important;
         }
         .navbar-nav.navbar-center {
           position: relative;
@@ -41,7 +42,7 @@
       }
 
       @font-face{
-          font-family: 'Avenir Next Condensed';
+          font-family: 'Avenir Next Condensed', '';
           src:url('css/Avenir Next Condensed.ttc') format('truetype');
           font-style: normal;
           font-weight: normal;
@@ -79,19 +80,19 @@
           <div class="d-flex justify-content-center w-100">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center" data-animation="center" style="margin-right:0px !important;">
                 <li class="nav-item">
-              <a class="nav-link " style="font-family:Cormorant1" aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
+              <a class="nav-link " aria-current="page" href="{{url('/objetivo')}}" >Objetivo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="font-family:Cormorant1" href="{{url('/propiedades')}}" >Propiedades</a>
+              <a class="nav-link"  href="{{url('/propiedades')}}" >Propiedades</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " style="font-family:Cormorant1" href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
+              <a class="nav-link "  href="{{url('/nuestra_moneda')}}"   aria-disabled="true">Nuestra Moneda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " style="font-family:Cormorant1" href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
+              <a class="nav-link "  href="{{url('/contactar_agente')}}"   aria-disabled="true">Contactar Agente</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " style="font-family:Cormorant1" href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
+              <a class="nav-link "  href="{{url('/vender_propiedad')}}"   aria-disabled="true">Vender Propiedad</a>
             </li>
           </div>
         </div>
@@ -100,7 +101,7 @@
           <li class="nav-item" style="list-style: none;">
             @if(Auth::check())
             <div class="dropdown mt-1">
-              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px;font-family:Cormorant1">
+              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:black;font-size:14px;font-family:Cooper">
                 {{Auth::user()->name}}
                 <br>
                 {{Auth::user()->puntos}} SANTOS
@@ -110,7 +111,7 @@
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Cormorant1" data-bs-toggle="modal" data-bs-target="#Modal">
+            <a type="button" class="btn nav-link mt-1 boton" style="color:black;font-family:Cooper" data-bs-toggle="modal" data-bs-target="#Modal">
               Ingresar
             </a>
             @endif
@@ -126,7 +127,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="col-md-11" style="text-align:center">
-            <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold;">Ingresa a tu perfil</h5>
+            <h5 class="modal-title" id="exampleModalLabel" style="font-weight:bold;font-family: Cooper;">Ingresa a tu perfil</h5>
           </div>
           <div class="col-md-1">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -140,7 +141,7 @@
              {{-- <a style="font-size: 3rem;"><i class="fas fa-user-circle" style="color:#B78B1E"></i></a> --}}
             </div>
             <div class="col-md-12" style="text-align:center">
-              <h5 style="color:#B78B1E;font-family:Avenir Next Condensed;font-weight:bold;font-size:21px">CUENTA</h5>
+              <h5 style="color:#B78B1E;font-family:Cooper;font-weight:bold;font-size:21px">CUENTA</h5>
             </div>
             <div class="input-group col-md-12 mt-3">
               <span class="input-group-text" style="background-color:#B78B1E;border-color: #B78B1E;"><a style="color:white"><i class="fas fa-envelope"></i></a></span>

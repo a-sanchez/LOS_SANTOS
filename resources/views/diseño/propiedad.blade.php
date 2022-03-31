@@ -10,19 +10,6 @@
         #colorlib-main {
           width: 100%;
         }
-        @font-face{
-            font-family: 'Kinlock Regular';
-            src:url('css/FontsFree-Net-ps-kinlock-regular.ttf') format('truetype');
-            font-style: normal;
-            font-weight: normal;
-        }
-        @font-face{
-          font-family: 'Avenir Next Condensed';
-          src:url('css/Avenir Next Condensed.ttc') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
-
         .casa{
             background-image: url('images/propiedades/casa.jpg');
             background-repeat: no-repeat;
@@ -274,7 +261,7 @@
             .centrado3{
                 position: absolute;
                 top: 92%;
-                left: 46%;
+                left: 44%;
                 transform: translate(-50%, -50%);
                 width: 95%;
             }
@@ -296,14 +283,14 @@
     <div class="row mt-5">
         <div class="col-6 contenedor" style="padding-right: 0px;padding-left: 0px">
             <img src="{{asset('images/propiedades/casa1.jpg')}}" class="img-fluid" style="filter: brightness(0.6);">
-            <div class="centrado h3" style="color:white;text-align:center;font-family:Cormorant1;font-weight:bold">Residencial<i style="font-size:1.5rem;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
-            <div class="centrado2" style="color:white;">Te ayudamos a encontrar tu nuevo hogar</div>
+            <div class="centrado h3" style="color:white;text-align:center;font-family:Cormorant1;">Residencial<i style="font-size:1.5rem;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
+            <div class="centrado2" style="color:white;font-family: Cooper;">Te ayudamos a encontrar tu nuevo hogar</div>
         </div>
         
         <div class="col-6 contenedor" style="padding-right: 0px;padding-left: 0px">
             <img src="{{asset('images/propiedades/edificio7.jpg')}}" class="img-fluid" style="filter: brightness(0.3);">
-            <div class="centrado h3" style="color:white;text-align:center;font-family:Cormorant1;font-weight:bold">Terrenos<i style="font-size:1.5rem;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
-            <div class="centrado3" style="color:white;">Invierte en un terreno y obtén rentabilidad segura a largo plazo </div>
+            <div class="centrado h3" style="color:white;text-align:center;font-family:Cormorant1;">Terrenos<i style="font-size:1.5rem;" id="arrow-right"  class="fas fa-arrow-right"></i></div>
+            <div class="centrado3" style="color:white;font-family: Cooper;">Invierte en un terreno y obtén rentabilidad segura a largo plazo </div>
         </div>
     </div>
 <div class="row" style="background-color:rgb(41, 40, 40);text-align:center;color:white">

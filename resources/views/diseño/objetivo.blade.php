@@ -13,18 +13,6 @@
             width: 100%;
             overflow-x: hidden;
         }
-        @font-face{
-            font-family: 'Kinlock Regular';
-            src:url('css/FontsFree-Net-ps-kinlock-regular.ttf') format('truetype');
-            font-style: normal;
-            font-weight: normal;
-        }
-        @font-face{
-          font-family: 'Avenir Next Condensed';
-          src:url('css/Avenir Next Condensed.ttc') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
         #fondo3
         {
             background-image: url('images/objetivo2_copia.jpg');
@@ -238,7 +226,7 @@
 <div class="row mt-4" style="text-align:center">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <h5 style="font-family:Avenir Next Condensed;">
+        <h5 style="font-family:Cooper;">
             La compra de una propiedad es un evento que debe de celebrarse y Los Santos<br>
             lo hace a través de monedas digitales que podrás utilizar en nuestra plataforma<br>
             para comprar o ayudar a otras personas a tu disposición.</h5>

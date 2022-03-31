@@ -41,12 +41,6 @@
         border-bottom: 2px solid #e7b22b;
         font-weight: 600;
       }
-      @font-face{
-          font-family: 'Avenir Next Condensed';
-          src:url('css/Avenir Next Condensed.ttc') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
         @font-face{
           font-family: 'Cormorant1';
           src:url('css/CormorantInfant-SemiBold.ttf') format('truetype');
@@ -56,6 +50,13 @@
         @font-face{
           font-family: 'Cormorant2';
           src:url('css/CormorantInfant-Medium.ttf') format('truetype');
+          font-style: normal;
+          font-weight: normal;
+        }
+
+        @font-face{
+          font-family: 'Cooper';
+          src:url('css/CooperHewitt-Book.ttf') format('truetype');
           font-style: normal;
           font-weight: normal;
         }
@@ -74,7 +75,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" style="filter: invert(100%);" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Avenir Next Condensed">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Cooper">
         <div class="d-flex justify-content-between" style="width:100%;">
           <div class="d-flex justify-content-center w-100">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-center"  data-animation="center" style="margin-right:0px !important;">
@@ -100,17 +101,19 @@
           <li class="nav-item" style="width: 100%;list-style: none;">
             @if(Auth::check())
             <div class="dropdown">
-              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;font-size:12px;font-family:Avenir Next Condensed">
+              <button class="btn dropdown-toggle boton" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color:white;font-size:12px;font-family:Cooper">
                 {{Auth::user()->name}}
                 <br>
                 {{Auth::user()->puntos}} SANTOS
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="{{url('/salir')}}" style="background-color:#B78B1E">SALIR</a></li>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Cooper">
+                <li><a class="dropdown-item" href="{{url('/salir')}}" style="background-color:#B78B1E;font-family:Cooper">SALIR</a></li>
               </ul>
             </div>
             @else
-            <a type="button" class="btn nav-link mt-1 boton" style="color:rgb(253, 253, 253);font-family:Arial, Helvetica, sans-serif;text-align: start;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Cooper">
+            <a type="button" class="btn nav-link mt-1 boton" style="color:rgb(253, 253, 253);font-family:Cooper;text-align: start;" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Ingresar
             </a>
             @endif
@@ -142,7 +145,7 @@
            {{-- <a style="font-size: 3rem;"><i class="fas fa-user-circle" style="color:#B78B1E"></i></a> --}}
           </div>
           <div class="col-md-12" style="text-align:center">
-            <h5 style="color:#B78B1E;font-family:Avenir Next Condensed;font-weight:bold;font-size:21px">CUENTA</h5>
+            <h5 style="color:#B78B1E;font-family:Cooper;font-weight:bold;font-size:21px">CUENTA</h5>
           </div>
           <div class="input-group col-md-12 mt-3">
             <span class="input-group-text" style="background-color:#B78B1E;border-color: #B78B1E;"><a style="color:white"><i class="fas fa-envelope"></i></a></span>

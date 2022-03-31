@@ -9,18 +9,7 @@
          position: fixed;
          bottom: 25px;            
         }
-        @font-face{
-            font-family: 'Kinlock Regular';
-            src:url('css/FontsFree-Net-ps-kinlock-regular.ttf') format('truetype');
-            font-style: normal;
-            font-weight: normal;
-        }
-        @font-face{
-          font-family: 'Avenir Next Condensed';
-          src:url('css/Avenir Next Condensed.ttc') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
+        
         .zoom {
             transition: transform .2s; 
             height:400px;
@@ -73,7 +62,7 @@
 @section('body')
 <div class="row">
   <div class="col-md-12" style="text-align:center">
-    <a style="font-family:Avenir Next Condensed;font-size:60px;">ARTE</a>
+    <a style="font-family:Cormorant2;font-size:60px;">ARTE</a>
   </div>
 </div>
 
@@ -82,7 +71,7 @@
     <div class="col-md-4" style="text-align: center;">
       <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-5">
+        <div class="col-md-4" style="padding-left: 0px;padding-right: 0px;">
           <select name="cantidad" id="cantidad" class="form-control" style="text-align:center" onclick="filtrado()">
             <option value="0" selected="selected" disabled hidden >
               @if($categorias=="1")
@@ -107,7 +96,7 @@
             <option value="6">40-50 Santos</option>
           </select>
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
       </div>
     </div>
     <div class="col-md-4"></div>
@@ -123,8 +112,8 @@
               <img src='{{$arte->imagen}}' class=" img-fluid img" style="object-fit: cover;">
             </a>
             <div class="card-body">
-              <h5 class="card-title" style="font-family:Avenir Next Condensed;font-weight:bold">{{$arte->nombre}}</h5>
-              <p class="card-text" style="font-family:Avenir Next Condensed;">{{number_format($arte->precio,2)}} SANTOS
+              <h5 class="card-title" style="font-family:Cormorant1;font-weight:bold">{{$arte->nombre}}</h5>
+              <p class="card-text" style="font-family:Cooper;">{{number_format($arte->precio,2)}} SANTOS
               </p>
             </div>
           </div>
@@ -164,7 +153,7 @@
     <div class="modal-dialog modal-xl diseño">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" style="font-family:Avenir Next Condensed;font-size:25px" id="titulo_modal"></h5>
+          <h5 class="modal-title" style="font-family:Cooper;font-size:25px;font-weight:bold" id="titulo_modal"></h5>
           <button type="button" class="btn-close" onclick="closeModal();"></button>
         </div>
         <div class="modal-body">
@@ -184,26 +173,26 @@
               <input type="text" id="id_producto" name="id_producto" style="display:none">
               <div class="row">
                 <div class="col-md-12 mt-3" style="line-height: 1;">
-                  <a style="font-family:Avenir Next Condensed;font-size:25px" id="arte_nombre"></a>
+                  <a style="font-family:Cooper;font-size:25px" id="arte_nombre"></a>
                 </div>
                 <div class="col-md-12">
-                  <a style="font-family:Avenir Next Condensed;font-size:20px;color:#B78B1E" id="santos"></a>
+                  <a style="font-family:Cooper;font-size:20px;color:#B78B1E" id="santos"></a>
                 </div>
                 <div class="col-md-12 mt-2 text-break">
-                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="descripcion_arte"></a>
+                  <a style="font-size:20px;font-family:Cooper;" id="descripcion_arte"></a>
                 </div>
                 <div class="col-md-12">
-                  <a id="obra" style="font-family:Avenir Next Condensed;font-size:20px"></a>
+                  <a id="obra" style="font-family:Cooper;font-size:20px"></a>
                 </div>
                 <div class="col-md-12">
-                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="autor">
+                  <a style="font-size:20px;font-family:Cooper;" id="autor">
                   </a>
                 </div>
                 <div class="col-md-12">
-                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="medidas"></a>
+                  <a style="font-size:20px;font-family:Cooper;" id="medidas"></a>
                 </div>
                 <div class="col-md-12">
-                  <a style="font-size:20px;font-family:Avenir Next Condensed;" id="material_arte"></a>
+                  <a style="font-size:20px;font-family:Cooper;" id="material_arte"></a>
                 </div>
                 <div class="row mt-5 mb-2">
                   <div class="col-md-3">
@@ -214,8 +203,8 @@
                 </div>
               </div>
               <div class="row mb-2">
-                <label style="font-size:12px;font-family:Avenir Next Condensed;border:none"> Cantidad Disponible:
-                  <input id="inventario" name="inventario" style="font-size:12px;font-family:Avenir Next Condensed;border:none">
+                <label style="font-size:12px;font-family:Cooper;border:none"> Cantidad Disponible:
+                  <input id="inventario" name="inventario" style="font-size:12px;font-family:Cooper;border:none">
                 </label>
               </div>
             </div>
@@ -228,10 +217,9 @@
             <input type="text" id="id_usuario" name="id_usuario" value="{{Auth::user()->id}}" style="display:none">
             <div class="col-md-6"></div>
             <div class="col-md-6">
-              <button type="submit" class="btn" style="background-color:white;color:black;display: contents;"><a>
-                <img class="imagen"  src="{{asset("images/carrito.png")}}">  
-              </a>Agregar
-                al carrito</button>
+              <button type="submit" class="btn" style="background-color:white;color:black;display: contents;font-family:Cooper; font-weight:bold">
+                <a>
+                <img class="imagen" width="30" heigth="30" src="{{asset("images/carrito.png")}}"></a>Agregar al carrito</button>
             </div>
           </div>
           @endif

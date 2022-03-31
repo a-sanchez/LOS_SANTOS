@@ -34,6 +34,26 @@
             visibility: visible !important;
             position:static !important;
         }
+        @font-face{
+          font-family: 'Cooper';
+          src:url({{asset('css/CooperHewitt-Book.ttf')}}) format('truetype');
+        }
+        @font-face{
+            font-family: 'Kinlock Regular';
+            src:url({{asset('css/FontsFree-Net-ps-kinlock-regular.ttf')}}) format('truetype');
+        }
+        @font-face{
+          font-family: 'Avenir Next Condensed';
+          src:url({{asset('css/Avenir Next Condensed.ttc')}}) format('truetype');
+        }
+        @font-face{
+          font-family: 'Cormorant1';
+          src:url({{asset('css/CormorantInfant-SemiBold.ttf')}}) format('truetype');
+        }
+        @font-face{
+          font-family: 'Cormorant2';
+          src:url({{asset('css/CormorantInfant-Medium.ttf')}}) format('truetype');
+        }
     </style>
     @stack('styles')
 </head>
