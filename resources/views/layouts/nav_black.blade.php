@@ -35,6 +35,10 @@
       
       }
 
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 2rem;
+        padding-left: 2rem;
+      }
      .boton:hover{
         color: #e7b22b !important;
         border-bottom: 2px solid #e7b22b;

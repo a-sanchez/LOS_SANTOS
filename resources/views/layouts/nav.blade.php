@@ -41,25 +41,10 @@
         border-bottom: 2px solid #e7b22b;
         font-weight: 600;
       }
-        @font-face{
-          font-family: 'Cormorant1';
-          src:url('css/CormorantInfant-SemiBold.ttf') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
-        @font-face{
-          font-family: 'Cormorant2';
-          src:url('css/CormorantInfant-Medium.ttf') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
-
-        @font-face{
-          font-family: 'Cooper';
-          src:url('css/CooperHewitt-Book.ttf') format('truetype');
-          font-style: normal;
-          font-weight: normal;
-        }
+      .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 2rem;
+        padding-left: 2rem;
+      }
     </style>
 @endpush
 @section('menu')
@@ -113,7 +98,7 @@
             </div>
             @else
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03" style="font-family:Cooper">
-            <a type="button" class="btn nav-link mt-1 boton" style="color:rgb(253, 253, 253);font-family:Cooper;text-align: start;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a type="button" class="btn nav-link mt-1 boton" style="color:rgb(253, 253, 253);font-family:Cooper;text-align: center;" data-bs-toggle="modal" data-bs-target="#exampleModal">
               Ingresar
             </a>
             @endif
