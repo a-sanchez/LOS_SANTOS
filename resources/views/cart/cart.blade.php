@@ -38,7 +38,8 @@
                     <div class="col-md-12">
                         <div class="row mt-5 ms-3 me-3 mb-3">
                             <div class="col-md-12">
-                                <a href="#" style="text-decoration: none;color: black;font-size: 30px;font-family: 'Cooper';"><i style="font-size:2rem;color:#b78b1e" id="shopping-cart"  class="fas fa-shopping-cart"></i> Carrito de Compra </a>
+                                <a  href="#" style="text-decoration: none;color: black;font-family: 'Cooper';font-weight: bold;font-size:35px">
+                                        <img class="imagen" width="40" heigth="30" src="{{asset("images/carrito.png")}}"></a><a style="text-decoration: none;color: black;font-family: 'Cooper';font-weight: bold;font-size:35px">Carrito de Compra</a>
                             </div>
                             @if(sizeof($ordenes)==0)
                             <h5 class="mt-5 mb-5" style="font-weight:bold;font-family:Cooper">El carrito No cuenta con productos</h5>
