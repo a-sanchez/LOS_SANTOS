@@ -34,6 +34,15 @@
           width: 100%;
           display: block;
         }
+        #fondo8{
+                    background-image: url('images/objetivo2_copia.jpg');
+                    background-position: center;
+                    background-repeat:no-repeat; 
+                    background-size: cover; 
+                    filter: brightness(0.8);
+                    width:100vw;
+                }
+
         /* margin-left: 0px;
             margin-right: 0px;
             border-right-width: 0px;
@@ -233,21 +242,11 @@
     </div>
     <div class="col-md-2"></div>
 </div>
-<div class="row mt-5"  id="fondo3" style="text-align:center">
-    {{-- <img style="width:130px;position: absolute;top: 35px;left: 630px;" src='{{asset("images/Isotipo-1.png")}}'> --}}
-    <div class="row poder" >
-            <div class="row solid" id="trans">
-                <p></p>
-                <p></p>
-                <p></p>
-                <a class="texto1" style="color:#b0831e;font-family:Kinlock Regular">
-                    EL PODER ES TUYO
-                </a>
-                <a class="texto2" style="color:white;">Recuerda; Siempre más y nunca menos </a>
-                <p></p>
-                <p></p>
-                <p></p>
-            </div>
+<div class="row mt-5" id="fondo8" style="text-align:center">
+    <div class="row mb-5 d-flex" >
+        <div class="col-12">
+            <img src='{{asset("images/poder.png")}}' class="img-fluid">
+        </div>
     </div>
 </div>
 <div class="row" style="text-align:center;background-color:white">
