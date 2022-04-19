@@ -138,11 +138,40 @@
   </div>
 </div>
 @endif
-<div class="row" style="text-align:center;background-color:white">
-    <div class="col-md-12">
-      <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
+<footer class="vw-100" style="padding-right: 15px;">
+  <div class="row" style="text-align:center;background-color:white">
+    <div class="col-4 mt-1 " style="padding-left: 30px;">
+    <div class="row mt-2">
+      <div class="col-2" style="padding-right: 0px;">
+        <a style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+      </div>
+      <div class="col-2" style="padding-right: 25px;padding-left: 0px;">
+        <a style="font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></i></a>
+      </div>
     </div>
+  </div>
+  <div class="col-4 mt-1">
+    <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 55px;">
+  </div>
+  <div class="col-4 mt-2" style="text-align:end">
+    <div class="row" style="padding-right: 5px;">
+      <div class="col-12">
+        <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Aviso de Privacidad</a>
+        <div class="row">
+          <div class="col-8"></div>
+          <div class="col-3" style="padding-right: 0px;">
+            <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Powered by</a>
+          </div>
+          <div class="col-1" style="padding-left: 2px;">
+            <a><img src='{{asset("images/ntrance.jpeg")}}' alt="" ></a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </div>
+</footer>
 
 <form id="count_products" onsubmit="InsertRopa();">
   @csrf

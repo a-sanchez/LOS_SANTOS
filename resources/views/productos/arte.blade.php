@@ -36,6 +36,13 @@
         .form-control {
           border: 2px solid #B78B1E;
         }
+        .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+          width: 100%;
+          padding-right: var(--bs-gutter-x,.75rem);
+          padding-left: 0;
+          margin-right: auto;
+          margin-left: auto;
+        }
         .colorlib-blog, .colorlib-work, .colorlib-about, .colorlib-services, .colorlib-contact {
           padding-top: 0em;
           padding-bottom: 0em;
@@ -66,7 +73,7 @@
   </div>
 </div>
 
-  <div class="row mb-3">
+  <div class="row mb-1">
     <div class="col-md-4"></div>
     <div class="col-md-4" style="text-align: center;">
       <div class="row">
@@ -138,12 +145,41 @@
     </div>
   </div>
   @endif
+  <footer class="vw-100">
 
-  <div class="row" style="text-align:center;background-color:white">
-    <div class="col-md-12">
-      <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
+    <div class="row" style="text-align:center;background-color:white">
+      <div class="col-4 mt-1 " style="padding-left: 30px;">
+      <div class="row mt-2">
+        <div class="col-2" style="padding-right: 0px;">
+          <a style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="col-2" style="padding-right: 25px;padding-left: 0px;">
+          <a style="font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 mt-1">
+      <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 55px;">
+    </div>
+    <div class="col-4 mt-2" style="text-align:end">
+      <div class="row" style="padding-right: 5px;">
+        <div class="col-12">
+          <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Aviso de Privacidad</a>
+          <div class="row">
+            <div class="col-8"></div>
+            <div class="col-3" style="padding-right: 0px;">
+              <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Powered by</a>
+            </div>
+            <div class="col-1" style="padding-left: 2px;">
+              <a><img src='{{asset("images/ntrance.jpeg")}}' alt="" ></a>
+            </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </div>
+</footer>
 
   <form id="count_products2" onsubmit="InsertProductArte()">
     @csrf
