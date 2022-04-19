@@ -106,7 +106,7 @@
     </div>
     <div class="col-4 mt-4 mb-2" style="text-align:end">
       <div class="row" style="padding-right: 5px;">
-        <div class="col-12">
+        <div class="col-11">
           <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Aviso de Privacidad</a>
           <div class="row">
             <div class="col-8"></div>
@@ -118,7 +118,7 @@
             </div>
           </div>
         </div>
-  
+        <div class="col-1"></div>
       </div>
     </div>
   </div>
