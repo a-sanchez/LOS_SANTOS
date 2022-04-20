@@ -520,7 +520,7 @@
         <div class="col-2" style="padding-right: 0px;">
           <a style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
         </div>
-        <div class="col-2" style="padding-right: 25px;padding-left: 0px;">
+        <div class="col-2" style="padding-left: 0px;">
           <a style="font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></i></a>
         </div>
       </div>
