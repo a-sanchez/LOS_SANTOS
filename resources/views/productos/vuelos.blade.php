@@ -1,15 +1,15 @@
 @extends('layouts.nav_black')
 @push('styles')
     <style>
-        /* body,html{
-            background-image: url('images/background.jpg');
+         body,html{
+            /* background-image: url('images/background.jpg');
             background-position: center;
             background-repeat:no-repeat; 
-            background-size: cover; 
+            background-size: cover;  */
             height: 100%;
             width: 100%;
             overflow-x: hidden;
-        } */
+        } 
         #colorlib-main {
           float:none;
           width: 100%;
