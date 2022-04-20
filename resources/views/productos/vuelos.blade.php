@@ -143,10 +143,13 @@
     <div class="col-4 mt-1 " style="padding-left: 30px;">
     <div class="row mt-2">
       <div class="col-2" style="padding-right: 0px;">
-        <a style="font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+        <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.instagram.com/santo.vittoria/"><i class="fab fa-instagram"></i></a>
       </div>
-      <div class="col-2" style="padding-right: 25px;padding-left: 0px;">
-        <a style="font-size: 1.5rem;"><i class="fab fa-facebook-f"></i></i></a>
+      <div class="col-2" style="padding-left: 0px;">
+        <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.facebook.com/profile.php?id=100077449766753" ><i class="fab fa-facebook-f"></i></i></a>
+      </div>
+      <div class="col-2" style="padding-left: 0px;">
+        <a target="_blank" style="font-size: 1.5rem;color:black" href="http://youtube.com/channel/UCzbH4VQUr4k7MJLzDbkwiUg"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
