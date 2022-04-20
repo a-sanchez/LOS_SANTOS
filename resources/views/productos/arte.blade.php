@@ -145,7 +145,7 @@
     </div>
   </div>
   @endif
-  <footer class="vw-100">
+  <div class="vw-100">
 
     <div class="row" style="text-align:center;background-color:white">
       <div class="col-4 mt-1 " style="padding-left: 30px;">
@@ -182,7 +182,7 @@
       </div>
     </div>
   </div>
-</footer>
+<div>
 
   <form id="count_products2" onsubmit="InsertProductArte()">
     @csrf

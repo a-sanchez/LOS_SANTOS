@@ -142,7 +142,7 @@
   </div>
 </div>
 @endif
-<footer class="vw-100" style="padding-right: 15px;">
+<div class="vw-100" style="padding-right: 15px;">
   <div class="row" style="text-align:center;background-color:white">
     <div class="col-4 mt-1 " style="padding-left: 30px;">
     <div class="row mt-2">
@@ -179,7 +179,7 @@
     </div>
   </div>
 </div>
-</footer>
+</div>
 
 <form id="count_products" onsubmit="InsertProductjoya()">
   @csrf
