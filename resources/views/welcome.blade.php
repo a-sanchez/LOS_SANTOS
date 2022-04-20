@@ -178,7 +178,7 @@
 @endpush
 @section('body')
 <div class="loader">
-    <H1 style="color:white">CARGANDO...</H1>
+    <H1 style="color:white"></H1>
 </div>
 <div class="row mb-2"style="width: 100%;text-align:center">
     <div class="col-md-12 col-sm-12" style="text-align:center">
