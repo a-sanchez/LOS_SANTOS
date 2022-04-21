@@ -154,43 +154,33 @@
     </div>
   </div>
   @endif
-  <div class="vw-100">
-
-    <div class="row" style="text-align:center;background-color:white">
-      <div class="col-4 mt-1 " style="padding-left: 30px;">
+  <div class="row" style="text-align:center;background-color:white;width:100% !important">
+    <div class="col-4 mt-1 mb-2" s>
       <div class="row mt-2">
-        <div class="col-2" style="padding-right: 0px;">
-          <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.instagram.com/santo.vittoria/"><i class="fab fa-instagram"></i></a>
-        </div>
-        <div class="col-2" style="padding-left: 0px;">
-          <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.facebook.com/profile.php?id=100077449766753" ><i class="fab fa-facebook-f"></i></i></a>
-        </div>
-        <div class="col-2" style="padding-left: 0px;">
-          <a target="_blank" style="font-size: 1.5rem;color:black" href="http://youtube.com/channel/UCzbH4VQUr4k7MJLzDbkwiUg"><i class="fab fa-youtube"></i></a>
-        </div>
+        <div class="col-3" style="padding-right: 0px;">
+            <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.instagram.com/santo.vittoria/"><i class="fab fa-instagram"></i></a>
+          </div>
+          <div class="col-3" style="padding-left: 0px;">
+            <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.facebook.com/profile.php?id=100077449766753" ><i class="fab fa-facebook-f"></i></i></a>
+          </div>
+          <div class="col-3" style="padding-left: 0px;">
+            <a target="_blank" style="font-size: 1.5rem;color:black" href="http://youtube.com/channel/UCzbH4VQUr4k7MJLzDbkwiUg"><i class="fab fa-youtube"></i></a>
+          </div>
       </div>
     </div>
-    <div class="col-4 mt-1">
+    <div class="col-4 mt-1 mb-2">
       <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 55px;">
     </div>
-    <div class="col-4 mt-2" style="text-align:end">
-      <div class="row" style="padding-right: 5px;">
-        <div class="col-11">
-          <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Aviso de Privacidad</a>
-          <div class="row">
-            <div class="col-8"></div>
-            <div class="col-3" style="padding-right: 0px;">
-              <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Powered by</a>
-            </div>
-            <div class="col-1" style="padding-left: 2px;">
-              <a><img src='{{asset("images/ntrance.jpeg")}}' alt="" ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-1"></div>
+    <div class="col-4 mt-2 mb-2" style="text-align:end">
+      <div class="row" >
+          <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Aviso de Privacidad
+            <br>
+            Powered by<img src='{{asset("images/ntrance.jpeg")}}' alt="" >
+            </a>
       </div>
     </div>
   </div>
+
 <div>
 
   <form id="count_products2" onsubmit="InsertProductArte()">
