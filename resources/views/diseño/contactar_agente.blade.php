@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">
-                <div class="row mt-4" style="text-align:center;"">
+                <div class="row mt-4" style="text-align:center;">
                     <a style="color:#b0831e;font-size:40px;font-family:Cooper;font-weight:bold">Contactar Agente</a>
                 </div>
                 <div class="row">

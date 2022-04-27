@@ -422,7 +422,7 @@
   </div>
   <div class="col-4 mt-2 mb-2" style="text-align:end">
     <div class="row" >
-        <a href="#" style="text-decoration: none;color: gray;font-family:Cooper">Aviso de Privacidad
+        <a  target="_blank" href="{{asset('aviso/AvisoPrivacidad_SV.pdf')}}" style="text-decoration: none;color: gray;font-family:Cooper">Aviso de Privacidad
           <br>
           Powered by<img src='{{asset("images/ntrance.jpeg")}}' alt="" >
           </a>
