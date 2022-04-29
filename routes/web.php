@@ -37,11 +37,8 @@ Route::get('/salir',[UserController::class,'salir']);
 Route::get('historial/productos',[ProductosController::class,'productos']);
 Route::delete('historial/eliminar/{id}',[ProductosController::class,'eliminar_imagen']);
 Route::post('historial/actualizar/{id}',[ProductosController::class,'actualizar']);
-Route::resource('/historial',ProductosController::class);
 
-/**ADMINISTRADOR-CONTACTOS */
-Route::resource('/contactos',ContactarAgenteController::class);
-Route::resource('/ventas',VentasController::class);
+
 /** RUTAS SHOPPING CART */
 
 // Route::get('cart', [CarritoController::class, 'cartList'])->name('cart.list');
@@ -50,10 +47,7 @@ Route::resource('/ventas',VentasController::class);
 // Route::post('remove', [CarritoController::class, 'removeCart'])->name('cart.remove');
 // Route::post('clear', [CarritoController::class, 'clearAllCart'])->name('cart.clear');
 
-Route::resource('/carrito', CarritoController::class);
 
-/**CATALAGO DE USUARIOS */
-Route::resource('/usuarios',HistorialUsuariosController::class);
 /**CATALAGO DE ORDENES */
 Route::get('ordenes/historial/{id}',[OrdenesController::class,'historial']);
 Route::get('ordenes/producto/{id}',[OrdenesController::class,'edit_product_orden']);
@@ -62,7 +56,7 @@ Route::get('ordenes/historial/usuario/{id}/fecha/{fecha}/folio/{folio}',[Ordenes
 
 Route::put('ordenes/historial/usuario/{id}/folio/{folio}',[OrdenesController::class,'eliminar_producto']);
 Route::put('ordenes/producto/{id}',[OrdenesController::class,'actualizar']);
-Route::resource('/ordenes',OrdenesController::class);
+
 
 Route::get('ordenes/actualizadas/orden/{id}/fecha/{fecha}',[OrdenesController::class,'actualizar_ordenes']);
 
@@ -110,3 +104,12 @@ Route::get('/ropas/{categoria}',[ProductosController::class,'ropas']);
 Route::post('/vuelos/{categoria}',[ProductosController::class,'vuelos']);
 
 Route::get('/vuelos/{categoria}',[ProductosController::class,'vuelos']);
+Route::resource('/historial',ProductosController::class);
+/**ADMINISTRADOR-CONTACTOS */
+Route::resource('/contactos',ContactarAgenteController::class);
+Route::resource('/ventas',VentasController::class);
+Route::resource('/carrito', CarritoController::class);
+
+/**CATALAGO DE USUARIOS */
+Route::resource('/usuarios',HistorialUsuariosController::class);
+Route::resource('/ordenes',OrdenesController::class);
