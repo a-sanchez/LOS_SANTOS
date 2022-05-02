@@ -203,8 +203,8 @@
 </div> --}}
 <div class="row mt-5"></div>
 
-<div class="row ocultar" style="background-color:white" >
-  <nav class="navbar navbar-expand-lg navbar-light " >
+{{-- <div class="row ocultar" style="background-color:white" > --}}
+  {{-- <nav class="navbar navbar-expand-lg navbar-light " >
     <div class="container-fluid">
       <div class="flex">
         <a class="navbar-brand" href="{{url('/')}}">
@@ -260,12 +260,12 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> --}}
 
 
         
           {{-- MODAL DE INICIO DE SESION --}}
-          <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          {{-- <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
@@ -282,7 +282,7 @@
                     <div class="col-md-12" style="text-align: center;">
                       <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 70px;">
                      {{-- <a style="font-size: 3rem;"><i class="fas fa-user-circle" style="color:#B78B1E"></i></a> --}}
-                    </div>
+                    {{-- </div>
                     <div class="col-md-12" style="text-align:center">
                       <h5 style="color:#B78B1E;font-family:Avenir Next Condensed;font-weight:bold;font-size:21px">CUENTA</h5>
                     </div>
@@ -300,9 +300,9 @@
                   </div>
                 </form>
               </div>
-            </div>
-          </div>
-</div>
+            </div> --}}
+          {{-- </div>
+</div> --}}
 <div class="row" style="text-align: center;background-color:white">
     <div class="col-md-12" style="text-align:center">
         <img src='{{asset("images/Isotipo-1.png")}}' alt="" style="height: 80px;">
