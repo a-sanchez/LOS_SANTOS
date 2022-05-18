@@ -52,6 +52,7 @@ class OrdenesController extends Controller
             ->join('users', 'ordenes.id_usuario', 'users.id')
             ->select(
                 'ordenes.*',
+                'productos.id as producto',
                 'productos.categoria',
                 'productos.nombre',
                 'productos.precio',
@@ -74,13 +75,14 @@ class OrdenesController extends Controller
                 'productos.estatus',
                 'productos.genero_reloj',
                 'users.name',
+                'users.puntos',
                 DB::raw('(ordenes.cantidad_comprada * productos.precio) as total')
             )
             ->where('ordenes.fecha', $fecha)
             ->where('ordenes.id_usuario', $id)
             ->where('folio',$folio)
-            ->where('ordenes.id_status', 1)
             ->get();
+            // dump($historiales);die;
         $orden = str_pad($historiales[0]->folio . "/" . date("Y"), 10, "0", STR_PAD_LEFT);
         return view('ordenes.ordenes_show', compact('historiales', 'orden'));
     }

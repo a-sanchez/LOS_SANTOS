@@ -40,6 +40,24 @@
         <h1 style="font-weight:bold;font-family:italic;font-size:50px;">HISTORIAL DE ORDENES</h1>
         <hr style="color: #b0831e;">
     </div>
+    @if($historiales[0]->id_status!=1)
+    <div class="row">
+        <div class="col-md-6">
+            <a type="btn" class="btn btn-dark" href="{{url("ordenes/historial/{$historiales[0]->id_usuario}")}}">REGRESAR</a>
+        </div>
+    </div>
+    <div class="col-md-12 mt-2" style="text-align:center">
+        <h5><b>CLIENTE: {{$historiales[0]->name}}</b></h5>
+        <h5><b>FOLIO: {{$orden}}</b></h5>
+        <h5><b>FECHA DE COMPRA: 
+            {{Carbon\Carbon::parse($historiales[0]->created_at)->formatLocalized('%d/%m/%Y')}}
+             </b></h5>
+    </div>
+    <div class="col-md-12 mt-5" style="text-align:center">
+        <h5><b>LO SENTIMOS ESTE CLIENTE NO CUENTA CON ORDENES</b>
+    </div>
+
+    @else
     <div class="row">
         <div class="col-md-6">
             <a type="btn" class="btn btn-dark" href="{{url("ordenes/historial/{$historiales[0]->id_usuario}")}}">REGRESAR</a>
@@ -89,13 +107,14 @@
                 <td>
                     @if($historial->estatus==1)
                     <a  style="color: black" href="{{url("ordenes/producto/{$historial->id}")}}"  class="btn"><i style="font-size:1.5rem" id="pen"  class="fas fa-pen"></i></a>
-                    <a  style="color: black" onclick="borrarProducto({{$historial->id}})"class="btn"><i style="font-size:1.5rem" id="trash-alt"  class="fas fa-trash-alt"></i></a>
+                    <a  style="color: black" onclick="borrarProducto({{$historial->id}}),cambio_puntos({{$historial->id_usuario}},{{$historial->puntos}},{{$historial->total}});inventario({{$historial->producto}},{{$historial->cantidad_comprada}},{{$historial->inventario}})"class="btn"><i style="font-size:1.5rem" id="trash-alt"  class="fas fa-trash-alt"></i></a>
                     @endif
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    @endif
     <footer>
         <div class="col-md-12" style="text-align:center">
             <img src='{{asset("images/Isotipo-3.png")}}' alt="" style="height: 80px;">
@@ -142,6 +161,8 @@
             });
         }
 
+
+
         async function borrarProducto(id) {
         event.preventDefault();
         let url="{{url('/ordenes/{id}')}}".replace("{id}",id);
@@ -156,8 +177,8 @@
 
           let req = await fetch(url,init);
           if(req.ok){
-              alert("Se elimino el producto");
-              location.reload();
+              "ok"
+            //   location.reload();
           }
           else
           {
@@ -169,6 +190,64 @@
          }
 
     }
+
+    async function cambio_puntos(id,puntos,total){
+        event.preventDefault();
+        $new_puntos = parseFloat(puntos);
+        $new_total = parseFloat(total);
+        $calculo = ($new_puntos+$new_total).toFixed(2);
+        let url = "{{url('usuarios/{id}')}}".replace('{id}',id);
+        let init = {
+                method:"PUT",
+                headers:{
+                    'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({'puntos':$calculo})
+            }
+        let req = await fetch(url,init);
+        if(req.ok){
+            "ok"
+        }
+        else
+        {
+            Swal.fire({
+                icon:"error",
+                title:"Error",
+                text:"ERROR PUNTOS"
+            });
+        }
+        }
+
+        async function inventario(id,ordenes,inventario){
+            event.preventDefault();
+        $cantidad = parseFloat(ordenes);
+        $inv = parseFloat(inventario);
+        $calculo = ($inv+$cantidad).toFixed(2);
+        let url = "{{url('historial/{id}')}}".replace('{id}',id);
+        let init = {
+                method:"PUT",
+                headers:{
+                    'X-CSRF-TOKEN': "{{csrf_token()}}",
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify({'inventario':$calculo})
+            }
+        let req = await fetch(url,init);
+        if(req.ok){
+            alert("Se elimino el producto");
+            location.reload();
+        }
+        else
+        {
+            Swal.fire({
+                icon:"error",
+                title:"Error",
+                text:"ERROR INVENTARIO"
+            });
+        }
+        }
+        
 
     </script>
 @endpush

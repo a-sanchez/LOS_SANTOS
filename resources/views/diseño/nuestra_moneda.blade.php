@@ -122,7 +122,7 @@
     <div class="col-md-8">
         <div class="row" style="text-align:center">
             <a style="font-size:20px;font-family:Cooper;">
-                Casas Los Santos le otorga una moneda digital a sus clientes que podrán <br>
+                Santo Vittoria le otorga una moneda digital a sus clientes que podrán <br>
                 usar en nuestra plataforma para comprar o donar a su disposición.
             </a>
         </div>
@@ -146,7 +146,7 @@
     <div class="row mt-5 mb-5" style="display: flex;align-items: center;">
         <div class="col-md-1"></div>
         <div class="col-md-10" style="text-align:center">
-            <h1  class="display-1" style="color:white;font-family:Cormorant1">Nuestro trabajo es darte el poder, y el tuyo usarlo a tu antojo</h1>
+            {{-- <h1  class="display-1" style="color:white;font-family:Cormorant1">Nuestro trabajo es darte el poder, y el tuyo usarlo a tu antojo</h1> --}}
         </div>
         <div class="col-md-1"></div>
     </div>

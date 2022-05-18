@@ -69,7 +69,7 @@
         <div class="row mt-4">
             <div class="col-md-3">
                 <button type="submit" class="btn btn-success mt-3">ACTUALIZAR</button>
-                <a class="btn btn-dark mt-3" href="{{url("ordenes/historial/usuario/{$usuario[0]->id_usuario}/folio/{$usuario[0]->folio}")}}">REGRESAR</a>
+                <a class="btn btn-dark mt-3" href="{{url("ordenes/historial/{$usuario[0]->id_usuario}")}}">REGRESAR</a>
             </div>
         </div>
     </form>
@@ -99,7 +99,8 @@
              let req = await fetch(url,init);
              if(req.ok){
                 alert("Orden actualizada correctamente");
-                window.location.href="{{url("ordenes/historial/usuario/{$usuario[0]->id_usuario}/folio/{$usuario[0]->folio}")}}";
+                // window.location.href="{{url("ordenes/historial/usuario/{$usuario[0]->id_usuario}/fecha/{Carbon\Carbon::parse($usuario[0]->fecha_comprada)}/folio/{$usuario[0]->folio}")}}";
+                window.location.href="{{url("ordenes/historial/{$usuario[0]->id_usuario}")}}";
              }
              else{
                  Swal.fire({
