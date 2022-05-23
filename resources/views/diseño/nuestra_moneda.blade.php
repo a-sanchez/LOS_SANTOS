@@ -151,7 +151,7 @@
         <div class="col-md-1"></div>
     </div>
 </div>
-<div class="row" style="text-align:center;background-color:white;width:100% !important">
+<div class="row" style="text-align:center;background-color:white;width:100% !important;margin-left: 0px;margin-right: 0px;">
     <div class="col-4 mt-1 mb-2" s>
       <div class="row mt-2">
         <div class="col-3" style="padding-right: 0px;">

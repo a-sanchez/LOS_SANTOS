@@ -354,7 +354,7 @@
           <img src='{{asset("images/Viajes.jpg")}}' alt="" class="zoom">
           </a>
           <div class="texto_ropa" >
-            <a >VIAJES<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
+            <a >LICORES<i style="font-size:auto;" id="arrow-right"  class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -528,9 +528,9 @@
       event.preventDefault();
       let categoria = 1;
       let form = new FormData();
-      form.append('categoria','vuelos');
+      form.append('categoria','licores');
       form.append('filtrado',1);
-      let url = '{{url("/vuelos/{categoria}")}}'.replace('{categoria}',categoria);
+      let url = '{{url("/licores/{categoria}")}}'.replace('{categoria}',categoria);
       let init = {
                   method:'POST',
                   headers: {

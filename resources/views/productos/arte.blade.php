@@ -199,8 +199,8 @@
           <div class="row">
             <div class="col-md-6">
               <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6" id="caja4">
+                <div class="col-md-2"></div>
+                <div class="col-md-9" id="caja4">
                   <img class="img-fluid" id="modal-imagen"
                     style="height: 380px !important;width:100%;object-fit: cover;">
                 </div>

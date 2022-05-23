@@ -101,9 +101,9 @@ Route::post('/ropas/{categoria}',[ProductosController::class,'ropas']);
 
 Route::get('/ropas/{categoria}',[ProductosController::class,'ropas']);
 
-Route::post('/vuelos/{categoria}',[ProductosController::class,'vuelos']);
+Route::post('/licores/{categoria}',[ProductosController::class,'licores']);
 
-Route::get('/vuelos/{categoria}',[ProductosController::class,'vuelos']);
+Route::get('/licores/{categoria}',[ProductosController::class,'licores']);
 Route::resource('/historial',ProductosController::class);
 /**ADMINISTRADOR-CONTACTOS */
 Route::resource('/contactos',ContactarAgenteController::class);

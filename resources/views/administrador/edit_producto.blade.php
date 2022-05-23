@@ -40,23 +40,23 @@
                 <option value="relojes">RELOJES</option>
                 <option value="ropa">ROPA</option>
                 <option value="joyeria">JOYERÍA</option>
-                <option value="vuelos">VUELOS</option>
+                <option value="licores">LICORES</option>
                 @elseif($producto->categoria == 'relojes')
                 <option value="arte">ARTE</option>
                 <option value="ropa">ROPA</option>
                 <option value="joyeria">JOYERÍA</option>
-                <option value="vuelos">VUELOS</option>
+                <option value="licores">LICORES</option>
                 @elseif($producto->categoria == 'ropa')
                 <option value="arte">ARTE</option>
                 <option value="relojes">RELOJES</option>
                 <option value="joyeria">JOYERÍA</option>
-                <option value="vuelos">VUELOS</option>
+                <option value="licores">LICORES</option>
                 @elseif($producto->categoria == 'joyeria')
                 <option value="arte">ARTE</option>
                 <option value="relojes">RELOJES</option>
                 <option value="ropa">ROPA</option>
-                <option value="vuelos">VUELOS</option>
-                @elseif($producto->categoria == 'vuelos')
+                <option value="licores">LICORES</option>
+                @elseif($producto->categoria == 'licores')
                 <option value="arte">ARTE</option>
                 <option value="relojes">RELOJES</option>
                 <option value="ropa">ROPA</option>
@@ -190,7 +190,7 @@
         {{-- ROPA --}}
         <div id="ropa">
             <div class="row mt-2">
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <label>Modelo</label>
                     <input type="text" class="form-control" style="border-color:#b0831e" name="modelo_ropa" id="modelo_ropa"  value="{{$producto->modelo_ropa}}">
                 </div>
@@ -198,7 +198,9 @@
                     <label>Color</label>
                     <input type="text" class="form-control" style="border-color:#b0831e" name="color" id="color" value="{{$producto->color}}" >
                 </div>
-                <div class="col-md-4">
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-6">
                     <label>Género</label>
                     <select name="genero_ropa" id="genero_ropa" class="form-control estilo"  style="border-color:#b0831e">
                         @if($producto->genero_ropa == 'unisex')
@@ -220,6 +222,10 @@
                         @endif
                     </select>
                 </div>
+                <div class="col-md-6">
+                    <label>Tallas disponibles</label>
+                    <input type="text" class="form-control" style="border-color:#b0831e" name="tallas_disponibles" id="tallas_disponibles" value="{{$producto->tallas_disponibles}}" >
+                </div>
             </div>
         </div>
         @elseif($producto->categoria=='joyeria')
@@ -236,7 +242,7 @@
                 </div>
             </div>
         </div>
-        @elseif($producto->categoria=='vuelos')
+        @elseif($producto->categoria=='licores')
         {{-- VUELOS --}}
         <div id="vuelos">
             <div class="row mt-2">
@@ -245,13 +251,13 @@
                     <input type="text" class="form-control" style="border-color:#b0831e" name="descripcion_vuelos" id="descripcion_vuelos"  value="{{$producto->descripcion_vuelos}}">
                 </div>
                 <div class="col-md-4">
-                    <label>Fecha Inicio</label>
-                    <input type="date" class="form-control" style="border-color:#b0831e" name="fecha_inicio" id="fecha_inicio"  value="{{$producto->fecha_inicio}}">
+                    <label>Mililitros</label>
+                    <input type="text" class="form-control" style="border-color:#b0831e" name="mililitros" id="mililitros"  value="{{$producto->mililitros}}">
                 </div>
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <label>Fecha Final</label>
                     <input type="date" class="form-control" style="border-color:#b0831e" name="fecha_final" id="fecha_final"  value="{{$producto->fecha_final}}">
-                </div>
+                </div> --}}
             </div>
         </div>
     @endif 

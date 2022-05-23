@@ -59,7 +59,10 @@ class ProductosController extends Controller
                  "fecha_final"=>"nullable|date",
                  "genero_reloj"=>"nullable|string",
                  "genero_ropa"=>"nullable|string",
-                 "inventario_back"=>"nullable"
+                 "inventario_back"=>"nullable",
+                 "mililitros"=>"nullable|string",
+                 "tallas_disponibles"=>"nullable|string",
+
 
             ]
         );
@@ -372,9 +375,9 @@ class ProductosController extends Controller
         return view('productos.joyeria',compact('joyas','date','categorias'));
     }
 
-    public function vuelos(Request $request, $categoria){
+    public function licores(Request $request, $categoria){
         if($categoria=="1"){
-            $vuelos=productos::where('categoria','vuelos')
+            $vuelos=productos::where('categoria','licores')
                 ->where('imagen','!=','NULL')
                 ->where('estatus','1')
                 ->get();
@@ -382,7 +385,7 @@ class ProductosController extends Controller
             $categorias =$categoria; 
             }
             elseif($categoria=="2"){
-                $vuelos=productos::where('categoria','vuelos')
+                $vuelos=productos::where('categoria','licores')
                         ->where('imagen','!=','NULL')
                         ->where('estatus','1')
                         ->whereBetween('precio',[1,10])
@@ -391,7 +394,7 @@ class ProductosController extends Controller
                 $categorias =$categoria; 
             }
             elseif($categoria=="3"){
-                $vuelos=productos::where('categoria','vuelos')
+                $vuelos=productos::where('categoria','licores')
                         ->where('imagen','!=','NULL')
                         ->where('estatus','1')
                         ->whereBetween('precio',[10,20])
@@ -400,7 +403,7 @@ class ProductosController extends Controller
                 $categorias =$categoria; 
             }
             elseif($categoria=="4"){
-                $vuelos=productos::where('categoria','vuelos')
+                $vuelos=productos::where('categoria','licores')
                 ->where('imagen','!=','NULL')
                 ->where('estatus','1')
                 ->whereBetween('precio',[20,30])
@@ -409,7 +412,7 @@ class ProductosController extends Controller
                 $categorias =$categoria; 
             }
             elseif($categoria=="5"){
-                $vuelos=productos::where('categoria','vuelos')
+                $vuelos=productos::where('categoria','licores')
                 ->where('imagen','!=','NULL')
                 ->where('estatus','1')
                 ->whereBetween('precio',[30,40])
@@ -418,7 +421,7 @@ class ProductosController extends Controller
                 $categorias =$categoria; 
             }
             elseif($categoria=="6"){
-                $vuelos=productos::where('categoria','vuelos')
+                $vuelos=productos::where('categoria','licores')
                 ->where('imagen','!=','NULL')
                 ->where('estatus','1')
                 ->whereBetween('precio',[40,50])

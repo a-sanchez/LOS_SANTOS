@@ -179,8 +179,8 @@
           <div class="row">
             <div class="col-md-6">
               <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6" id="caja4">
+                <div class="col-md-2"></div>
+                <div class="col-md-9" id="caja4">
                   <img class="img-fluid" id= "modal-imagen" style="height: 380px !important;width:100%" >
                 </div>
                 <div class="col-md-1"></div>
@@ -204,6 +204,10 @@
                   </div>
                   <div class="col-md-12">
                     <a style="font-size:20px;font-family:Cooper;" id="color">
+                    </a>
+                  </div>
+                  <div class="col-md-12">
+                    <a style="font-size:20px;font-family:Cooper;" id="talla">
                     </a>
                   </div>
                   <div class="row mt-5 mb-2">
@@ -281,7 +285,7 @@
         let req = await fetch(url);
         if (req.ok) {
         let data = await req.json();
-        // console.log(data);
+        console.log(data.tallas_disponibles);
         document.getElementById("inventario").value = parseFloat(data.inventario).toFixed(0);
         document.getElementById("id_producto").value = data.id;
         document.getElementById("titulo_modal").innerHTML = "Categoría de Comprador/ Ropa y Accesorios/ " + parseFloat(data.precio).toFixed(2) + " Santos/ " + data.nombre
@@ -291,6 +295,7 @@
         document.getElementById("modelo_ropa").innerHTML = "Modelo: " + data.modelo_ropa;
         document.getElementById("genero").innerHTML =  data.genero_ropa;
         document.getElementById("color").innerHTML = "Color: " + data.color;
+        document.getElementById("talla").innerHTML = "Tallas disponibles:  " + data.tallas_disponibles;
         document.getElementById("precio").value= data.precio;
 
         // var modal = document.getElementById('')

@@ -44,7 +44,7 @@
                 <option value="relojes">RELOJES</option>
                 <option value="ropa">ROPA</option>
                 <option value="joyeria">JOYERÍA</option>
-                <option value="vuelos">VUELOS</option>
+                <option value="licores">LICORES</option>
                 
             </select>
         </div>
@@ -120,7 +120,7 @@
     {{-- ROPA --}}
     <div id="ropa" style="display:none">
         <div class="row mt-2">
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <label>Descripción</label>
                 <input type="text" class="form-control" style="border-color:#b0831e" name="modelo_ropa" id="modelo_ropa">
             </div>
@@ -128,7 +128,9 @@
                 <label>Color</label>
                 <input type="text" class="form-control" style="border-color:#b0831e" name="color" id="color">
             </div>
-            <div class="col-md-4">
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-6">
                 <label>Género</label>
                 <select name="genero_ropa" id="genero_ropa" class="form-control estilo"  style="border-color:#b0831e">
                     <option value=" ">Seleccione</option>
@@ -136,6 +138,10 @@
                     <option value="mujer">mujer</option>
                     <option value="hombre">hombre</option>
                 </select>
+            </div>
+            <div class="col-md-6">
+                <label>Tallas disponibles</label>
+                <input type="text" class="form-control" style="border-color:#b0831e" name="tallas_disponibles" id="tallas_disponibles">
             </div>
         </div>
     </div>
@@ -153,21 +159,21 @@
             
         </div>
     </div>
-    {{-- VUELOS --}}
-    <div id="vuelos" style="display:none">
+    {{-- licores vuelos--}}
+    <div id="licores" style="display:none">
         <div class="row mt-2">
             <div class="col-md-4">
                 <label>Descripcion</label>
-                <input type="text" class="form-control" style="border-color:#b0831e" name="descripcion_vuelos" id="descripcion_vuelos">
+                <input type="text" class="form-control" style="border-color:#b0831e" name="descripcion_licores" id="descripcion_licores">
             </div>
             <div class="col-md-4">
-                <label>Fecha Inicio</label>
-                <input type="date" class="form-control" style="border-color:#b0831e" name="fecha_inicio" id="fecha_inicio">
+                <label>Mililitros</label>
+                <input type="text" class="form-control" style="border-color:#b0831e" name="mililitros" id="mililitros">
             </div>
-            <div class="col-md-4">
+            {{-- <div class="col-md-4">
                 <label>Fecha Final</label>
                 <input type="date" class="form-control" style="border-color:#b0831e" name="fecha_final" id="fecha_final">
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -192,7 +198,7 @@
             $("#relojes").hide();
             $("#ropa").hide();
             $("#joyeria").hide();
-            $("#vuelos").hide();
+            $("#licores").hide();
         }
 
         if(id == "arte"){
@@ -200,7 +206,7 @@
             $("#relojes").hide();
             $("#ropa").hide();
             $("#joyeria").hide();
-            $("#vuelos").hide();
+            $("#licores").hide();
         }
 
         if(id == "relojes"){
@@ -208,7 +214,7 @@
             $("#relojes").show();
             $("#ropa").hide();
             $("#joyeria").hide();
-            $("#vuelos").hide();
+            $("#licores").hide();
         }
 
         if(id == "ropa"){
@@ -216,7 +222,7 @@
             $("#relojes").hide();
             $("#ropa").show();
             $("#joyeria").hide();
-            $("#vuelos").hide();
+            $("#licores").hide();
         }
 
         if(id == "joyeria"){
@@ -224,15 +230,15 @@
             $("#relojes").hide();
             $("#ropa").hide();
             $("#joyeria").show();
-            $("#vuelos").hide();
+            $("#licores").hide();
         }
 
-        if(id == "vuelos"){
+        if(id == "licores"){
             $("#arte").hide();
             $("#relojes").hide();
             $("#ropa").hide();
             $("#joyeria").hide();
-            $("#vuelos").show();
+            $("#licores").show();
         }
 
     }

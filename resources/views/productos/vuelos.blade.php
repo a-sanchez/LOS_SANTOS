@@ -70,7 +70,7 @@
 @section('body')
 <div class="row">
     <div class="col-md-12" style="text-align:center">
-        <a style="font-family:Cormorant2;font-size:60px;">VUELOS</a>
+        <a style="font-family:Cormorant2;font-size:60px;">LICORES</a>
     </div>
 </div>
 <div class="row mb-3">
@@ -179,9 +179,9 @@
           <div class="row">
             <div class="col-md-6">
               <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6" id="caja4">
-                  <img class="img-fluid" id= "modal-imagen" style="height: 380px !important;width:100%;object-fit: cover;" >
+                <div class="col-md-2"></div>
+                <div class="col-md-9" id="caja4">
+                  <img class="img-fluid" id= "modal-imagen" style="height: 380px !important;width:100%;" >
                 </div>
                 <div class="col-md-1"></div>
               </div>
@@ -195,13 +195,13 @@
                   <div class="col-md-12">
                     <a style="font-family:Cooper;font-size:20px;color:#B78B1E" id="santos"></a>
                   </div>
-                  <div class="col-md-12 mt-2 mb-4 text-break">
+                  <div class="col-md-12 mt-2 mb-3 text-break">
                     <a style="font-size:20px;font-family:Cooper;" id="descripcion" >
                     
                     </a>
                   </div>
                   <div class="col-md-12">
-                    <a style="font-size:20px;font-family:Cooper;" id="fecha_inicio">
+                    <a style="font-size:20px;font-family:Cooper;" id="mililitros">
                     </a>
                   </div>
                   <div class="row mt-5 mb-4">
@@ -257,9 +257,9 @@
       let categoria = document.getElementById('cantidad').value;
       if(categoria != "0"){
        let form = new FormData();
-       form.append('categoria','vuelos');
+       form.append('categoria','licores');
        form.append('filtrado',document.getElementById('cantidad').value);
-       let url = '{{url("/vuelos/{categoria}")}}'.replace('{categoria}',categoria);
+       let url = '{{url("/licores/{categoria}")}}'.replace('{categoria}',categoria);
        let init = {
                    method:'POST',
                    headers: {
@@ -298,12 +298,13 @@
         // console.log(data);
         document.getElementById("inventario").value = parseFloat(data.inventario).toFixed(0);
         document.getElementById("id_producto").value = data.id;
-        document.getElementById("titulo_modal").innerHTML = "Categoría de Comprador/ Vuelos/ " + parseFloat(data.precio).toFixed(0) + " Santos/ " + data.nombre
+        document.getElementById("titulo_modal").innerHTML = "Categoría de Comprador/ Licores/ " + parseFloat(data.precio).toFixed(0) + " Santos/ " + data.nombre
         document.getElementById("santos").innerHTML = parseFloat(data.precio).toFixed(0) + " SANTOS";
         document.getElementById("modal-imagen").src = data.imagen;
         document.getElementById("descripcion").innerHTML = data.descripcion_vuelos;
         document.getElementById("vuelo_nombre").innerHTML = data.nombre;
-        document.getElementById("fecha_inicio").innerHTML = "Fechas: " + formatDate(date_inicio) + " - " + formatDate2(date_final);
+        document.getElementById("mililitros").innerHTML = "Mililitros: " + data.mililitros;
+        // document.getElementById("fecha_inicio").innerHTML = "Fechas: " + formatDate(date_inicio) + " - " + formatDate2(date_final);
         document.getElementById("precio").value= data.precio;
 
         // var modal = document.getElementById('')
