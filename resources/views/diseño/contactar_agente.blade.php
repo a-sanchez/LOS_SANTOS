@@ -47,11 +47,12 @@
                     <a style="color:#b0831e;font-size:40px;font-family:Cooper;font-weight:bold">Contactar Agente</a>
                 </div>
                 <div class="row">
-                    <a style="font-family:Cooper;font-size:22px;">Contáctanos para que un agente de Los Santos te ayude a buscar una
-                    propiedad fuera de nuestra página y puedas obtener nuestros servicios.</a>
+                    <a style="font-family:Cooper;font-size:22px;">
+                        Contáctanos para que un agente de Santo Vittoria se comunique contigo y te ayude a buscar tu nuevo hogar.
+                    </a>
                 </div>
                 <div class="row mt-4">
-                    <a style="font-weight:bold;font-family:Cooper">Agente Gerardo del Bosque</a>
+                    <a style="font-weight:bold;font-family:Cooper">Gerardo Verduzco</a>
                 </div>
                 <div class="row">
                     <a>8443924199</a>
@@ -100,7 +101,7 @@
             <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.facebook.com/profile.php?id=100077449766753" ><i class="fab fa-facebook-f"></i></i></a>
           </div>
           <div class="col-3" style="padding-left: 0px;">
-            <a target="_blank" style="font-size: 1.5rem;color:black" href="http://youtube.com/channel/UCzbH4VQUr4k7MJLzDbkwiUg"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.youtube.com/channel/UCQXErDNKkurEz8VPm-UikeQ"><i class="fab fa-youtube"></i></a>
           </div>
       </div>
     </div>

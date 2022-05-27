@@ -122,8 +122,8 @@
     <div class="col-md-8">
         <div class="row" style="text-align:center">
             <a style="font-size:20px;font-family:Cooper;">
-                Santo Vittoria le otorga una moneda digital a sus clientes que podrán <br>
-                usar en nuestra plataforma para comprar o donar a su disposición.
+                Santo Vittoria le otorga una moneda digital a sus clientes que podrán usar <br>en nuestra plataforma a su disposición.<br>
+                Con la moneda tendrán el poder de adquirir los productos y servicios que <br>ofrecemos o donar la cantidad que prefieran a diferentes causas sociales
             </a>
         </div>
         <div class="row mt-2" style="text-align:center">
@@ -136,8 +136,8 @@
         </div>
         <div class="row mt-2 mb-1"></div>
         <div class="row" style="text-align:center;font-size:20px;font-family:Cooper">
-            <a>Nuestra moneda es para agradecer a nuestros clientes e impulsarlos <br>
-                a seguir con una vida llena de éxito.</a>
+            <a>Nuestra moneda es para festejar el éxito de nuestros clientes e impulsarlos a<br> tener una
+                vida llena de éxito</a>
         </div>
     </div>
     <div class="col-md-2"></div>
@@ -161,7 +161,7 @@
             <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.facebook.com/profile.php?id=100077449766753" ><i class="fab fa-facebook-f"></i></i></a>
           </div>
           <div class="col-3" style="padding-left: 0px;">
-            <a target="_blank" style="font-size: 1.5rem;color:black" href="http://youtube.com/channel/UCzbH4VQUr4k7MJLzDbkwiUg"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.youtube.com/channel/UCQXErDNKkurEz8VPm-UikeQ"><i class="fab fa-youtube"></i></a>
           </div>
       </div>
     </div>

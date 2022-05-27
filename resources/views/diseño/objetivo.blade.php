@@ -212,33 +212,14 @@
             </div>
         </div>
     </div>
-    {{-- <div class="col-md-3">
-        <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid celebrar">
-    </div>
-    <div class="col-md-6">
-        <h5  style="font-family:Avenir Next Condensed" class="texto_nuestro">Celebramos el éxito de nuestros clientes</h5>
-    </div>
-    <div class="col-md-3">
-        <img src='{{asset("images/Isotipo-1.png")}}' class="img-fluid celebrar2">
-    </div> --}}
 </div>
-{{-- <div class="row mt-2" style="text-align:center">
-    <div class="col-md-12">
-        <h5 style="color:#b0831e;font-weight:bold;font-size:28px;font-family:Avenir Next Condensed">En Casas Los Santos buscamos la grandeza dentro de la vida.</h5>
-    </div>
-</div>
-<div class="row" style="text-align:center">
-    <div class="col-md-3"></div>
-    <div class="col-md-6" style="font-size:25px;font-family:cursive">Filosofía: Siempre más y nunca menos.</div>
-    <div class="col-md-3"></div>
-</div> --}}
 <div class="row mt-4" style="text-align:center">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <h5 style="font-family:Cooper;">
-            La compra de una propiedad es un evento que debe de celebrarse y Los Santos<br>
-            lo hace a través de monedas digitales que podrás utilizar en nuestra plataforma<br>
-            para comprar o ayudar a otras personas a tu disposición.</h5>
+            Comprar un hogar es un evento único en la vida. Es un evento emocionante<br> y representa un logro mágico y personal.<br>
+            Es por eso que Santo Vittoria tiene como objetivo celebrar este evento <br>tan significativo junto a nuestros clientes.<br>
+            Felicidades por los logros conseguidos y a seguir por los que faltan.</h5>
     </div>
     <div class="col-md-2"></div>
 </div>
@@ -259,7 +240,7 @@
             <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.facebook.com/profile.php?id=100077449766753" ><i class="fab fa-facebook-f"></i></i></a>
           </div>
           <div class="col-3" style="padding-left: 0px;">
-            <a target="_blank" style="font-size: 1.5rem;color:black" href="http://youtube.com/channel/UCzbH4VQUr4k7MJLzDbkwiUg"><i class="fab fa-youtube"></i></a>
+            <a target="_blank" style="font-size: 1.5rem;color:black" href="https://www.youtube.com/channel/UCQXErDNKkurEz8VPm-UikeQ"><i class="fab fa-youtube"></i></a>
           </div>
       </div>
     </div>
