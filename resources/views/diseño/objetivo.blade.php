@@ -213,7 +213,7 @@
         </div>
     </div>
 </div>
-<div class="row mt-4" style="text-align:center">
+{{-- <div class="row mt-4" style="text-align:center">
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <h5 style="font-family:Cooper;">
@@ -222,8 +222,8 @@
             Felicidades por los logros conseguidos y a seguir por los que faltan.</h5>
     </div>
     <div class="col-md-2"></div>
-</div>
-<div class="row mt-5" id="fondo8" style="text-align:center">
+</div> --}}
+<div class="row" id="fondo8" style="text-align:center">
     <div class="row mb-5 d-flex" >
         <div class="col-12">
             <img src='{{asset("images/poder.png")}}' class="img-fluid">
